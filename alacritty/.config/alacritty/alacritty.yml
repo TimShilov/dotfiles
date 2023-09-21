@@ -1,0 +1,17 @@
+live_config_reload: true
+
+import:
+  - ~/.config/alacritty/themes/themes/smoooooth.yaml
+
+window:
+  opacity: 0.95
+  padding:
+    x: 18
+    y: 18
+  dynamic_padding: true
+  decorations: buttonless
+font:
+  normal:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  size: 18.0
