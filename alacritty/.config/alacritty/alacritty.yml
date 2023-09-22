@@ -1,7 +1,7 @@
 live_config_reload: true
 
 import:
-  - ~/.config/alacritty/themes/themes/smoooooth.yaml
+  - ~/.config/alacritty/themes/smoooooth.yaml
 
 window:
   opacity: 0.95
