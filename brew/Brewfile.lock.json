@@ -1520,6 +1520,12 @@
         "options": {
           "full_name": "tiles"
         }
+      },
+      "raycast": {
+        "version": "1.59.0",
+        "options": {
+          "full_name": "raycast"
+        }
       }
     }
   },

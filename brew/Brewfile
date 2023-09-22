@@ -28,5 +28,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "google-cloud-sdk"
 cask "macs-fan-control"
 cask "ngrok"
+cask "raycast"
 cask "tiles"
 
