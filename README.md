@@ -13,6 +13,21 @@ cd ~/.dotfiles
 stow zsh
 ```
 
+## Brew usage
+
+```shell
+cd brew
+
+# install everything
+brew bundle
+
+# update Brewfile
+brew bundle dump
+
+# Remove what's not listed in Brewfile
+brew bundle cleanup
+```
+
 ## Requirements
 
 - [GNU Stow](https://www.gnu.org/software/stow/)
