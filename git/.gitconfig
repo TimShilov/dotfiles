@@ -1,0 +1,7 @@
+[user]
+	email = tim@shilov.dev
+	name = Tim Shilov
+[branch]
+	autosetuprebase = remote
+[core]
+	autocrlf = input
