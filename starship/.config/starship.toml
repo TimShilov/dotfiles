@@ -401,7 +401,7 @@ format = "via [$symbol($version )]($style)"
 version_format = "v${raw}"
 symbol = " "
 style = "bold cyan"
-disabled = true
+disabled = false
 not_capable_style = "bold red"
 detect_extensions = ["go"]
 detect_files = [
@@ -640,7 +640,7 @@ format = "via [$symbol($version )]($style)"
 version_format = "v${raw}"
 symbol = " "
 style = "bold green"
-disabled = true
+disabled = false
 not_capable_style = "bold red"
 detect_extensions = [
     "js",
