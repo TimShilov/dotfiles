@@ -3,6 +3,9 @@
 " you can find a list of commands here: https://jb.gg/h38q75
 " find more examples here: https://jb.gg/share-ideavimrc
 
+set which-key
+set notimeout
+let g:WhichKey_ShowVimActions = "true"
 
 "" -- suggested options --
 " show a few lines of context around the cursor. note that this makes the
