@@ -220,7 +220,7 @@ use_logical_path = true
 format = "[$path]($style)[$read_only]($read_only_style) "
 repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
 style = "cyan bold"
-disabled = false
+disabled = true
 read_only = "🔒"
 read_only_style = "red"
 truncation_symbol = ""
@@ -346,7 +346,7 @@ truncation_symbol = "…"
 only_attached = false
 always_show_remote = false
 ignore_branches = []
-disabled = false
+disabled = true
 
 [git_commit]
 commit_hash_length = 7
