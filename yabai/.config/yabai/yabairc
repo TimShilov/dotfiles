@@ -22,6 +22,12 @@ yabai -m signal --add event=window_focused action="\
         yabai -m window recent --toggle zoom-fullscreen; \
     fi"
 
+# make JetBrains products popup windows float
+apps='^IntelliJ IDEA$'
+yabai -m rule --add app="JetBrains Toolbox" manage=off
+yabai -m rule --add app="${apps}" manage=off
+yabai -m rule --add app="${apps}" title="( – )" manage=on
+
 # Disable specific apps
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
