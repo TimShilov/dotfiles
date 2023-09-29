@@ -101,8 +101,8 @@ shift + alt - l : yabai -m window --swap east
 # ctrl + alt - l : yabai -m window --warp east; yabai -m window --grid 1:2:1:0:1:1
 
 # move windows between spaces
-# shift + cmd - a : yabai -m window --warp west; yabai -m window --space prev
-# shift + cmd - d : yabai -m window --warp south; yabai -m window --space next
+shift + cmd - h : yabai -m window --warp west; yabai -m window --space prev
+shift + cmd - l : yabai -m window --warp south; yabai -m window --space next
 
 # swap orientation
 shift + cmd - s : yabai -m space --rotate 270
