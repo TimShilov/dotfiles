@@ -2,7 +2,8 @@ live_config_reload: true
 
 import:
   - ~/.config/alacritty/themes/smoooooth.yaml
-
+env:
+  TERM: alacritty-direct
 window:
   opacity: 1 
   padding:

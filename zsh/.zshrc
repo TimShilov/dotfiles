@@ -72,8 +72,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
 export PATH="$JAVA_HOME/bin:$PATH"
 
-
-
 # Start or attach to tmux by default (if not already inside a tmux session)
 if [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ]; then
     SESSION_NAME=$(basename "$PWD" | tr "." "_")
