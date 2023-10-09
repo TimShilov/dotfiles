@@ -1,3 +1,6 @@
+# Uncomment for profiling
+# zmodload zsh/zprof
+
 # Enable colors
 autoload -U colors && colors
 
@@ -68,9 +71,9 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
 eval $(thefuck --alias)
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
-export PATH="$JAVA_HOME/bin:$PATH"
+# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
+# export PATH="$JAVA_HOME/bin:$PATH"
 
 # Start or attach to tmux by default (if not already inside a tmux session)
 if [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ]; then
@@ -90,7 +93,10 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Uncomment for profiling
+# zprof > /tmp/foo
