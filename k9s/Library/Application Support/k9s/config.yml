@@ -64,9 +64,10 @@ k9s:
       portForwardAddress: localhost
     gke_affluent-143623_us-central1-c_agency-production:
       namespace:
-        active: all
+        active: ovative
         lockFavorites: false
         favorites:
+        - ovative
         - default
         - all
         - ap

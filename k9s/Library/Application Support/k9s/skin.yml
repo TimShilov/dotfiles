@@ -1,3 +1,4 @@
+
 k9s:
   body:
     bgColor: default
@@ -19,3 +20,4 @@ k9s:
         bgColor: default
     charts:
       bgColor: default
+
