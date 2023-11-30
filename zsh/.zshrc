@@ -27,8 +27,6 @@ source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $(thefuck --alias)
-
 # export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
 # export PATH="$JAVA_HOME/bin:$PATH"
