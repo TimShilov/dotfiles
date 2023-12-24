@@ -37,3 +37,4 @@ plug 'tpope/vim-commentary'
 
 "" map \b to toggle the breakpoint on the current line
 "map \b <action>(togglelinebreakpoint)
+set ideajoin
