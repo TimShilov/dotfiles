@@ -1,6 +1,5 @@
 k9s:
   liveViewAutoRefresh: false
-  screenDumpDir: /Users/tim.shilov/Library/Application Support/k9s/screen-dumps
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
@@ -21,7 +20,7 @@ k9s:
       memory: 100Mi
   imageScans:
     enable: false
-    blackList:
+    exclusions:
       namespaces: []
       labels: {}
   logger:
