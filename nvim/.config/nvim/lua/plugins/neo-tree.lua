@@ -5,5 +5,9 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
-  }
+  },
+  config = function()
+    require("plugins.neo-tree")
+    vim.keymap.set('n', '<leader>n', ':Neotree toggle<CR>', { desc = "Toggle NeoTree" })
+  end
 }
