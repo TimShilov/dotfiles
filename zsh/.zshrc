@@ -31,19 +31,6 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
 # export PATH="$JAVA_HOME/bin:$PATH"
 
-# Start or attach to tmux by default (if not already inside a tmux session)
-if [[ ! $TERM =~ screen ]] && [ -z "$TMUX" ]; then
-    SESSION_NAME=$(basename "$PWD" | tr "." "_")
-    tmux has-session -t $SESSION_NAME 2>/dev/null
-
-    if [ $? != 0 ]; then
-        # No session exists with the current folder name, create one
-        tmux new-session -s $SESSION_NAME -d
-    fi
-    
-    # Attach to the session (either existing or newly created)
-    tmux attach -t $SESSION_NAME
-fi
 source <(kubectl completion zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
