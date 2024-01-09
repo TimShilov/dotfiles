@@ -10,7 +10,7 @@ k9s:
     logoless: false
     crumbsless: false
     noIcons: false
-    skin: mocha
+    skin: macchiato
   skipLatestRevCheck: false
   disablePodCounting: false
   shellPod:
