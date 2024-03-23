@@ -17,6 +17,8 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+# Navigate directories without cd
+setopt autocd
 
 export KUBECONFIG="$HOME/.kube/config"
 export EDITOR=nvim
