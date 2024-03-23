@@ -29,6 +29,9 @@ source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Replace default fzf search command with rg if available
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+
 # export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
 # export PATH="$JAVA_HOME/bin:$PATH"
