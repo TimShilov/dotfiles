@@ -43,3 +43,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Uncomment for profiling
 # zprof > /tmp/foo
+
+# bun completions
+[ -s "/Users/tim.shilov/.bun/_bun" ] && source "/Users/tim.shilov/.bun/_bun"
+
