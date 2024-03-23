@@ -4,9 +4,6 @@
 # Enable colors
 autoload -U colors && colors
 
-# Enable vi mode
-bindkey -v
-
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -38,6 +35,9 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden'
 # export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
 # export PATH="$JAVA_HOME/bin:$PATH"
+
+# Better vi mode
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 source <(kubectl completion zsh)
 eval "$(zoxide init zsh)"
