@@ -4,6 +4,9 @@
 # Enable colors
 autoload -U colors && colors
 
+# Enable vi mode
+bindkey -v
+
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
