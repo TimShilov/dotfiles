@@ -52,3 +52,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # bun completions
 [ -s "/Users/tim.shilov/.bun/_bun" ] && source "/Users/tim.shilov/.bun/_bun"
 
+# grit
+export GRIT_INSTALL="$HOME/.grit"
+export PATH="$GRIT_INSTALL/bin:$PATH"
