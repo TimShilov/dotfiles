@@ -32,4 +32,6 @@ yabai -m rule --add app="${apps}" title="( – )" manage=on
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
 
+borders active_color=0xffe1e3e4 style=round width=5.0 &
+
 echo "yabai configuration loaded.."
