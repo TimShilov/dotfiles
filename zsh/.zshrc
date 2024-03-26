@@ -27,7 +27,6 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Replace default fzf search command with rg if available
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
@@ -42,6 +41,7 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(kubectl completion zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(fzf --zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # export SDKMAN_DIR="$HOME/.sdkman"
