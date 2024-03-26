@@ -6,6 +6,7 @@
 set which-key
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
+let mapleader = " "
 
 "" -- suggested options --
 " show a few lines of context around the cursor. note that this makes the
@@ -16,6 +17,12 @@ set scrolloff=5
 set incsearch
 set showmode
 set showcmd
+
+" using vim keys for navigation in file tree
+set nerdtree
+" Open NERDTree (use q to exit)
+map <leader>x :NERDTreeToggle<CR>
+
 
 " don't use ex mode, use q for formatting.
 map q gq
@@ -28,13 +35,30 @@ plug 'machakann/vim-highlightedyank'
 plug 'tpope/vim-commentary'
 
 
-"" -- map ide actions to ideavim -- https://jb.gg/abva4t
-"" map \r to the reformat code action
+" -- map ide actions to ideavim -- https://jb.gg/abva4t
+" map \r to the reformat code action
 "map \r <action>(reformatcode)
 
-"" map <leader>d to start debug
+" map <leader>d to start debug
 "map <leader>d <action>(debug)
 
-"" map \b to toggle the breakpoint on the current line
+" map \b to toggle the breakpoint on the current line
 "map \b <action>(togglelinebreakpoint)
 set ideajoin
+
+" map code action
+map <leader>ca <action>(quickfix)
+let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
+
+" map search
+map <leader>sa <action>(ShowIntentionActions)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Back)
+nmap <leader>gb <Action>(Forward)
+
