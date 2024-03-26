@@ -381,7 +381,7 @@ disabled = true
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
 style = "red bold"
-stashed = '\$'
+stashed = "" 
 ahead = "⇡"
 behind = "⇣"
 up_to_date = ""
@@ -394,7 +394,7 @@ staged = "+"
 untracked = "?"
 typechanged = ""
 ignore_submodules = false
-disabled = true
+disabled = false
 
 [golang]
 format = "via [$symbol($version )]($style)"
