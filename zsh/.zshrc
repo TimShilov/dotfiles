@@ -45,6 +45,10 @@ eval "$(starship init zsh)"
 eval "$(gh copilot alias -- zsh)"
 eval "$(fzf --zsh)"
 
+# Load fzf key bindings
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 
 # Uncomment for profiling
 # zprof > /tmp/foo
