@@ -41,6 +41,7 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source <(kubectl completion zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(gh copilot alias -- zsh)"
 eval "$(fzf --zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
