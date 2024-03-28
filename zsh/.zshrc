@@ -31,9 +31,6 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 # Replace default fzf search command with rg if available
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
-# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_361.jdk/Contents/Home
-# export PATH="$JAVA_HOME/bin:$PATH"
 
 # Better vi mode
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
@@ -44,18 +41,11 @@ eval "$(starship init zsh)"
 eval "$(gh copilot alias -- zsh)"
 eval "$(fzf --zsh)"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Uncomment for profiling
 # zprof > /tmp/foo
-
-# bun completions
-[ -s "/Users/tim.shilov/.bun/_bun" ] && source "/Users/tim.shilov/.bun/_bun"
-
 # grit
 export GRIT_INSTALL="$HOME/.grit"
 export PATH="$GRIT_INSTALL/bin:$PATH"
