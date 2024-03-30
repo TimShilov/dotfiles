@@ -23,8 +23,8 @@ setopt autocd
 export KUBECONFIG="$HOME/.kube/config"
 export EDITOR=nvim
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
 export GRIT_INSTALL="$HOME/.grit"
 export PATH="$GRIT_INSTALL/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -44,6 +44,7 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(gh copilot alias -- zsh)"
 eval "$(fzf --zsh)"
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Load fzf key bindings
 function zvm_after_init() {
