@@ -1,13 +1,13 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
+  'nvim-neo-tree/neo-tree.nvim',
+  branch = 'v3.x',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
+    'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons',
+    'MunifTanjim/nui.nvim',
   },
   config = function()
-    require("plugins.neo-tree")
-    vim.keymap.set('n', '<leader>n', ':Neotree toggle<CR>', { desc = "Toggle NeoTree" })
-  end
+    require 'plugins.neo-tree'
+    vim.keymap.set('n', '<leader>n', ':Neotree reveal<CR>', { desc = 'Toggle NeoTree' })
+  end,
 }

@@ -1,5 +1,5 @@
 return {
-  "laytan/cloak.nvim",
+  'laytan/cloak.nvim',
   opts = {
     enabled = true,
     cloak_character = '*',
@@ -26,5 +26,5 @@ return {
         replace = nil,
       },
     },
-  }
+  },
 }
