@@ -12,10 +12,7 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
   gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
   eslint = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
@@ -29,7 +26,6 @@ local servers = {
     },
   },
 }
-
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
@@ -94,7 +90,6 @@ require('which-key').register({
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
 
-
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -106,6 +101,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
+  automatic_installation = true,
   ensure_installed = vim.tbl_keys(servers),
 }
 
