@@ -16,13 +16,13 @@ return {
       -- see :help lsp-zero-keybindings
       -- to learn the available actions
 
-      -- if client.name == 'eslint' then
-      --   print 'eslint'
-      --   vim.api.nvim_create_autocmd('BufWritePre', {
-      --     buffer = bufnr,
-      --     command = 'EslintFixAll',
-      --   })
-      -- end
+      if client.name == 'eslint' then
+        print 'eslint'
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          buffer = bufnr,
+          command = 'EslintFixAll',
+        })
+      end
 
       lsp_zero.default_keymaps { buffer = bufnr, preserve_mappings = false }
 
