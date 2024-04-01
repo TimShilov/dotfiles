@@ -11,6 +11,7 @@ return {
   'mfussenegger/nvim-dap',
   -- NOTE: And you can specify dependencies as well
   dependencies = {
+    'nvim-neotest/nvim-nio',
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
 
@@ -85,24 +86,24 @@ return {
     -- Install golang specific config
     require('dap-go').setup()
 
-    require("dap").adapters["pwa-node"] = {
-      type = "server",
-      host = "::1",
+    require('dap').adapters['pwa-node'] = {
+      type = 'server',
+      host = '::1',
       port = 8123,
       executable = {
-        command = "js-debug-adapter",
-      }
+        command = 'js-debug-adapter',
+      },
     }
-    local js_based_languages = { "typescript", "javascript", }
+    local js_based_languages = { 'typescript', 'javascript' }
 
     for _, language in ipairs(js_based_languages) do
-      require("dap").configurations[language] = {
+      require('dap').configurations[language] = {
         {
-          type = "pwa-node",
-          request = "launch",
-          name = "Launch file",
-          program = "${file}",
-          cwd = "${workspaceFolder}",
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
         },
       }
     end
