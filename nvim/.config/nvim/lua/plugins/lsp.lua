@@ -57,6 +57,18 @@ return {
       end, '[W]orkspace [L]ist Folders')
     end)
 
+    local cmp = require 'cmp'
+
+    cmp.setup {
+      mapping = cmp.mapping.preset.insert {
+        ['<CR>'] = cmp.mapping.confirm { select = true },
+      },
+      preselect = 'item',
+      completion = {
+        completeopt = 'menu,menuone,noinsert',
+      },
+    }
+
     -- LUA --
     local lua_opts = lsp_zero.nvim_lua_ls()
     require('lspconfig').lua_ls.setup(lua_opts)
