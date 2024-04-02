@@ -6,6 +6,13 @@ return {
       sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettierd,
+        null_ls.builtins.formatting.sqlfluff.with {
+          extra_args = { '--dialect', 'mysql' },
+        },
+
+        null_ls.builtins.diagnostics.sqlfluff.with {
+          extra_args = { '--dialect', 'mysql' },
+        },
       },
     }
 
