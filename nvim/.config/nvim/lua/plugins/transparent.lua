@@ -5,6 +5,6 @@ return {
       'NeoTreeNormal',
       'NeoTreeNormalNC',
       'NormalFloat',
-    }
+    },
   },
 }
