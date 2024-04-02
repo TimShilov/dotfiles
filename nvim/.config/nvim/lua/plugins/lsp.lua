@@ -10,7 +10,7 @@ return {
     'hrsh7th/nvim-cmp',
     'L3MON4D3/LuaSnip',
   },
-  config = function(_, opts)
+  config = function()
     local lsp_zero = require 'lsp-zero'
     lsp_zero.on_attach(function(client, bufnr)
       -- see :help lsp-zero-keybindings
