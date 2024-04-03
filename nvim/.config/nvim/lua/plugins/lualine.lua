@@ -9,5 +9,8 @@ return {
       component_separators = '',
       section_separators = '',
     },
+    sections = {
+      lualine_c = { { 'filename', filestatus = true, path = 3 } },
+    },
   },
 }
