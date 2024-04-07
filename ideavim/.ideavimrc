@@ -49,18 +49,17 @@ filetype plugin indent on
 "map \b <action>(togglelinebreakpoint)
 
 " map code action
-map <leader>ca <action>(quickfix)
+map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
 
 " map search
-map <leader>sa <action>(ShowIntentionActions)
+map <leader>sa <Action>(ShowIntentionActions)
+map <leader>sf <Action>(GotoFile)
+map <leader>sg <Action>(FindInPath)
 
-" Go to code
+" LSP actions
 nmap <leader>gd <Action>(GotoDeclaration)
-nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>go <Action>(GotoTypeDeclaration)
 nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gr <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gf <Action>(Back)
-nmap <leader>gb <Action>(Forward)
-
