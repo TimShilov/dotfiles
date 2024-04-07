@@ -1,6 +1,7 @@
 return {
   'rmagatti/auto-session',
-
+  -- Temporary disabled to investigate if causing issues
+  enabled = false,
   config = function()
     require('auto-session').setup {
       auto_session_suppress_dirs = { '~/', '~/Downloads', '~/Desktop' },
