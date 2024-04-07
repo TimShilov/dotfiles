@@ -38,9 +38,6 @@ source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
-# Better vi mode
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 source <(kubectl completion zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
@@ -49,9 +46,8 @@ eval "$(fzf --zsh)"
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Load fzf key bindings
-function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 gch() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
