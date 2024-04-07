@@ -23,16 +23,15 @@ set nerdtree
 " Open NERDTree (use q to exit)
 map <leader>x :NERDTreeToggle<CR>
 
-
 " don't use ex mode, use q for formatting.
 map q gq
 
 " --- enable ideavim plugins https://jb.gg/ideavim-plugins
 
 " highlight copied text
-plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank'
 " commentary plugin
-plug 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
 filetype plugin indent on
 
