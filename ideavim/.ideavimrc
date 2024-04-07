@@ -3,15 +3,15 @@
 " you can find a list of commands here: https://jb.gg/h38q75
 " find more examples here: https://jb.gg/share-ideavimrc
 
+set ideajoin
 set which-key
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
 let mapleader = " "
 
 "" -- suggested options --
-" show a few lines of context around the cursor. note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+" show a few lines of context around the cursor.
+set scrolloff=25
 
 " do incremental searching.
 set incsearch
@@ -34,6 +34,7 @@ plug 'machakann/vim-highlightedyank'
 " commentary plugin
 plug 'tpope/vim-commentary'
 
+filetype plugin indent on
 
 " -- map ide actions to ideavim -- https://jb.gg/abva4t
 " map \r to the reformat code action
@@ -44,7 +45,6 @@ plug 'tpope/vim-commentary'
 
 " map \b to toggle the breakpoint on the current line
 "map \b <action>(togglelinebreakpoint)
-set ideajoin
 
 " map code action
 map <leader>ca <action>(quickfix)
