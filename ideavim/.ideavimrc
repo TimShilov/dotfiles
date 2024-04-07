@@ -28,6 +28,9 @@ map q gq
 
 " --- enable ideavim plugins https://jb.gg/ideavim-plugins
 
+" -- QuickScope plugin
+set quickscope
+
 " highlight copied text
 Plug 'machakann/vim-highlightedyank'
 " commentary plugin
