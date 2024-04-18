@@ -4,6 +4,7 @@
 " find more examples here: https://jb.gg/share-ideavimrc
 
 set ideajoin
+set surround
 set which-key
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
@@ -11,7 +12,7 @@ let mapleader = " "
 
 "" -- suggested options --
 " show a few lines of context around the cursor.
-set scrolloff=25
+set scrolloff=5
 
 " do incremental searching.
 set incsearch
@@ -20,8 +21,6 @@ set showcmd
 
 " using vim keys for navigation in file tree
 set nerdtree
-" Open NERDTree (use q to exit)
-map <leader>x :NERDTreeToggle<CR>
 
 " don't use ex mode, use q for formatting.
 map q gq
@@ -52,10 +51,17 @@ filetype plugin indent on
 map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
 
+map <leader>x <Action>(SelectInProjectView)
 " map search
 map <leader>sa <Action>(ShowIntentionActions)
 map <leader>sf <Action>(GotoFile)
 map <leader>sg <Action>(FindInPath)
+map <leader>? <Action>(RecentFiles)
+
+" diagnostics
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map gl <Action>(ShowErrorDescription)
 
 " LSP actions
 nmap <leader>gd <Action>(GotoDeclaration)
