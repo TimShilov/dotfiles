@@ -1,6 +1,8 @@
 # Uncomment for profiling
 # zmodload zsh/zprof
 
+# vim: set filetype=sh :
+
 # Enable colors
 autoload -U colors && colors
 
@@ -46,7 +48,7 @@ eval "$(fzf --zsh)"
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Load fzf key bindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 gc() {
     local branches branch
@@ -88,3 +90,6 @@ esac
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
+# Hishtory Config:
+export PATH="$PATH:/Users/tim.shilov/.hishtory"
+source /Users/tim.shilov/.hishtory/config.zsh
