@@ -56,14 +56,31 @@ gc() {
         git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
+sc() {
+    if cat package.json >/dev/null 2>&1; then
+        selected_script=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --cycle --height 80% --header="Press ENTER to run the script. ESC to quit.")
+
+        if [[ -n "$selected_script" ]]; then
+            script_name=$(echo "$selected_script" | awk -F ': ' '{gsub(/"/, "", $1); print $1}' | awk '{$1=$1};1')
+
+            print -s "npm run "$script_name
+            npm run $script_name
+        else
+            echo "Exit: You haven't selected any script"
+        fi
+    else
+        echo "Error: There's no package.json"
+    fi
+}
+
 # Uncomment for profiling
 # zprof > /tmp/foo
 
 # pnpm
-export PNPM_HOME="/Users/tim.shilov/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
