@@ -15,7 +15,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots) # Include hidden files.
 
 # Navigate directories without cd
 setopt autocd
@@ -28,7 +28,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export GRIT_INSTALL="$HOME/.grit"
 export PATH="$GRIT_INSTALL/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="$PATH:/Users/tim.shilov/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Replace default fzf search command with rg if available
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
@@ -48,13 +48,14 @@ eval "$(fzf --zsh)"
 # Load fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-gch() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-    branch=$(echo "$branches" |
-    fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-    git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-  }
+gc() {
+    local branches branch
+    branches=$(git branch --all | grep -v HEAD) &&
+        branch=$(echo "$branches" |
+            fzf-tmux -d $((2 + $(wc -l <<<"$branches"))) +m) &&
+        git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
 # Uncomment for profiling
 # zprof > /tmp/foo
 
