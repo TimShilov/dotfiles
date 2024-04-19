@@ -18,6 +18,7 @@ brew "kubectx"
 brew "kustomize"
 brew "lazygit"
 brew "lf"
+brew "mas"
 brew "ncdu"
 brew "neovim"
 brew "ripgrep"
@@ -40,7 +41,15 @@ cask "karabiner-elements"
 cask "macs-fan-control"
 cask "ngrok"
 cask "raycast"
+cask "shortcat"
 cask "tableplus"
+mas "Bitwarden", id: 1352778147
+mas "Ghostery – Privacy Ad Blocker", id: 1436953057
+mas "In Your Face", id: 1476964367
+mas "Sequel Ace", id: 1518036000
+mas "StudyCards", id: 1534325530
+mas "Telegram", id: 747648890
+mas "rcmd", id: 1596283165
 tap "FelixKratz/formulae"
 tap "ankitpokhrel/jira-cli"
 tap "hashicorp/tap"
