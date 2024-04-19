@@ -41,7 +41,6 @@ cask "karabiner-elements"
 cask "macs-fan-control"
 cask "ngrok"
 cask "raycast"
-cask "shortcat"
 cask "tableplus"
 mas "Bitwarden", id: 1352778147
 mas "Ghostery – Privacy Ad Blocker", id: 1436953057
