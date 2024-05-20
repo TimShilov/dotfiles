@@ -6,11 +6,16 @@
 # Enable colors
 autoload -U colors && colors
 
-# History in cache directory:
+# History configuration
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
-LANG=en_US.UTF-8
+LANG=en_UK.UTF-8
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
 
 # Basic auto/tab complete:
 autoload -U compinit
