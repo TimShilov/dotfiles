@@ -8,6 +8,7 @@ set surround
 set which-key
 set notimeout
 let g:WhichKey_ShowVimActions = "true"
+let g:qs_disable_for_diffs = 1
 let mapleader = " "
 
 "" -- suggested options --
@@ -22,9 +23,6 @@ set showcmd
 " using vim keys for navigation in file tree
 set nerdtree
 
-" don't use ex mode, use q for formatting.
-map q gq
-
 " --- enable ideavim plugins https://jb.gg/ideavim-plugins
 
 " -- QuickScope plugin
@@ -37,35 +35,46 @@ Plug 'tpope/vim-commentary'
 
 filetype plugin indent on
 
-" -- map ide actions to ideavim -- https://jb.gg/abva4t
-" map \r to the reformat code action
-"map \r <action>(reformatcode)
-
-" map <leader>d to start debug
-"map <leader>d <action>(debug)
-
-" map \b to toggle the breakpoint on the current line
-"map \b <action>(togglelinebreakpoint)
-
 " map code action
 map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
 
 map <leader>x <Action>(SelectInProjectView)
+let g:WhichKeyDesc_selectInProjectView = "<leader>x Select In Project View"
 " map search
-map <leader>sa <Action>(ShowIntentionActions)
+map <leader>sa <Action>(GotoAction)
+let g:WhichKeyDesc_gotoAction = "<leader>sa Goto Action"
 map <leader>sf <Action>(GotoFile)
+let g:WhichKeyDesc_gotoFile = "<leader>sf Goto File"
 map <leader>sg <Action>(FindInPath)
+let g:WhichKeyDesc_findInPath = "<leader>sg Find In Path"
 map <leader>? <Action>(RecentFiles)
+let g:WhichKeyDesc_recentFiles = "<leader>? Recent Files"
 
 " diagnostics
 map ]d <Action>(GotoNextError)
+let g:WhichKeyDesc_gotoNextError = "]d Goto Next Error"
 map [d <Action>(GotoPreviousError)
+let g:WhichKeyDesc_gotoPreviousError = "[d Goto Previous Error"
 map gl <Action>(ShowErrorDescription)
+let g:WhichKeyDesc_showErrorDescription = "gl Show Error Description"
 
 " LSP actions
-nmap <leader>gd <Action>(GotoDeclaration)
-nmap <leader>go <Action>(GotoTypeDeclaration)
-nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gr <Action>(ShowUsages)
-nmap <leader>gt <Action>(GotoTest)
+map <leader>gd <Action>(GotoDeclaration)
+let g:WhichKeyDesc_gotoDeclaration = "<leader>gd Goto Declaration"
+map <leader>go <Action>(GotoTypeDeclaration)
+let g:WhichKeyDesc_gotoTypeDeclaration = "<leader>go Goto Type Declaration"
+map <leader>gi <Action>(GotoImplementation)
+let g:WhichKeyDesc_gotoImplementation = "<leader>gi Goto Implementation"
+map <leader>gr <Action>(ShowUsages)
+let g:WhichKeyDesc_showUsages = "<leader>gr Show Usages"
+map <leader>gt <Action>(GotoTest)
+let g:WhichKeyDesc_gotoTest = "<leader>gt Goto Test"
+map <leader>ff <Action>(ReformatCode)
+let g:WhichKeyDesc_reformatCode = "<leader>ff Reformat Code"
+
+" refactorings
+map <leader>rn <Action>(RenameElement)
+let g:WhichKeyDesc_renameElement = "<leader>rn Rename Element"
+map <leader>rf <Action>(RenameFile)
+let g:WhichKeyDesc_renameFile q "<leader>rf Rename File"
