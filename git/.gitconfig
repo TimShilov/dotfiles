@@ -1,9 +1,16 @@
 [user]
 	email = tim@shilov.dev
 	name = Tim Shilov
+	signingkey = /Users/tim.shilov/.ssh/id_ed25519.pub
 [branch]
 	autosetuprebase = remote
 [core]
 	autocrlf = input
 [init]
 	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[rerere]
+	enabled = true
