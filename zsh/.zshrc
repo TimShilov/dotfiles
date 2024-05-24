@@ -40,6 +40,15 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 # Replace default fzf search command with rg if available
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
 
+# Aliases
+alias cat='bat --paging=never'
+alias ld='eza -lD'
+alias lf='eza -lf --color=always | grep -v /'
+alias lh='eza -dl .* --group-directories-first'
+alias ll='eza -al --group-directories-first'
+alias ls='eza -alf --color=always --sort=size | grep -v /'
+alias lt='eza -al --sort=modified'
+
 # ============ Load zsh plugins ============
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
