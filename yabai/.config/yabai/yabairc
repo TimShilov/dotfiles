@@ -2,18 +2,18 @@
 
 # global settings
 yabai -m config \
-	layout bsp \
-	window_placement second_child \
-	top_padding 8 \
-	bottom_padding 8 \
-	left_padding 8 \
-	right_padding 8 \
-	window_gap 8 \
-	mouse_follows_focus off \
-	mouse_modifier alt \
-	mouse_action1 move \
-	mouse_action2 resize \
-	mouse_drop_action swap
+    layout bsp \
+    window_placement second_child \
+    top_padding 8 \
+    bottom_padding 8 \
+    left_padding 8 \
+    right_padding 8 \
+    window_gap 8 \
+    mouse_follows_focus off \
+    mouse_modifier alt \
+    mouse_action1 move \
+    mouse_action2 resize \
+    mouse_drop_action swap
 
 # Signal to unzoom a window when focus is switched to another window
 yabai -m signal --add event=window_focused action="\
@@ -23,7 +23,7 @@ yabai -m signal --add event=window_focused action="\
     fi"
 
 # make JetBrains products popup windows float
-apps='^IntelliJ IDEA$'
+apps='^IntelliJ IDEA.*$'
 yabai -m rule --add app="JetBrains Toolbox" manage=off
 yabai -m rule --add app="${apps}" manage=off
 yabai -m rule --add app="${apps}" title="( – )" manage=on
