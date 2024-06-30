@@ -11,6 +11,9 @@ let g:WhichKey_ShowVimActions = "true"
 let g:qs_disable_for_diffs = 1
 let mapleader = " "
 
+" to be able to save using ':W' as well
+command W :w
+
 "" -- suggested options --
 " show a few lines of context around the cursor.
 set scrolloff=5
