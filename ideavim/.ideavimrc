@@ -42,6 +42,12 @@ filetype plugin indent on
 map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
 
+" git
+map [c <Action>(VcsShowPrevChangeMarker)
+let g:WhichKeyDesc_vcsShowPrevChangeMarker = "[c Show Previous Change"
+map ]c <Action>(VcsShowNextChangeMarker)
+let g:WhichKeyDesc_vcsShowNextChangeMarker = "]c Show Next Change"
+
 map <leader>x <Action>(SelectInProjectView)
 let g:WhichKeyDesc_selectInProjectView = "<leader>x Select In Project View"
 " map search
