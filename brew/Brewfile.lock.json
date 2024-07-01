@@ -8,13 +8,13 @@
         "revision": "30cbe09a703fc7d866a7beed821db89bef83d6a8"
       },
       "homebrew/bundle": {
-        "revision": "5372559758cc6fb81024349431b6baad7ffd1bda"
+        "revision": "18d741fa58d82f7ebc4b46d3a4e4d81ba4e9d9ed"
       },
       "homebrew/cask-fonts": {
         "revision": "0ed20f35d21ebc3f4f829689b101078718ad5ce1"
       },
       "homebrew/services": {
-        "revision": "7f7ddaf729993e4f2bf676eae89b1e61e5527774"
+        "revision": "8f56f39ac5ced2efc0d6cda4d433b9f6663e28e8"
       },
       "jesseduffield/lazygit": {
         "revision": "025c50a22c216669bb7f78acd9bed6d099750995"
@@ -2205,6 +2205,50 @@
       "noahgorstein/tap/jqp": {
         "version": "0.7.0",
         "bottle": false
+      },
+      "dasel": {
+        "version": "2.8.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_sonoma": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:357f82512a8457b31393795a78c2cdefa963de58b41a9f6a04741bdb1941927f",
+              "sha256": "357f82512a8457b31393795a78c2cdefa963de58b41a9f6a04741bdb1941927f"
+            },
+            "arm64_ventura": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:7c851022fb9979e022705d6ff1f8848b84cf4a288b0e16b0c2493c9c1d2f7de3",
+              "sha256": "7c851022fb9979e022705d6ff1f8848b84cf4a288b0e16b0c2493c9c1d2f7de3"
+            },
+            "arm64_monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:d404ed63d28e2539a51a72aa706036cecb417c4f6e0520ee0db30209bad9318b",
+              "sha256": "d404ed63d28e2539a51a72aa706036cecb417c4f6e0520ee0db30209bad9318b"
+            },
+            "sonoma": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:3af17a891d36606d4fee59c113fd1aa6cc3da76b344b78344d7c5f122a16adda",
+              "sha256": "3af17a891d36606d4fee59c113fd1aa6cc3da76b344b78344d7c5f122a16adda"
+            },
+            "ventura": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:23de65cb5263d2e35d07d888735e13e7ecce1ef3ec9cb791ef2b7d1be50792a8",
+              "sha256": "23de65cb5263d2e35d07d888735e13e7ecce1ef3ec9cb791ef2b7d1be50792a8"
+            },
+            "monterey": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:ab545396e7d84bf12769058717b72975670e4ec81ca3ea5a14258627c906c8b0",
+              "sha256": "ab545396e7d84bf12769058717b72975670e4ec81ca3ea5a14258627c906c8b0"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/dasel/blobs/sha256:30da1e69b2b71336b41f7b56c58b3d6826a59f9ab50858fa78e6eea86450622c",
+              "sha256": "30da1e69b2b71336b41f7b56c58b3d6826a59f9ab50858fa78e6eea86450622c"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -2339,6 +2383,12 @@
         "options": {
           "full_name": "firefox@developer-edition"
         }
+      },
+      "github": {
+        "version": "3.4.2-27793d93",
+        "options": {
+          "full_name": "github"
+        }
       }
     },
     "mas": {
@@ -2383,7 +2433,7 @@
         "macOS": "13.6"
       },
       "sonoma": {
-        "HOMEBREW_VERSION": "4.3.7",
+        "HOMEBREW_VERSION": "4.3.8",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.3.0.0.1.1708646388",
