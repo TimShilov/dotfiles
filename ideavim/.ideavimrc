@@ -39,8 +39,16 @@ Plug 'tpope/vim-commentary'
 filetype plugin indent on
 
 " map code action
+let g:WhichKeyDesc_Code = "<leader>c Code"
 map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
+
+" JSON Schema helpers
+let g:WhichKeyDesc_jsonSchemaHelpers = "<leader>j JSON Schema helpers"
+map <leader>jo i{oneOf:[^[l%a]}^[:w^J
+let g:WhichKeyDesc_jsonOneOf = "<leader>jo Wrap with oneOf"
+map <leader>jc JJJJJF{f,dt}
+let g:WhichKeyDesc_jsonCleanupPrimitives = "<leader>jc Cleanup primitives"
 
 " git
 map [c <Action>(VcsShowPrevChangeMarker)
