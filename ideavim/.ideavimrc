@@ -51,8 +51,10 @@ let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
 
 " JSON Schema helpers
 let g:WhichKeyDesc_jsonSchemaHelpers = "<leader>j JSON Schema helpers"
-map <leader>jo i{oneOf:[^[l%a]}^[:w^J
+noremap <leader>jo i{oneOf:[<esc>l%a]}<esc>
 let g:WhichKeyDesc_jsonOneOf = "<leader>jo Wrap with oneOf"
+noremap <leader>ja i{anyOf:[<esc>l%a]}<esc>
+let g:WhichKeyDesc_jsonAnyOf = "<leader>ja Wrap with anyOf"
 map <leader>jc JJJJJF{f,dt}
 let g:WhichKeyDesc_jsonCleanupPrimitives = "<leader>jc Cleanup primitives"
 
