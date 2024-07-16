@@ -38,6 +38,12 @@ Plug 'tpope/vim-commentary'
 
 filetype plugin indent on
 
+" sane jumplist
+nnoremap <expr> j (v:count <= 1 ? 'j' : "m'" . v:count . 'j')
+nnoremap <expr> k (v:count <= 1 ? 'k' : "m'" . v:count . 'k')
+xnoremap <expr> j (v:count <= 1 ? 'j' : "m'" . v:count . 'j')
+xnoremap <expr> k (v:count <= 1 ? 'k' : "m'" . v:count . 'k')
+
 " map code action
 let g:WhichKeyDesc_Code = "<leader>c Code"
 map <leader>ca <Action>(ShowIntentionActions)
