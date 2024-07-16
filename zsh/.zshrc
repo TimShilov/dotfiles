@@ -63,7 +63,7 @@ eval "$(fzf --zsh)"
 # Load fzf key bindings
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-gc() {
+function gc() {
     local branches branch
     branches=$(git branch --all | grep -v HEAD) &&
         branch=$(echo "$branches" |
@@ -71,7 +71,7 @@ gc() {
         git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-sc() {
+function sc() {
     if cat package.json >/dev/null 2>&1; then
         selected_script=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --cycle --height 80% --header="Press ENTER to run the script. ESC to quit.")
 
@@ -86,6 +86,15 @@ sc() {
     else
         echo "Error: There's no package.json"
     fi
+}
+
+function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
 # Uncomment for profiling
