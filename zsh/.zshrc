@@ -60,9 +60,6 @@ eval "$(gh copilot alias -- zsh)"
 eval "$(fzf --zsh)"
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# Load fzf key bindings
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 function gc() {
     local branches branch
     branches=$(git branch --all | grep -v HEAD) &&
@@ -97,9 +94,6 @@ function yy() {
     rm -f -- "$tmp"
 }
 
-# Uncomment for profiling
-# zprof > /tmp/foo
-
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
@@ -112,6 +106,7 @@ esac
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-# Hishtory Config:
-export PATH="$PATH:/Users/tim.shilov/.hishtory"
-source /Users/tim.shilov/.hishtory/config.zsh
+eval "$(atuin init zsh)"
+
+# Uncomment for profiling
+# zprof > /tmp/foo
