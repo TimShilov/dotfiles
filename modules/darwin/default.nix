@@ -35,12 +35,13 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
+  fonts.packages = [
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
   environment = {
-    shellAliases = {
-      l = "ls -lh";
-    };
     variables = {
       LANG = "en_UK.UTF-8";
     };
@@ -110,19 +111,34 @@
       "joshmedeski/sesh"
       "nikitabobko/tap"
       "noahgorstein/tap"
+      "koekeishiya/formulae"
     ];
     brews = [
       "asdf"
+      "bat"
       "borders"
+      "eza"
+      "fd"
+      "fzf"
+      "gh"
+      "git"
+      "gofumpt"
+      "golangci-lint"
       "helm"
+      "htop"
       "jira-cli"
       "joshmedeski/sesh/sesh"
+      "jq"
+      "k9s"
+      "koekeishiya/formulae/skhd"
+      "koekeishiya/formulae/yabai"
       "kubectx"
       "kustomize"
       "lazygit"
       "lf"
       "mas"
       "ncdu"
+      "neovim"
       "noahgorstein/tap/jqp"
       "ripgrep"
       "starship"
@@ -133,6 +149,7 @@
       "tree"
       "watch"
       "wget"
+      "yazi"
       "zoxide"
       "zsh-autosuggestions"
     ];

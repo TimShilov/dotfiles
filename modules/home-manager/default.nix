@@ -51,6 +51,12 @@
     PAGER = "less";
   };
 
+  programs.zsh.shellAliases = {
+    l = "ls -lh";
+    nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
+    nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
