@@ -18,16 +18,9 @@
     htop
     neovim
     pam-reattach # to allow tmux to work nice with TouchID for sudo
-    skhd
-    yabai
     yazi
     zoxide
   ];
-
-  # services.yabai.enable = true;
-  # services.yabai.package = pkgs.yabai;
-  # services.skhd.enable = true;
-  # services.skhd.package = pkgs.skhd;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -111,7 +104,6 @@
       "joshmedeski/sesh"
       "nikitabobko/tap"
       "noahgorstein/tap"
-      "koekeishiya/formulae"
     ];
     brews = [
       "asdf"
@@ -130,8 +122,6 @@
       "joshmedeski/sesh/sesh"
       "jq"
       "k9s"
-      "koekeishiya/formulae/skhd"
-      "koekeishiya/formulae/yabai"
       "kubectx"
       "kustomize"
       "lazygit"
