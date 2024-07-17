@@ -13,6 +13,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.atuin
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -51,10 +52,16 @@
     PAGER = "less";
   };
 
+  programs.bat.enable = true;
+  programs.bat.config.theme = "catppuccin";
+  programs.fzf.enable = true;
+  programs.fzf.enableZshIntegration = true;
+  # TODO: Enable after providing the config
+  # programs.zsh.enable = true;
   programs.zsh.shellAliases = {
     l = "ls -lh";
-    nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-    nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd";
+    nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
+    nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
   };
 
   # Let Home Manager install and manage itself.
