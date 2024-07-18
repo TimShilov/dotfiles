@@ -15,7 +15,9 @@
     gofumpt
     htop
     jq
+    jqp
     neovim
+    sesh
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -27,7 +29,11 @@
   nix.settings.experimental-features = "nix-command flakes";
 
   fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+      ];
+    })
   ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
@@ -81,16 +87,13 @@
     };
     casks = [
       "aerospace"
-      "alacritty"
       "arc"
       "firefox@developer-edition"
-      "font-jetbrains-mono-nerd-font"
       "gather"
       "github"
       "google-cloud-sdk"
       "karabiner-elements"
       "macs-fan-control"
-      "ngrok"
       "nikitabobko/tap/aerospace"
       "raycast"
       "tableplus"
@@ -98,14 +101,10 @@
     taps = [
       "FelixKratz/formulae"
       "ankitpokhrel/jira-cli"
-      "hashicorp/tap"
       "homebrew/bundle"
-      "homebrew/cask-fonts"
       "homebrew/services"
       "jesseduffield/lazygit"
-      "joshmedeski/sesh"
       "nikitabobko/tap"
-      "noahgorstein/tap"
     ];
     brews = [
       "asdf"
@@ -116,8 +115,6 @@
       "helm"
       "htop"
       "jira-cli"
-      "joshmedeski/sesh/sesh"
-      "jq"
       "kubectx"
       "kustomize"
       "lazygit"
@@ -126,11 +123,9 @@
       "mas"
       "ncdu"
       "neovim"
-      "noahgorstein/tap/jqp"
       "ripgrep"
       "stow"
       "temporal"
-      "tmux"
       "tokei"
       "tree"
       "watch"

@@ -84,6 +84,28 @@
       };
     };
 
+    alacritty = {
+      enable = true;
+      settings = {
+        live_config_reload = true;
+        env = {
+          TERM = "alacritty-direct";
+        };
+        window = {
+          blur = true;
+          decorations = "buttonless";
+          opacity = 0.9;
+          padding = { x = 0; y = 0; };
+        };
+        font = {
+          size = 18;
+          normal = {
+            family = "JetBrainsMono Nerd Font";
+            style = "Regular";
+          };
+        };
+      };
+    };
     atuin = { enable = true; enableZshIntegration = true; };
     bat = { enable = true; };
     fzf = { enable = true; enableZshIntegration = true; defaultCommand = "rg --files --hidden"; };
@@ -98,6 +120,44 @@
     gh-dash = { enable = true; };
     git = { enable = true; };
     yazi = { enable = true; enableZshIntegration = true; };
+
+    tmux = {
+      enable = true;
+      mouse = true;
+      baseIndex = 1;
+      clock24 = true;
+      plugins = with pkgs.tmuxPlugins;
+        [
+          sensible
+          resurrect
+          continuum
+          vim-tmux-navigator
+        ];
+
+      extraConfig = ''
+        set -g detach-on-destroy off
+        set-option -a terminal-overrides ",alacritty:RGB"
+        set-option -g status-position top
+
+        set-window-option -g pane-base-index 1
+        set-option -g renumber-windows on
+
+        # Open panes in the same directory
+        bind '"' split-window -v -c "#{pane_current_path}"
+        bind % split-window -h -c "#{pane_current_path}"
+        bind-key -n C-f run-shell "sesh connect \"$(
+            sesh list | fzf-tmux -p 55%,60% \
+                --no-sort --border-label ' sesh ' --prompt '⚡  ' \
+                --header '  ^a all ^t tmux ^x zoxide ^d tmux kill ^f find' \
+                --bind 'tab:down,btab:up' \
+                --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list)' \
+                --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t)' \
+                --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z)' \
+                --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+                --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(⚡  )+reload(sesh list)'
+        )\""
+      '';
+    };
 
     zsh = {
       enable = true;
@@ -115,7 +175,6 @@
         ignoreAllDups = true;
         ignoreSpace = true;
         save = 10000;
-        share = true;
         size = 10000;
       };
       initExtraFirst = ''
