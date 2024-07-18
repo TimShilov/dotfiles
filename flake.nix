@@ -35,11 +35,11 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit catppuccin; };
+              extraSpecialArgs = { /* example: inherit catppuccin; */ };
               users."tim.shilov". imports = [
                 ./modules/home-manager
                 catppuccin.homeManagerModules.catppuccin
-                ./modules/home-manager/catppuccin.nix
+                # ./modules/home-manager/catppuccin.nix
               ];
             };
           }
