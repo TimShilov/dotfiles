@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, catppuccin, ... }:
 
 {
   # This value determines the Home Manager release that your configuration is
@@ -58,15 +58,56 @@
     "$HOME/.krew/bin"
     "$HOME/.dotnet/tools"
   ];
+  catppuccin = { enabled = true; flavor = "mocha"; };
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
-  programs.atuin.enable = true;
-  programs.atuin.enableZshIntegration = true;
-  programs.bat.enable = true;
-  programs.bat.config.theme = "catppuccin";
+  programs.k9s = {
+    enable = true;
+    aliases = {
+      dp = "apps/v1/deployments";
+      sec = "v1/secrets";
+      jo = "batch/v1/jobs";
+      cr = "rbac.authorization.k8s.io/v1/clusterroles";
+      crb = "rbac.authorization.k8s.io/v1/clusterrolebindings";
+      ro = "rbac.authorization.k8s.io/v1/roles";
+      rb = "rbac.authorization.k8s.io/v1/rolebindings";
+      np = "networking.k8s.io/v1/networkpolicies";
+    };
+  };
+
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  programs.bat = {
+    enable = true;
+    config.theme = "catppuccin";
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
     defaultCommand = "rg --files --hidden";
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.gh = { enable = true; };
+  programs.gh-dash = { enable = true; };
+  programs.git = { enable = true; };
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.zsh = {
@@ -78,13 +119,6 @@
       nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
 
       cat = "bat --paging=never";
-
-      l = "ls -lh";
-      ld = "eza -lD";
-      lf = "eza -lf --color=always | grep -v /";
-      lh = "eza -dl .* --group-directories-first";
-      ll = "eza -al --group-directories-first";
-      lt = "eza -al --sort=modified";
     };
     history = {
       expireDuplicatesFirst = true;
@@ -100,8 +134,6 @@
       source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
       source <(kubectl completion zsh)
-      eval "$(zoxide init zsh)"
-      eval "$(starship init zsh)"
       eval "$(gh copilot alias -- zsh)"
       . /opt/homebrew/opt/asdf/libexec/asdf.sh
     '';
@@ -131,16 +163,6 @@
               echo "Error: There's no package.json"
           fi
       }
-
-      function yy() {
-          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-          yazi "$@" --cwd-file="$tmp"
-          if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-              cd -- "$cwd"
-          fi
-          rm -f -- "$tmp"
-      }
-
 
       # tabtab source for packages
       # uninstall by removing these lines

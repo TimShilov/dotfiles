@@ -5,21 +5,14 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    bat
     cargo
-    eza
     fd
-    fzf
-    gh
-    git
     gofumpt
     jq
-    k9s
+    btop
     htop
     neovim
     pam-reattach # to allow tmux to work nice with TouchID for sudo
-    yazi
-    zoxide
   ];
 
   # Auto upgrade nix package and the daemon service.
