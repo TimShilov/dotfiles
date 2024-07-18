@@ -12,7 +12,6 @@
     htop
     jq
     neovim
-    pam-reattach # to allow tmux to work nice with TouchID for sudo
   ];
 
   # Auto upgrade nix package and the daemon service.
@@ -112,6 +111,7 @@
       "kubectx"
       "kustomize"
       "lazygit"
+      "pam-reattach"
       "lf"
       "mas"
       "ncdu"
