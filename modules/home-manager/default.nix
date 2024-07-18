@@ -1,4 +1,4 @@
-{ config, pkgs, catppuccin, ... }:
+{ config, pkgs, ... }:
 
 {
   # This value determines the Home Manager release that your configuration is
@@ -58,7 +58,6 @@
     "$HOME/.krew/bin"
     "$HOME/.dotnet/tools"
   ];
-  catppuccin = { enabled = true; flavor = "mocha"; };
   programs.eza = {
     enable = true;
     enableZshIntegration = true;
@@ -84,7 +83,6 @@
   };
   programs.bat = {
     enable = true;
-    config.theme = "catppuccin";
   };
 
   programs.fzf = {
@@ -99,7 +97,8 @@
   };
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    # TODO: Enable after migrating config
+    # enableZshIntegration = true;
   };
 
   programs.gh = { enable = true; };
@@ -134,7 +133,6 @@
       source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
       source <(kubectl completion zsh)
-      eval "$(gh copilot alias -- zsh)"
       . /opt/homebrew/opt/asdf/libexec/asdf.sh
     '';
 

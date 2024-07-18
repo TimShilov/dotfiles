@@ -39,6 +39,7 @@
               users."tim.shilov". imports = [
                 ./modules/home-manager
                 catppuccin.homeManagerModules.catppuccin
+                ./modules/home-manager/catppuccin.nix
               ];
             };
           }
