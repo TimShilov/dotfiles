@@ -133,6 +133,11 @@
           continuum
           vim-tmux-navigator
         ];
+      catppuccin = {
+        extraConfig = ''
+          set -g @catppuccin_status_background "default"
+        '';
+      };
 
       extraConfig = ''
         set -g detach-on-destroy off
