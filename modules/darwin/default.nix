@@ -100,13 +100,8 @@
     ];
     brews = [
       "asdf"
-      "bat"
       "borders"
-      "eza"
       "fd"
-      "fzf"
-      "gh"
-      "git"
       "gofumpt"
       "golangci-lint"
       "helm"
@@ -114,7 +109,6 @@
       "jira-cli"
       "joshmedeski/sesh/sesh"
       "jq"
-      "k9s"
       "kubectx"
       "kustomize"
       "lazygit"
@@ -124,7 +118,6 @@
       "neovim"
       "noahgorstein/tap/jqp"
       "ripgrep"
-      "starship"
       "stow"
       "temporal"
       "tmux"
@@ -132,9 +125,6 @@
       "tree"
       "watch"
       "wget"
-      "yazi"
-      "zoxide"
-      "zsh-autosuggestions"
     ];
   };
 }
