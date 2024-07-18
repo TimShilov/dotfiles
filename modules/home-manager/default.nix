@@ -13,7 +13,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.atuin
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -50,18 +49,111 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     PAGER = "less";
+    LANG = "en_UK.UTF-8";
+    KUBECONFIG = "$HOME/.kube/config";
+    USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
   };
+  home.sessionPath = [
+    "$HOME/.grit/bin"
+    "$HOME/.krew/bin"
+    "$HOME/.dotnet/tools"
+  ];
 
+  programs.atuin.enable = true;
+  programs.atuin.enableZshIntegration = true;
   programs.bat.enable = true;
   programs.bat.config.theme = "catppuccin";
-  programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
-  # TODO: Enable after providing the config
-  # programs.zsh.enable = true;
-  programs.zsh.shellAliases = {
-    l = "ls -lh";
-    nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
-    nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "rg --files --hidden";
+  };
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    autocd = true;
+    shellAliases = {
+      nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
+      nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
+
+      cat = "bat --paging=never";
+
+      l = "ls -lh";
+      ld = "eza -lD";
+      lf = "eza -lf --color=always | grep -v /";
+      lh = "eza -dl .* --group-directories-first";
+      ll = "eza -al --group-directories-first";
+      lt = "eza -al --sort=modified";
+    };
+    history = {
+      expireDuplicatesFirst = true;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
+      save = 10000;
+      share = true;
+      size = 10000;
+    };
+    initExtraFirst = ''
+      source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+      source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
+      source <(kubectl completion zsh)
+      eval "$(zoxide init zsh)"
+      eval "$(starship init zsh)"
+      eval "$(gh copilot alias -- zsh)"
+      . /opt/homebrew/opt/asdf/libexec/asdf.sh
+    '';
+
+    initExtra = ''
+      function gc() {
+          local branches branch
+          branches=$(git branch --all | grep -v HEAD) &&
+              branch=$(echo "$branches" |
+                  fzf-tmux -d $((2 + $(wc -l <<<"$branches"))) +m) &&
+              git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+      }
+
+      function sc() {
+          if cat package.json >/dev/null 2>&1; then
+              selected_script=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --cycle --height 80% --header="Press ENTER to run the script. ESC to quit.")
+
+              if [[ -n "$selected_script" ]]; then
+                  script_name=$(echo "$selected_script" | awk -F ': ' '{gsub(/"/, "", $1); print $1}' | awk '{$1=$1};1')
+
+                  print -s "npm run "$script_name
+                  npm run $script_name
+              else
+                  echo "Exit: You haven't selected any script"
+              fi
+          else
+              echo "Error: There's no package.json"
+          fi
+      }
+
+      function yy() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+              cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+      }
+
+
+      # tabtab source for packages
+      # uninstall by removing these lines
+      [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+      # pnpm
+      export PNPM_HOME="$HOME/Library/pnpm"
+      case ":$PATH:" in
+      *":$PNPM_HOME:"*) ;;
+      *) export PATH="$PNPM_HOME:$PATH" ;;
+      esac
+      # pnpm end
+    '';
   };
 
   # Let Home Manager install and manage itself.

@@ -23,7 +23,8 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."tim.shilov".imports = [ ./modules/home-manager ];
+            extraSpecialArgs = { /* example: inherit nix-darwin; */ };
+            users."tim.shilov". imports = [ ./modules/home-manager ];
           };
         }
       ];
