@@ -96,6 +96,7 @@
       "macs-fan-control"
       "nikitabobko/tap/aerospace"
       "raycast"
+      "sf-symbols"
       "tableplus"
     ];
     taps = [
@@ -124,6 +125,7 @@
       "ncdu"
       "neovim"
       "ripgrep"
+      { name = "sketchybar"; restart_service = "changed"; start_service = true; }
       "stow"
       "temporal"
       "tokei"
