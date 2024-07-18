@@ -9,6 +9,7 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.05"; # Please read the comment before changing.
+  xdg.enable = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -58,6 +59,11 @@
     "$HOME/.krew/bin"
     "$HOME/.dotnet/tools"
   ];
+
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
   programs.eza = {
     enable = true;
     enableZshIntegration = true;
@@ -66,14 +72,16 @@
   programs.k9s = {
     enable = true;
     aliases = {
-      dp = "apps/v1/deployments";
-      sec = "v1/secrets";
-      jo = "batch/v1/jobs";
-      cr = "rbac.authorization.k8s.io/v1/clusterroles";
-      crb = "rbac.authorization.k8s.io/v1/clusterrolebindings";
-      ro = "rbac.authorization.k8s.io/v1/roles";
-      rb = "rbac.authorization.k8s.io/v1/rolebindings";
-      np = "networking.k8s.io/v1/networkpolicies";
+      aliases = {
+        dp = "apps/v1/deployments";
+        sec = "v1/secrets";
+        jo = "batch/v1/jobs";
+        cr = "rbac.authorization.k8s.io/v1/clusterroles";
+        crb = "rbac.authorization.k8s.io/v1/clusterrolebindings";
+        ro = "rbac.authorization.k8s.io/v1/roles";
+        rb = "rbac.authorization.k8s.io/v1/rolebindings";
+        np = "networking.k8s.io/v1/networkpolicies";
+      };
     };
   };
 

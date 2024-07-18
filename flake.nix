@@ -36,10 +36,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = { /* example: inherit catppuccin; */ };
-              users."tim.shilov". imports = [
+              verbose = true;
+              users."tim.shilov".imports = [
                 ./modules/home-manager
                 catppuccin.homeManagerModules.catppuccin
-                # ./modules/home-manager/catppuccin.nix
               ];
             };
           }
