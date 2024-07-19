@@ -35,6 +35,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              backupFileExtension = "backup";
               extraSpecialArgs = { /* example: inherit catppuccin; */ };
               verbose = true;
               users."tim.shilov".imports = [

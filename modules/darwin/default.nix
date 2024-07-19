@@ -104,7 +104,6 @@
       "ankitpokhrel/jira-cli"
       "homebrew/bundle"
       "homebrew/services"
-      "jesseduffield/lazygit"
       "nikitabobko/tap"
     ];
     brews = [
@@ -118,7 +117,6 @@
       "jira-cli"
       "kubectx"
       "kustomize"
-      "lazygit"
       "pam-reattach"
       "lf"
       "mas"

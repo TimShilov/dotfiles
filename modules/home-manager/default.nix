@@ -106,7 +106,13 @@
         };
       };
     };
-    atuin = { enable = true; enableZshIntegration = true; };
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        filter_mode_shell_up_key_binding = "session";
+      };
+    };
     bat = { enable = true; };
     fzf = { enable = true; enableZshIntegration = true; defaultCommand = "rg --files --hidden"; };
     zoxide = { enable = true; enableZshIntegration = true; };
@@ -120,6 +126,28 @@
     gh-dash = { enable = true; };
     git = { enable = true; };
     yazi = { enable = true; enableZshIntegration = true; };
+
+    lazygit = {
+      enable = true;
+      settings = {
+        gui.mouseEvents = false;
+        customCommands = [
+          {
+            key = "W";
+            prompts = [
+              {
+                type = "input";
+                title = "Commit";
+                initialValue = "";
+              }
+            ];
+            command = "git commit -m \"{{index .PromptResponses 0}}\" --no-verify";
+            context = "global";
+            subprocess = true;
+          }
+        ];
+      };
+    };
 
     tmux = {
       enable = true;
