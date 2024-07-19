@@ -3,10 +3,13 @@
 # make sure it's executable with:
 # chmod +x ~/.config/sketchybar/plugins/aerospace.sh
 
-FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
-
-if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-    sketchybar --set $NAME background.drawing=on
-else
-    sketchybar --set $NAME background.drawing=off
+SID=$1
+FOCUSED=$(aerospace list-workspaces --focused)
+bg="0xff585b70"
+if [ "$SID" = "$FOCUSED" ]; then
+    bg="0xffb4befe"
 fi
+sketchybar \
+    --animate sin 10 \
+    --set $NAME \
+    icon.color="$bg"
