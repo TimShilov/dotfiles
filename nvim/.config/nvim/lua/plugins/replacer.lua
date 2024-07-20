@@ -1,11 +1,13 @@
 return {
-  dir = 'gabrielpoca/replacer.nvim',
+  'gabrielpoca/replacer.nvim',
   opts = { rename_files = false },
   keys = {
     {
-      '<leader>h',
+      '<leader>tr',
       function()
-        require('replacer').run()
+        local replacer = require 'replacer'
+
+        replacer.run()
       end,
       desc = 'run replacer.nvim',
     },
