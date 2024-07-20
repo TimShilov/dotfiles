@@ -1,7 +1,7 @@
 return {
   'stevearc/oil.nvim',
+  dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   opts = {
-    default_file_explorer = true,
     view_options = {
       show_hidden = true,
     },
@@ -10,5 +10,4 @@ return {
   keys = {
     { '-', ':Oil<CR>', desc = 'Open parent directory' },
   },
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
 }
