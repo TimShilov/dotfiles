@@ -13,11 +13,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
+  home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -32,8 +28,6 @@
     # '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -94,7 +88,7 @@
         window = {
           blur = true;
           decorations = "buttonless";
-          opacity = 0.9;
+          opacity = 0.95;
           padding = { x = 0; y = 0; };
         };
         font = {
@@ -109,12 +103,18 @@
     atuin = {
       enable = true;
       enableZshIntegration = true;
+      flags = [ "--disable-up-arrow" ];
       settings = {
         filter_mode_shell_up_key_binding = "session";
       };
     };
     bat = { enable = true; };
-    fzf = { enable = true; enableZshIntegration = true; defaultCommand = "rg --files --hidden"; };
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultCommand = "rg --files --hidden";
+      defaultOptions = [ "--ansi" "--border rounded" "--reverse" ];
+    };
     zoxide = { enable = true; enableZshIntegration = true; };
     starship = {
       enable = true;
@@ -189,7 +189,7 @@
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
         bind-key -n C-f run-shell "sesh connect \"$(
-            sesh list | fzf-tmux -p 55%,60% \
+            sesh list | fzf-tmux --ansi -p 55%,60% \
                 --no-sort --border-label ' sesh ' --prompt '⚡  ' \
                 --header '  ^a all ^t tmux ^x zoxide ^d tmux kill ^f find' \
                 --bind 'tab:down,btab:up' \
@@ -210,7 +210,7 @@
         nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
         nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
 
-        cat = "bat --paging=never";
+        cat = "bat";
       };
       history = {
         expireDuplicatesFirst = true;

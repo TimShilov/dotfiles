@@ -1,10 +1,15 @@
 { pkgs, ... }: {
 
-  system.defaults.dock = {
-    autohide = true;
-    autohide-delay = 0.0;
-    autohide-time-modifier = 0.2;
-    orientation = "left";
+  system.defaults = {
+    dock = {
+      autohide = true;
+      autohide-delay = 0.0;
+      autohide-time-modifier = 0.2;
+      orientation = "left";
+    };
+    NSGlobalDomain = {
+      _HIHideMenuBar = true;
+    };
   };
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -124,6 +129,7 @@
       "neovim"
       "ripgrep"
       # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
+      "gnu-sed"
       "stow"
       "temporal"
       "tokei"
