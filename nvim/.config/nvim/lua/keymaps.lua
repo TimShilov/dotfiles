@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+vim.keymap.set('n', '[q', ':cprev<CR>', { desc = 'Go to previous quickfix list item' })
+vim.keymap.set('n', ']q', ':cnext<CR>', { desc = 'Go to next quickfix list item' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
