@@ -14,6 +14,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    kondo
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -118,8 +119,14 @@
     zoxide = { enable = true; enableZshIntegration = true; };
     starship = {
       enable = true;
-      # TODO: Enable after migrating config
-      # enableZshIntegration = true;
+      enableZshIntegration = true;
+      settings = {
+        format = "$directory$git_branch$git_state$git_status$nix_shell$sudo$cmd_duration$line_break$jobs$battery$character";
+        git_branch = {
+          format = "[\\($branch(:$remote_branch)\\)]($style) ";
+          symbol = " ";
+        };
+      };
     };
 
     gh = { enable = true; };
