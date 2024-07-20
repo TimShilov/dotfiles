@@ -123,7 +123,7 @@
       "ncdu"
       "neovim"
       "ripgrep"
-      { name = "sketchybar"; restart_service = "changed"; start_service = true; }
+      # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
       "stow"
       "temporal"
       "tokei"
