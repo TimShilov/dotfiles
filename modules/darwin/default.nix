@@ -16,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     btop
     cargo
+    gh-ost
     fd
     gofumpt
     htop
@@ -80,6 +81,7 @@
     onActivation = {
       cleanup = "zap";
       upgrade = true;
+      autoUpdate = true;
     };
     masApps = {
       "Bitwarden" = 1352778147;
