@@ -87,9 +87,9 @@
           TERM = "alacritty-direct";
         };
         window = {
-          blur = true;
+          # blur = true;
           decorations = "buttonless";
-          opacity = 0.95;
+          opacity = 1;
           padding = { x = 0; y = 0; };
         };
         font = {
