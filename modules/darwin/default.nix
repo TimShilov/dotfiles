@@ -128,7 +128,6 @@
       "ncdu"
       "neovim"
       "pam-reattach"
-      "ripgrep"
       # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
       "gnu-sed"
       "stow"
