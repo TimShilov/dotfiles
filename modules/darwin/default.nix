@@ -122,11 +122,12 @@
       "jira-cli"
       "kubectx"
       "kustomize"
-      "pam-reattach"
       "lf"
       "mas"
+      "music-decoy"
       "ncdu"
       "neovim"
+      "pam-reattach"
       "ripgrep"
       # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
       "gnu-sed"
