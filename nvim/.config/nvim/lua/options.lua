@@ -8,6 +8,9 @@ vim.g.maplocalleader = ' '
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- always show a few lines of context around the cursor.
+vim.o.scrolloff = 10
+
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
