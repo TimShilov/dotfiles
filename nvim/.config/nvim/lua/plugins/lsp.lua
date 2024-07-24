@@ -80,6 +80,14 @@ return {
         },
       }
 
+      -- Setup up vim-dadbod
+      cmp.setup.filetype({ 'sql', 'mysql' }, {
+        sources = {
+          { name = 'vim-dadbod-completion' },
+          { name = 'buffer' },
+        },
+      })
+
       -- LUA --
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
