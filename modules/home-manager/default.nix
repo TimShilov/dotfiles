@@ -117,9 +117,11 @@
 
         config.color_scheme = 'Catppuccin Mocha'
         config.font_size = 18.0
-        config.font = wezterm.font("JetBrainsMono Nerd Font")
-        config.harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' }
-        config.default_prog = { "zsh", "--login", "-c", "tmux attach -t dev || tmux new -s dev" }
+        config.font = wezterm.font {
+          family = 'JetBrainsMono Nerd Font',
+          harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
+        }
+        config.default_prog = { "tmux" }
 
         config.enable_tab_bar = false
         config.window_decorations = "RESIZE"
