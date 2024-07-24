@@ -68,7 +68,7 @@
       enable = true;
       settings = {
         k9s = {
-          ui = { logoless = true; };
+          ui = { crumbsless = true; logoless = true; reactive = true; };
         };
       };
       aliases = {
