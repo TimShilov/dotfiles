@@ -107,6 +107,33 @@
         };
       };
     };
+
+    wezterm = {
+      enable = true;
+      enableZshIntegration = true;
+      extraConfig = ''
+        local wezterm = require 'wezterm'
+        local config = wezterm.config_builder()
+
+        config.color_scheme = 'Catppuccin Mocha'
+        config.font_size = 18.0
+        config.font = wezterm.font("JetBrainsMono Nerd Font")
+        config.harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' }
+        config.default_prog = { "zsh", "--login", "-c", "tmux attach -t dev || tmux new -s dev" }
+
+        config.enable_tab_bar = false
+        config.window_decorations = "RESIZE"
+        config.window_padding = {
+          left = 0,
+          right = 0,
+          top = 0,
+          bottom = 0,
+        }
+
+        return config
+      '';
+    };
+
     atuin = {
       enable = true;
       enableZshIntegration = true;
@@ -194,7 +221,7 @@
 
       extraConfig = ''
         set -g detach-on-destroy off
-        set-option -a terminal-overrides ",alacritty:RGB"
+        set-option -sa terminal-features ',xterm-256color:RGB'
         set-option -g status-position top
 
         set-window-option -g pane-base-index 1
