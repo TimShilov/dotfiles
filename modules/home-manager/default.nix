@@ -66,6 +66,11 @@
 
     k9s = {
       enable = true;
+      settings = {
+        k9s = {
+          ui = { logoless = true; };
+        };
+      };
       aliases = {
         aliases = {
           dp = "apps/v1/deployments";
