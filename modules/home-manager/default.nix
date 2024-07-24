@@ -173,7 +173,7 @@
         gui.mouseEvents = false;
         customCommands = [
           {
-            key = "W";
+            key = "X";
             prompts = [
               {
                 type = "input";
@@ -253,6 +253,7 @@
         nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
 
         cat = "bat";
+        v = "nvim";
       };
       history = {
         expireDuplicatesFirst = true;
