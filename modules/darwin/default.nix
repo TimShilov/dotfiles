@@ -126,7 +126,8 @@
       "kustomize"
       "lf"
       "mas"
-      "music-decoy"
+      # For some reason it is installing fine manually but not via Darwin. TODO: Figure out
+      # "music-decoy"
       "ncdu"
       "neovim"
       "pam-reattach"
