@@ -245,6 +245,10 @@
                 --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(⚡  )+reload(sesh list)'
         )\""
 
+        # Window navigation using Ctrl + number
+        bind -n S-Left  previous-window
+        bind -n S-Right next-window
+
         # Disable wrapping of pane navigations
         is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
             | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
