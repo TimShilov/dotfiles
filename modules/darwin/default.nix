@@ -85,7 +85,6 @@
     };
     masApps = {
       "Bitwarden" = 1352778147;
-      "Ghostery – Privacy Ad Blocker" = 1436953057;
       "In Your Face" = 1476964367;
       "Sequel Ace" = 1518036000;
       "StudyCards" = 1534325530;
