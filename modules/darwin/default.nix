@@ -16,8 +16,8 @@
   environment.systemPackages = with pkgs; [
     btop
     cargo
-    gh-ost
     fd
+    gh-ost
     gofumpt
     htop
     jq
@@ -29,8 +29,9 @@
   # Auto upgrade nix package and the daemon service.
   nix.package = pkgs.nixVersions.latest;
   nix.gc = { automatic = true; };
-  services.nix-daemon.enable = true;
-
+  services = {
+    nix-daemon = { enable = true; };
+  };
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
