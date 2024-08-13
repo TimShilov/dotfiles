@@ -32,6 +32,7 @@
   ];
 
   home.file = {
+    ".aerospace.toml" = { source = dotfiles/aerospace/.aerospace.toml; };
     ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
 
     # # You can also set the file content immediately.
