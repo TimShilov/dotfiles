@@ -1,0 +1,4 @@
+[[session]]
+name = "home manager config"
+path = "~/.dotfiles/modules/home-manager/"
+startup_command = "nvim default.nix"
