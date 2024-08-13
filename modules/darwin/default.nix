@@ -13,18 +13,27 @@
   };
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    btop
-    cargo
-    fd
-    gh-ost
-    gofumpt
-    htop
-    jq
-    jqp
-    neovim
-    sesh
-  ];
+  environment = {
+    # TODO: Removed when https://github.com/LnL7/nix-darwin/pull/1020 is merged
+    etc."pam.d/sudo_local".text = ''
+      # Managed by Nix Darwin
+      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
+      auth       sufficient     pam_tid.so
+    '';
+    systemPackages = with pkgs; [
+      pam-reattach
+      btop
+      cargo
+      fd
+      gh-ost
+      gofumpt
+      htop
+      jq
+      jqp
+      neovim
+      sesh
+    ];
+  };
 
   # Auto upgrade nix package and the daemon service.
   nix.package = pkgs.nixVersions.latest;
@@ -130,7 +139,6 @@
       # "music-decoy"
       "ncdu"
       "neovim"
-      "pam-reattach"
       # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
       "gnu-sed"
       "stow"
