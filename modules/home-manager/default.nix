@@ -83,29 +83,6 @@
       };
     };
 
-    alacritty = {
-      enable = true;
-      settings = {
-        live_config_reload = true;
-        env = {
-          TERM = "alacritty-direct";
-        };
-        window = {
-          # blur = true;
-          decorations = "buttonless";
-          opacity = 1;
-          padding = { x = 0; y = 0; };
-        };
-        font = {
-          size = 18;
-          normal = {
-            family = "JetBrainsMono Nerd Font";
-            style = "Regular";
-          };
-        };
-      };
-    };
-
     wezterm = {
       enable = true;
       enableZshIntegration = true;
