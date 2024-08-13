@@ -10,7 +10,9 @@ return {
       section_separators = '',
     },
     sections = {
-      lualine_c = { { 'filename', filestatus = true, path = 3 } },
+      lualine_b = { 'branch', 'diagnostics' },
+      lualine_c = { '%=', { 'filename', filestatus = true, path = 1 } },
+      lualine_x = { 'filetype' },
     },
   },
 }
