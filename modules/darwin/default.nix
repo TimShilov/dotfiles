@@ -87,7 +87,6 @@
     masApps = {
       "Bitwarden" = 1352778147;
       "In Your Face" = 1476964367;
-      "Sequel Ace" = 1518036000;
       "StudyCards" = 1534325530;
       "Telegram" = 747648890;
       "rcmd" = 1596283165;
