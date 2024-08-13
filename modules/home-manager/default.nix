@@ -210,15 +210,15 @@
         bind % split-window -h -c "#{pane_current_path}"
 
         bind-key -n C-f run-shell "sesh connect \"$(
-            sesh list | fzf-tmux --ansi -p 55%,60% \
+            sesh list --icons | fzf-tmux --ansi -p 55%,60% \
                 --no-sort --border-label ' sesh ' --prompt '⚡  ' \
                 --header '  ^a all ^t tmux ^x zoxide ^d tmux kill ^f find' \
                 --bind 'tab:down,btab:up' \
-                --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list)' \
-                --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list --hide-attached -t)' \
-                --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z)' \
+                --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+                --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list --icons --hide-attached -t)' \
+                --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list --icons -z)' \
                 --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 1 -t d -E .Trash . ~/IdeaProjects ~/.dotfiles)' \
-                --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(🪟  )+reload(sesh list)'
+                --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(🪟  )+reload(sesh list --icons)'
         )\""
 
         # Window navigation using Ctrl + number
