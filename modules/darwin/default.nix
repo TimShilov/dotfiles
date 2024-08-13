@@ -7,6 +7,7 @@
       autohide-time-modifier = 0.2;
       orientation = "left";
     };
+    spaces = { spans-displays = false; };
     NSGlobalDomain = {
       _HIHideMenuBar = true;
     };

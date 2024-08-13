@@ -32,8 +32,10 @@
   ];
 
   home.file = {
-    ".aerospace.toml" = { source = dotfiles/aerospace/.aerospace.toml; };
+    ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
+    ".asdfrc" = { source = dotfiles/.asdfrc; };
     ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
+    ".ideavimrc" = { source = dotfiles/.ideavimrc; };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
