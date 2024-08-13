@@ -11,6 +11,21 @@ return {
     version = false,
   },
   {
+    'echasnovski/mini.move',
+    version = false,
+    opts = {
+      mappings = {
+        -- Move visual selection in Visual mode.
+        down = '<S-Down>',
+        up = '<S-Up>',
+
+        -- Move current line in Normal mode
+        line_down = '<S-Down>',
+        line_up = '<S-Up>',
+      },
+    },
+  },
+  {
     'echasnovski/mini.bracketed',
     version = false,
     config = function()
