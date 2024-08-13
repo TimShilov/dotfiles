@@ -99,6 +99,7 @@
       "github"
       "google-cloud-sdk"
       "karabiner-elements"
+      "keycastr"
       "macs-fan-control"
       "nikitabobko/tap/aerospace"
       "raycast"
