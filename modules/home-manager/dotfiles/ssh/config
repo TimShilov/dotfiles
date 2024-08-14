@@ -1,0 +1,11 @@
+Host tom
+   HostName dev-tom-agency.afflu.net
+
+Host nas
+   HostName dev-nasar-agency.afflu.net
+
+Host tom
+   ServerAliveInterval 240
+   RemoteCommand cd /opt/affluent && sudo su
+   User tim
+   RequestTTY yes

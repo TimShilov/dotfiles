@@ -32,10 +32,18 @@
   ];
 
   home.file = {
+    "./config/borders/bordersrc" = { source = dotfiles/bordersrc; };
     ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
     ".asdfrc" = { source = dotfiles/.asdfrc; };
+    ".config/lazygit/" = { source = dotfiles/lazygit; recursive = true; };
+    ".config/nvim/" = { source = dotfiles/nvim; recursive = true; };
     ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
+    ".config/sketchybar/" = { source = dotfiles/sketchybar; recursive = true; };
+    ".config/skhd/" = { enable = false; source = dotfiles/skhd; recursive = true; };
+    ".gitconfig" = { source = dotfiles/.gitconfig; };
     ".ideavimrc" = { source = dotfiles/.ideavimrc; };
+    ".jqp.yaml" = { source = dotfiles/.jqp.yaml; };
+    "ssh/config" = { source = dotfiles/ssh/config; };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
