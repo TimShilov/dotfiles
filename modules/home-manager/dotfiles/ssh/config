@@ -4,6 +4,10 @@ Host sentry
    HostName sentry.internal.afflu.net
    RemoteCommand cd /opt/sentry-onpremise && sudo su
 
+Host proxy-manager
+   HostName proxy-manager.internal.afflu.net
+   RemoveCommand cd /opt/proxy-manager/ && sudo su
+
 Host tom
    HostName dev-tom-agency.afflu.net
    ServerAliveInterval 240
