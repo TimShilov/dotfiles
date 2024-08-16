@@ -6,7 +6,7 @@ Host sentry
 
 Host proxy-manager
    HostName proxy-manager.internal.afflu.net
-   RemoveCommand cd /opt/proxy-manager/ && sudo su
+   RemoteCommand cd /opt/proxy-manager/ && sudo su
 
 Host tom
    HostName dev-tom-agency.afflu.net
