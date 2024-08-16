@@ -44,7 +44,7 @@
     ".gitconfig" = { source = dotfiles/.gitconfig; };
     ".ideavimrc" = { source = dotfiles/.ideavimrc; };
     ".jqp.yaml" = { source = dotfiles/.jqp.yaml; };
-    "ssh/config" = { source = dotfiles/ssh/config; };
+    ".ssh/config" = { source = dotfiles/ssh/config; };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
