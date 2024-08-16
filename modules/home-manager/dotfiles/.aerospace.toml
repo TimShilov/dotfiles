@@ -176,3 +176,8 @@ if.app-id = 'com.spotify.client'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 9']
 
+[[on-window-detected]]
+if.app-id = 'zoom.us'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 9']
+
