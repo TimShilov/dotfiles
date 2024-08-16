@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-
   system.defaults = {
     dock = {
       autohide = true;
@@ -15,7 +14,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment = {
-    # TODO: Removed when https://github.com/LnL7/nix-darwin/pull/1020 is merged
+    # TODO: Remove when https://github.com/LnL7/nix-darwin/pull/1020 is merged
     etc."pam.d/sudo_local".text = ''
       # Managed by Nix Darwin
       auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
