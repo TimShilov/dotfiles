@@ -186,47 +186,7 @@
         '';
       };
 
-      extraConfig = ''
-        set -g detach-on-destroy off
-        set-option -sa terminal-features ',xterm-256color:RGB'
-        set-option -g status-position top
-
-        set-window-option -g pane-base-index 1
-        set-option -g renumber-windows on
-
-        # Open panes in the same directory
-        bind '"' split-window -v -c "#{pane_current_path}"
-        bind % split-window -h -c "#{pane_current_path}"
-
-        bind-key -n C-f run-shell "sesh connect \"$(
-            sesh list --icons | fzf-tmux --ansi -p 55%,60% \
-                --no-sort --border-label ' sesh ' --prompt '⚡  ' \
-                --header '  ^a all ^t tmux ^x zoxide ^d tmux kill ^f find' \
-                --bind 'tab:down,btab:up' \
-                --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
-                --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list --icons --hide-attached -t)' \
-                --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list --icons -z)' \
-                --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 1 -t d -E .Trash . ~/IdeaProjects ~/.dotfiles)' \
-                --bind 'ctrl-d:execute(tmux kill-session -t {})+change-prompt(🪟  )+reload(sesh list --icons)'
-        )\""
-
-        # Window navigation using Ctrl + number
-        bind -n S-Left  previous-window
-        bind -n S-Right next-window
-
-        # Disable wrapping of pane navigations
-        is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
-            | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
-        bind-key -n 'C-h' if-shell "$is_vim" { send-keys C-h } { if-shell -F '#{pane_at_left}'   {} { select-pane -L } }
-        bind-key -n 'C-j' if-shell "$is_vim" { send-keys C-j } { if-shell -F '#{pane_at_bottom}' {} { select-pane -D } }
-        bind-key -n 'C-k' if-shell "$is_vim" { send-keys C-k } { if-shell -F '#{pane_at_top}'    {} { select-pane -U } }
-        bind-key -n 'C-l' if-shell "$is_vim" { send-keys C-l } { if-shell -F '#{pane_at_right}'  {} { select-pane -R } }
-
-        bind-key -T copy-mode-vi 'C-h' if-shell -F '#{pane_at_left}'   {} { select-pane -L }
-        bind-key -T copy-mode-vi 'C-j' if-shell -F '#{pane_at_bottom}' {} { select-pane -D }
-        bind-key -T copy-mode-vi 'C-k' if-shell -F '#{pane_at_top}'    {} { select-pane -U }
-        bind-key -T copy-mode-vi 'C-l' if-shell -F '#{pane_at_right}'  {} { select-pane -R }
-      '';
+      extraConfig = (builtins.readFile ./configs/tmux.conf);
     };
 
     zsh = {
