@@ -37,7 +37,8 @@
     ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
     ".asdfrc" = { source = dotfiles/.asdfrc; };
     ".config/lazygit/" = { source = dotfiles/lazygit; recursive = true; };
-    ".config/nvim/" = { source = dotfiles/nvim; recursive = true; };
+    # TODO: Find a way to make this work with relative path
+    ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim; recursive = true; };
     ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
     ".config/sketchybar/" = { source = dotfiles/sketchybar; recursive = true; };
     ".config/skhd/" = { enable = false; source = dotfiles/skhd; recursive = true; };
