@@ -45,7 +45,8 @@
     ".gitconfig" = { source = dotfiles/.gitconfig; };
     ".ideavimrc" = { source = dotfiles/.ideavimrc; };
     ".jqp.yaml" = { source = dotfiles/.jqp.yaml; };
-    ".ssh/config" = { source = dotfiles/ssh/config; };
+    # TODO: Find a way to make this work with relative path
+    ".ssh/config" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/ssh/config; };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
