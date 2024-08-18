@@ -2,6 +2,17 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+local tmuxKeymap = function(mods, key, tmuxHotkey)
+    return {
+        key = key,
+        mods = mods,
+        action = act.Multiple({
+            act.SendKey({ mods = "CTRL", key = "b" }),
+            act.SendKey({ key = tmuxHotkey }),
+        }),
+    }
+end
+
 config.color_scheme = "Catppuccin Mocha"
 config.font_size = 18.0
 config.font = wezterm.font({
@@ -19,14 +30,8 @@ config.window_padding = {
     bottom = 0,
 }
 config.keys = {
-    {
-        key = "l",
-        mods = "CMD",
-        action = act.Multiple({
-            act.SendKey({ mods = "CTRL", key = "b" }),
-            act.SendKey({ key = "L" }),
-        }),
-    },
+    -- Previous tmux session
+    tmuxKeymap("SUPER", "l", "L"),
 }
 
 return config
