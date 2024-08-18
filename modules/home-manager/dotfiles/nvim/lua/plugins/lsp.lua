@@ -19,7 +19,6 @@ return {
       lsp_zero.extend_lspconfig()
       lsp_zero.on_attach(function(client, bufnr)
         if client.name == 'eslint' then
-          print 'eslint'
           vim.api.nvim_create_autocmd('BufWritePre', {
             buffer = bufnr,
             command = 'EslintFixAll',
