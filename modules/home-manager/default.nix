@@ -36,13 +36,12 @@
     "./config/borders/bordersrc" = { source = dotfiles/bordersrc; };
     ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
     ".asdfrc" = { source = dotfiles/.asdfrc; };
-    ".config/lazygit/" = { source = dotfiles/lazygit; recursive = true; };
     # TODO: Find a way to make this work with relative path
     ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim; recursive = true; };
     ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
     ".config/sketchybar/" = { source = dotfiles/sketchybar; recursive = true; };
     ".config/skhd/" = { enable = false; source = dotfiles/skhd; recursive = true; };
-    ".gitconfig" = { source = dotfiles/.gitconfig; };
+    ".gitconfig" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/.gitconfig; };
     ".ideavimrc" = { source = dotfiles/.ideavimrc; };
     ".jqp.yaml" = { source = dotfiles/.jqp.yaml; };
     # TODO: Find a way to make this work with relative path
@@ -139,7 +138,6 @@
     lazygit = {
       enable = true;
       settings = {
-        gui.mouseEvents = false;
         customCommands = [
           {
             key = "X";
@@ -155,6 +153,7 @@
             subprocess = true;
           }
         ];
+        gui.mouseEvents = false;
       };
     };
 
