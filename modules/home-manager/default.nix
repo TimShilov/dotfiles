@@ -15,6 +15,7 @@
   # environment.
   home.packages = with pkgs; [
     atac
+    bitwarden-cli
     kondo
     mysql84
     sshs
