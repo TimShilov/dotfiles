@@ -1,15 +1,9 @@
 return {
   'nvim-telescope/telescope.nvim',
-  branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-    -- Only load if `make` is available. Make sure you have the system
-    -- requirements installed.
     {
       'nvim-telescope/telescope-fzf-native.nvim',
-      -- NOTE: If you are having trouble with this installation,
-      --       refer to the README for telescope-fzf-native for more instructions.
       build = 'make',
       cond = function()
         return vim.fn.executable 'make' == 1
@@ -92,7 +86,6 @@ return {
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-    vim.keymap.set('n', '<leader>sn', ':Telescope notify<cr>', { desc = '[S]earch [N]otifications' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
   end,
