@@ -73,10 +73,14 @@ return {
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
         previewer = false,
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
+
+    -- Common file shortcuts
+    vim.keymap.set('n', '<leader>en', function()
+      builtin.find_files { cwd = '~/.config/nvim' }
+    end, { desc = '[E]dit [N]eovim' })
 
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
     vim.keymap.set('n', '<leader>sf', function()
@@ -88,5 +92,6 @@ return {
     vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+    vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
   end,
 }
