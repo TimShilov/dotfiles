@@ -1,3 +1,23 @@
+local telescopeDropdown = require('telescope.themes').get_dropdown
+
+local defaults = -- vim.tbl_extend('force', telescopeDropdown {},
+  {
+    mappings = {
+      i = {
+        ['<C-u>'] = false,
+        ['<C-d>'] = false,
+      },
+    },
+    layout_config = { width = 0.95, height = 0.95 },
+    pickers = {
+      find_files = {
+        theme = 'dropdown',
+      },
+    },
+    file_ignore_patterns = { 'node_modules', 'package-lock.json' },
+    path_display = { 'truncate' },
+  } -- )
+
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -11,22 +31,13 @@ return {
     },
     'nvim-tree/nvim-web-devicons',
   },
-  opts = {
-    defaults = {
-      mappings = {
-        i = {
-          ['<C-u>'] = false,
-          ['<C-d>'] = false,
-        },
-      },
-      file_ignore_patterns = { 'node_modules', 'package-lock.json' },
-      path_display = { 'truncate' },
-    },
-  },
+
   config = function()
+    local telescope = require 'telescope'
     local builtin = require 'telescope.builtin'
+    telescope.setup { defaults = defaults }
     -- Enable telescope fzf native, if installed
-    pcall(require('telescope').load_extension, 'fzf')
+    pcall(telescope.load_extension, 'fzf')
 
     -- Telescope live_grep in git root
     -- Function to find the git root directory based on the current buffer's path
@@ -72,7 +83,7 @@ return {
     vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      builtin.current_buffer_fuzzy_find(telescopeDropdown {
         previewer = false,
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
