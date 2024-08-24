@@ -1,3 +1,6 @@
+local theme = require 'lualine.themes.catppuccin'
+theme.normal.c.bg = nil
+
 return {
   -- Set lualine as statusline
   'nvim-lualine/lualine.nvim',
@@ -5,7 +8,7 @@ return {
   opts = {
     options = {
       icons_enabled = false,
-      theme = 'catppuccin',
+      theme = theme,
       component_separators = '',
       section_separators = '',
     },
