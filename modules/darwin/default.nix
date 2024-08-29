@@ -32,7 +32,6 @@
       cargo
       fd
       gh-ost
-      gofumpt
       htop
       jq
       jqp
@@ -133,8 +132,6 @@
       "asdf"
       "borders"
       "fd"
-      "gofumpt"
-      "golangci-lint"
       "helm"
       "htop"
       "jira-cli"
