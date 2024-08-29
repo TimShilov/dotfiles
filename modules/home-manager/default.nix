@@ -74,6 +74,7 @@
   };
 
   programs = {
+    direnv = { enable = true; enableZshIntegration = true; nix-direnv.enable = true; silent = true; };
     eza = { enable = true; enableZshIntegration = true; };
 
     k9s = {
