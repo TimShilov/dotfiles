@@ -10,6 +10,12 @@
     NSGlobalDomain = {
       _HIHideMenuBar = true;
     };
+    CustomUserPreferences = {
+      NSGlobalDomain = {
+        NSStatusItemSpacing = 6;
+        NSStatusItemSelectionPadding = 10;
+      };
+    };
   };
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
