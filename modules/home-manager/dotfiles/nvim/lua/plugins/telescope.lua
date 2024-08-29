@@ -14,7 +14,7 @@ local defaults = -- vim.tbl_extend('force', telescopeDropdown {},
         theme = 'dropdown',
       },
     },
-    file_ignore_patterns = { 'node_modules', 'package-lock.json' },
+    file_ignore_patterns = { 'node_modules', 'package-lock.json', '__snapshots__', 'pnpm-lock.yaml' },
     path_display = { 'truncate' },
   } -- )
 
