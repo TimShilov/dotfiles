@@ -63,6 +63,7 @@
   environment = {
     variables = {
       LANG = "en_UK.UTF-8";
+      LC_ALL = "C.UTF-8";
     };
   };
 
