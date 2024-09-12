@@ -38,6 +38,7 @@ return {
                     vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
                 end
 
+                map('n', '<leader>lr', vim.lsp.buf.rename, '[L]SP [R]estart')
                 map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
                 map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
