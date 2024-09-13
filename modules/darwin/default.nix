@@ -59,12 +59,6 @@
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
-  environment = {
-    variables = {
-      LANG = "en_UK.UTF-8";
-      LC_ALL = "C.UTF-8";
-    };
-  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
