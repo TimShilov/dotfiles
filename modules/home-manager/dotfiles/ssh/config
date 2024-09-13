@@ -1,4 +1,5 @@
 User tim
+SendEnv LANG
 
 Host sentry
    HostName sentry.internal.afflu.net
