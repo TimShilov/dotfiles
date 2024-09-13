@@ -133,8 +133,6 @@
       "kustomize"
       "lf"
       "mas"
-      # For some reason it is installing fine manually but not via Darwin. TODO: Figure out
-      # "music-decoy"
       "ncdu"
       "neovim"
       # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
