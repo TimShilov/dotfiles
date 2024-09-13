@@ -115,6 +115,7 @@
       "raycast"
       "sf-symbols"
       "tableplus"
+      "thunderbird"
     ];
     taps = [
       "FelixKratz/formulae"
