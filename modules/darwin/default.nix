@@ -27,6 +27,7 @@
       auth       sufficient     pam_tid.so
     '';
     systemPackages = with pkgs; [
+      bitwarden-cli
       pam-reattach
       btop
       cargo
