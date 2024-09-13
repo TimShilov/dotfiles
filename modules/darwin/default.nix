@@ -12,8 +12,8 @@
     };
     CustomUserPreferences = {
       NSGlobalDomain = {
-        NSStatusItemSpacing = 6;
-        NSStatusItemSelectionPadding = 10;
+        NSStatusItemSpacing = 8;
+        NSStatusItemSelectionPadding = 16;
       };
     };
   };
