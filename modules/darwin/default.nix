@@ -27,7 +27,6 @@
       auth       sufficient     pam_tid.so
     '';
     systemPackages = with pkgs; [
-      bitwarden-cli
       pam-reattach
       btop
       cargo
@@ -127,6 +126,7 @@
     brews = [
       "asdf"
       "borders"
+      "bitwarden-cli"
       "fd"
       "helm"
       "htop"
