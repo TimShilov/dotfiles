@@ -185,7 +185,7 @@
           set -g @catppuccin_status_modules_right "null"
           set -g @catppuccin_window_current_text "#W"
           set -g @catppuccin_window_default_text "#W"
-          set -g @catppuccin_window_status_enable "yes"
+          set -g @catppuccin_window_status "icon"
         '';
       };
 
