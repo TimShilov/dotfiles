@@ -7,13 +7,8 @@ return {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.shfmt,
-        null_ls.builtins.formatting.sqlfluff.with {
-          extra_args = { '--dialect', 'mysql' },
-        },
 
-        null_ls.builtins.diagnostics.sqlfluff.with {
-          extra_args = { '--dialect', 'mysql' },
-        },
+        -- null_ls.builtins.formatting.sql_formatter.with { command = { 'sleek' } },
       },
     }
 
