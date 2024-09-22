@@ -114,7 +114,6 @@
       "raycast"
       "sf-symbols"
       "tableplus"
-      "thunderbird"
     ];
     taps = [
       "FelixKratz/formulae"
@@ -126,7 +125,6 @@
     brews = [
       "asdf"
       "borders"
-      "bitwarden-cli"
       "fd"
       "helm"
       "htop"
@@ -137,7 +135,7 @@
       "mas"
       "ncdu"
       "neovim"
-      # { name = "sketchybar"; restart_service = "changed"; start_service = true; }
+      { name = "sketchybar"; restart_service = "changed"; start_service = true; }
       "gnu-sed"
       "stow"
       "temporal"
