@@ -5,6 +5,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.o.splitright = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
