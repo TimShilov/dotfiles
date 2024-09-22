@@ -10,6 +10,6 @@ if [ "$SID" = "$FOCUSED" ]; then
     bg="0xffb4befe"
 fi
 sketchybar \
-    --animate sin 10 \
+    --animate sin 5 \
     --set $NAME \
     icon.color="$bg"
