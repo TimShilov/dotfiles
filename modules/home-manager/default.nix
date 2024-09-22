@@ -202,6 +202,9 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
+      sessionVariables = {
+        LANG = "en_UK.UTF-8";
+      };
       shellAliases = {
         nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
         nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
