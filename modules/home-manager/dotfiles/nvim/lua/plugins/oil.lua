@@ -7,6 +7,7 @@ return {
       view_options = {
         show_hidden = true,
       },
+      watch_for_changes = true,
       -- See :help oil-actions for a list of all available actions
       keymaps = {
         ['g?'] = 'actions.show_help',
