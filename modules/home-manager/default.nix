@@ -200,6 +200,7 @@
     zsh = {
       enable = true;
       autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
       autocd = true;
       shellAliases = {
         nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
