@@ -30,6 +30,8 @@
       pam-reattach
       btop
       cargo
+      podman
+      podman-compose
       fd
       gh-ost
       htop
