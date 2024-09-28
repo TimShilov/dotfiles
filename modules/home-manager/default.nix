@@ -123,7 +123,7 @@
     };
     zoxide = { enable = true; enableZshIntegration = true; };
     starship = {
-      enable = true;
+      enable = false;
       enableZshIntegration = true;
       settings = {
         format = "$directory$git_branch$git_state$git_status$nix_shell$sudo$line_break$jobs$battery$character";
@@ -134,6 +134,11 @@
           symbol = " ";
         };
       };
+    };
+    oh-my-posh = {
+      enable = true;
+      enableZshIntegration = true;
+      useTheme = "catppuccin_mocha";
     };
 
     gh = { enable = true; };
