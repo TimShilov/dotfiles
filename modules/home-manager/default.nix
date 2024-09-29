@@ -138,7 +138,7 @@
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      useTheme = "catppuccin_mocha";
+      settings = builtins.fromTOML (builtins.unsafeDiscardStringContext (builtins.readFile ./configs/oh-my-posh.toml));
     };
 
     gh = { enable = true; };
