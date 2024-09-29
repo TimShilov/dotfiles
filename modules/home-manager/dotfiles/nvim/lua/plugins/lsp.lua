@@ -1,31 +1,16 @@
-return {
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
-    priority = 10000,
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'folke/neodev.nvim',
-      'neovim/nvim-lspconfig',
-    },
-    config = function()
-      local lsp_zero = require 'lsp-zero'
-      lsp_zero.extend_lspconfig()
-      lsp_zero.on_attach(function(client, bufnr)
-        if client.name == 'eslint' then
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = bufnr,
-            command = 'EslintFixAll',
-          })
-        end
-
-        -- see :help lsp-zero-keybindings
-        -- to learn the available actions
-        lsp_zero.default_keymaps { buffer = bufnr, preserve_mappings = false }
-        -- autoformat on save
-        lsp_zero.buffer_autoformat()
-
+return { -- LSP Configuration & Plugins
+  'neovim/nvim-lspconfig',
+  dependencies = {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'WhoIsSethDaniel/mason-tool-installer.nvim',
+  },
+  config = function()
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+      -- Create a function that lets us more easily define mappings specific LSP related items.
+      -- It sets the mode, buffer and description for us each time.
+      callback = function(event)
         local map = function(mode, keys, func, desc)
           if desc then
             desc = 'LSP: ' .. desc
@@ -39,6 +24,7 @@ return {
         map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
         map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('n', 'gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         map('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
@@ -55,23 +41,103 @@ return {
         map('n', '<leader>wl', function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, '[W]orkspace [L]ist Folders')
-      end)
 
-      -- LUA --
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-      require('neodev').setup()
+        -- The following two autocommands are used to highlight references of the
+        -- word under your cursor when your cursor rests there for a little while.
+        --    See `:help CursorHold` for information about when this is executed
+        --
+        -- When you move your cursor, the highlights will be cleared (the second autocommand).
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-      -- MASON --
-      -- see :help lsp-zero-guide:integrate-with-mason-nvim
-      -- to learn how to use mason.nvim with lsp-zero
-      require('mason').setup {}
-      require('mason-lspconfig').setup {
-        automatic_installation = true,
-        handlers = {
-          lsp_zero.default_setup,
+        if client and client.server_capabilities.documentHighlightProvider then
+          vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            buffer = event.buf,
+            callback = vim.lsp.buf.document_highlight,
+          })
+
+          vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            buffer = event.buf,
+            callback = vim.lsp.buf.clear_references,
+          })
+        end
+      end,
+    })
+
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+    -- Enable the following language servers
+    local servers = {
+      ['js-debug-adapter'] = {},
+      ['nixpkgs-fmt'] = {},
+      ['sql-formatter'] = {},
+      actionlint = {},
+      bashls = {},
+      delve = {},
+      docker_compose_language_service = {},
+      dockerls = {},
+      eslint = {},
+      fixjson = {},
+      groovyls = {},
+      hadolint = {},
+      helm_ls = {},
+      html = {},
+      jq = {},
+      jsonls = {},
+      nxls = {},
+      lua_ls = {
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT' },
+            workspace = {
+              checkThirdParty = false,
+              -- Tells lua_ls where to find all the Lua files that you have loaded
+              -- for your neovim configuration.
+              library = {
+                '${3rd}/luv/library',
+                unpack(vim.api.nvim_get_runtime_file('', true)),
+              },
+              -- If lua_ls is really slow on your computer, you can try this instead:
+              -- library = { vim.env.VIMRUNTIME },
+            },
+            completion = {
+              callSnippet = 'Replace',
+            },
+            telemetry = { enable = false },
+            diagnostics = { disable = { 'missing-fields' } },
+          },
         },
-      }
-    end,
-  },
+      },
+      omnisharp = {},
+      prettier = {},
+      prismals = {},
+      shfmt = {},
+      snyk = {},
+      sqlls = {},
+      stylua = {},
+      vacuum = {},
+      yamlls = {},
+    }
+
+    -- Ensure the servers and tools above are installed
+    require('mason').setup()
+
+    -- You can add other tools here that you want Mason to install
+    -- for you, so that they are available from within Neovim.
+    local ensure_installed = vim.tbl_keys(servers or {})
+    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+    require('mason-lspconfig').setup {
+      handlers = {
+        function(server_name)
+          local server = servers[server_name] or {}
+          -- This handles overriding only values explicitly passed
+          -- by the server configuration above. Useful when disabling
+          -- certain features of an LSP (for example, turning off formatting for tsserver)
+          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+          require('lspconfig')[server_name].setup(server)
+        end,
+      },
+    }
+  end,
 }
