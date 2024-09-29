@@ -36,11 +36,6 @@ return { -- LSP Configuration & Plugins
 
         -- Lesser used LSP functionality
         map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-        map('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-        map('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-        map('n', '<leader>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, '[W]orkspace [L]ist Folders')
 
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
