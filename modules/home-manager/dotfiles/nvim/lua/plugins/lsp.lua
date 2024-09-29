@@ -73,6 +73,7 @@ return { -- LSP Configuration & Plugins
       dockerls = {},
       eslint = {},
       fixjson = {},
+      gopls = {},
       groovyls = {},
       hadolint = {},
       helm_ls = {},
