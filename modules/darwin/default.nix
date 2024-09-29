@@ -40,10 +40,6 @@
       neovim
       sesh
     ];
-    variables = {
-      LANG = "en_UK.UTF-8";
-      LC_ALL = "en_UK.UTF-8";
-    };
   };
 
   # Auto upgrade nix package and the daemon service.

@@ -60,7 +60,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     PAGER = "less";
-    LANG = "en_UK.UTF-8";
+    LANG = "en_GB.UTF-8";
     KUBECONFIG = "$HOME/.kube/config";
     USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
   };
@@ -209,7 +209,7 @@
       syntaxHighlighting.enable = true;
       autocd = true;
       sessionVariables = {
-        LANG = "en_UK.UTF-8";
+        LANG = "en_GB.UTF-8";
       };
       shellAliases = {
         nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
