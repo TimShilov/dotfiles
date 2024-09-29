@@ -67,11 +67,12 @@ vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, t
 -- Appearance of diagnostics
 vim.diagnostic.config {
   virtual_text = {
-    prefix = '●',
+    prefix = '',
     -- Add a custom format function to show error codes
     format = function(diagnostic)
-      local code = diagnostic.code and string.format('[%s]', diagnostic.code) or ''
-      return string.format('%s %s', code, diagnostic.message)
+      -- local code = diagnostic.code and string.format('[%s]', diagnostic.code) or ''
+      -- return string.format('%s %s', code, diagnostic.message)
+      return diagnostic.message
     end,
   },
   underline = false,
