@@ -16,6 +16,7 @@
   home.packages = with pkgs; [
     atac
     grizzly
+    go
     kondo
     mysql84
     watchexec
