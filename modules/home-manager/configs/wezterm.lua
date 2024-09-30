@@ -30,8 +30,22 @@ config.window_padding = {
     bottom = 0,
 }
 config.keys = {
-    -- Previous tmux session
+    -- Previous tmux session (CMD + l)
     tmuxKeymap("SUPER", "l", "L"),
+
+    -- New tmux window (CMD + t)
+    tmuxKeymap("SUPER", "t", "c"),
+    -- Close tmux window (CMD + w)
+    tmuxKeymap("SUPER", "w", "&"),
+
+    -- Zoom in tmux pane (CMD + f)
+    tmuxKeymap("SUPER", "f", "z"),
+
+    -- Switch to tmux window (CMD + 1..4)
+    tmuxKeymap("SUPER", "1", "1"),
+    tmuxKeymap("SUPER", "2", "2"),
+    tmuxKeymap("SUPER", "3", "3"),
+    tmuxKeymap("SUPER", "4", "4"),
 }
 
 return config
