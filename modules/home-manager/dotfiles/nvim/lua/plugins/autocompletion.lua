@@ -72,10 +72,10 @@ return {
         end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
-      -- window = {
-      --     completion = cmp.config.window.bordered(),
-      --     documentation = cmp.config.window.bordered(),
-      -- },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
       mapping = cmp.mapping.preset.insert {
         ['<C-n>'] = cmp.mapping.select_next_item(), -- Select the next item
         ['<C-p>'] = cmp.mapping.select_prev_item(), -- Select the previous item
