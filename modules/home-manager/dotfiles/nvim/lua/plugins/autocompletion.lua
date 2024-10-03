@@ -77,11 +77,15 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping.select_next_item(), -- Select the next item
+        ['<C-n>'] = function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end,
         ['<C-p>'] = cmp.mapping.select_prev_item(), -- Select the previous item
         ['<C-y>'] = cmp.mapping.confirm { select = true }, -- Accept the completion with Enter.
-        ['<C-n>'] = cmp.mapping.complete {}, -- Manually trigger a completion from nvim-cmp.
-
         ['<C-l>'] = cmp.mapping(function()
           if luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
