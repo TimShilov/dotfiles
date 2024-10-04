@@ -19,7 +19,8 @@ config.font = wezterm.font({
     family = "JetBrainsMono Nerd Font",
     harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
 })
--- config.default_prog = { "tmux" }
+
+config.window_close_confirmation = "NeverPrompt"
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
