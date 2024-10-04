@@ -24,14 +24,6 @@ return {
     'rafamadriz/friendly-snippets',
   },
   config = function()
-    local map = function(mode, keys, func, desc)
-      if desc then
-        desc = 'LSP: ' .. desc
-      end
-
-      vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
-    end
-
     local cmp = require 'cmp'
     require('luasnip.loaders.from_vscode').lazy_load()
     local luasnip = require 'luasnip'

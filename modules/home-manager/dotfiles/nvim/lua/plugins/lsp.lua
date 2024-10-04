@@ -24,7 +24,7 @@ return { -- LSP Configuration & Plugins
                 map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
                 map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-                -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+                map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
                 map('n', 'gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
                 map('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
@@ -34,9 +34,7 @@ return { -- LSP Configuration & Plugins
 
                 -- See `:help K` for why this keymap
                 map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-
-                -- Lesser used LSP functionality
-                map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+                map('n', 'gl', vim.diagnostic.open_float, 'Open diagnostic float')
 
                 -- The following two autocommands are used to highlight references of the
                 -- word under your cursor when your cursor rests there for a little while.
@@ -115,6 +113,12 @@ return { -- LSP Configuration & Plugins
             vacuum = {},
             yamlls = {},
         }
+
+        -- Decorate floating windows
+        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+
+        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help,
+            { border = 'rounded' })
 
         -- Ensure the servers and tools above are installed
         require('mason').setup()

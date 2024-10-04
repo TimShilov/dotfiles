@@ -5,7 +5,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     group = typescript_on_save_augroup,
     buffer = bufnr,
     callback = function(event)
-        vim.cmd 'TSToolsFixAll sync'
         vim.cmd 'TSToolsRemoveUnusedImports sync'
         vim.cmd 'TSToolsAddMissingImports sync'
     end,
