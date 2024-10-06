@@ -1,6 +1,7 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
 import { app } from "./utils";
+import { TERMINAL_APP_ID } from "./constants";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -40,7 +41,14 @@ const rules: KarabinerRules[] = [
       },
     ],
   },
-  app("Terminal", "t", { bundleId: "com.github.wez.wezterm" }),
+  app("Terminal", "t", { bundleId: TERMINAL_APP_ID }),
+  app("Browser", "w", { bundleId: "company.thebrowser.Browser" }),
+  app("Slack", "s", { bundleId: "com.tinyspeck.slackmacgap" }),
+  app("Spotify", "v", { bundleId: "com.spotify.client" }),
+  app("TablePlus", "d", { bundleId: "com.tinyapp.TablePlus" }),
+
+  //terminalCommand("Affluent", "a", "sesh connect -s affluent"),
+
   //...createHyperSubLayers({
   //  spacebar: open(
   //    "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"

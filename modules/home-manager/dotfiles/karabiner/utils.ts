@@ -1,3 +1,4 @@
+import { TERMINAL_APP_ID } from "./constants";
 import { To, KeyCode, Manipulator, KarabinerRules } from "./types";
 
 /**
@@ -21,7 +22,7 @@ type HyperKeySublayer = {
 export function createHyperSubLayer(
   sublayer_key: KeyCode,
   commands: HyperKeySublayer,
-  allSubLayerVariables: string[]
+  allSubLayerVariables: string[],
 ): Manipulator[] {
   const subLayerVariableName = generateSubLayerVariableName(sublayer_key);
 
@@ -60,7 +61,7 @@ export function createHyperSubLayer(
       conditions: [
         ...allSubLayerVariables
           .filter(
-            (subLayerVariable) => subLayerVariable !== subLayerVariableName
+            (subLayerVariable) => subLayerVariable !== subLayerVariableName,
           )
           .map((subLayerVariable) => ({
             type: "variable_if" as const,
@@ -93,7 +94,7 @@ export function createHyperSubLayer(
             value: 1,
           },
         ],
-      })
+      }),
     ),
   ];
 }
@@ -144,9 +145,9 @@ export function createHyperSubLayers(subLayers: {
           manipulators: createHyperSubLayer(
             key as KeyCode,
             value,
-            allSubLayerVariables
+            allSubLayerVariables,
           ),
-        }
+        },
   );
 }
 
@@ -211,7 +212,7 @@ export function rectangle(name: string): LayerCommand {
 export function app(
   description: string,
   keyCode: string,
-  { filePath, bundleId }: { filePath?: string; bundleId?: string }
+  { filePath, bundleId }: { filePath?: string; bundleId?: string },
 ): LayerCommand {
   return {
     description: `Open ${description}`,
@@ -225,17 +226,49 @@ export function app(
             optional: ["caps_lock"],
           },
         },
-        to: [
-          {
-            software_function: {
-              open_application: {
-                ...(filePath ? { file_path: filePath } : {}),
-                ...(bundleId ? { bundle_identifier: bundleId } : {}),
-              },
-            },
-          },
-        ],
+        to: [switchToApp({ filePath, bundleId })],
       },
     ],
+  };
+}
+
+export function terminalCommand(
+  description: string,
+  keyCode: string,
+  command: string,
+) {
+  return {
+    description: `Open ${description}`,
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: keyCode,
+          modifiers: {
+            mandatory: ["right_command"],
+            optional: ["caps_lock"],
+          },
+        },
+        to: [switchToApp({ bundleId: TERMINAL_APP_ID })],
+      },
+      shell`${command}`,
+    ],
+  };
+}
+
+function switchToApp({
+  filePath,
+  bundleId,
+}: {
+  filePath?: string;
+  bundleId?: string;
+}) {
+  return {
+    software_function: {
+      open_application: {
+        ...(filePath ? { file_path: filePath } : {}),
+        ...(bundleId ? { bundle_identifier: bundleId } : {}),
+      },
+    },
   };
 }
