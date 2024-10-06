@@ -19,6 +19,7 @@
     go
     kondo
     mysql84
+    luarocks
     watchexec
     sleek
     sshs
