@@ -1,0 +1,18 @@
+{
+    "name": "karabiner",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Max Stoiber <contact@mxstbr.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "22.7.4",
+        "nodemon": "3.1.7",
+        "prettier": "3.3.3",
+        "tsx": "4.19.1",
+        "typescript": "^5.6.2"
+    },
+    "scripts": {
+        "build": "tsx rules.ts",
+        "watch": "nodemon --exec yarn build -e ts"
+    }
+}
