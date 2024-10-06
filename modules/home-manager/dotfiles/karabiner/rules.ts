@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { app } from "./utils";
+import { app, terminalCommand } from "./utils";
 import { TERMINAL_APP_ID } from "./constants";
 
 const rules: KarabinerRules[] = [
@@ -46,6 +46,9 @@ const rules: KarabinerRules[] = [
   app("Slack", "s", { bundleId: "com.tinyspeck.slackmacgap" }),
   app("Spotify", "v", { bundleId: "com.spotify.client" }),
   app("TablePlus", "d", { bundleId: "com.tinyapp.TablePlus" }),
+  app("TablePlus", "e", {
+    filePath: "/Applications/Karabiner-EventViewer.app",
+  }),
 
   //terminalCommand("Affluent", "a", "sesh connect -s affluent"),
 
