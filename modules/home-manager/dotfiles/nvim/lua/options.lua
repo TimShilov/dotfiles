@@ -63,6 +63,9 @@ vim.o.completeopt = 'menuone,noselect'               -- Set completeopt to have 
 
 vim.opt.termguicolors = true                         -- set termguicolors to enable highlight groups
 
+vim.opt.spelllang = 'en_us'                          -- set spelllang to enable spell checking
+vim.opt.spell = true
+
 -- Prevent LSP from overwriting treesitter color settings
 -- https://github.com/NvChad/NvChad/issues/1907
 vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
