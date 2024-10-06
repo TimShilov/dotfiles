@@ -42,7 +42,8 @@
     ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
     ".asdfrc" = { source = dotfiles/.asdfrc; };
     # TODO: Find a way to make this work with relative path
-    ".config/nvim" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim; recursive = true; };
+    ".config/nvim/" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim; recursive = true; };
+    ".config/karabiner/" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/karabiner; recursive = true; };
     ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
     ".config/sketchybar/" = { source = dotfiles/sketchybar; recursive = true; };
     ".config/skhd/" = { enable = false; source = dotfiles/skhd; recursive = true; };
