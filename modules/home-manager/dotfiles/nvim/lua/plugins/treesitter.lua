@@ -8,6 +8,19 @@ return {
       require('nvim-treesitter.configs').setup {
         auto_install = true,
 
+        ensure_installed = {
+          'bash',
+          'dockerfile',
+          'go',
+          'html',
+          'javascript',
+          'json',
+          'lua',
+          'terraform',
+          'regex',
+          'typescript',
+          'yaml',
+        },
         highlight = { enable = true },
         indent = { enable = true },
         incremental_selection = {

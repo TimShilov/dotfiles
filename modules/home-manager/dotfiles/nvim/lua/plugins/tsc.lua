@@ -1,4 +1,8 @@
 return {
-  'dmmulroy/tsc.nvim',
-  opts = {},
+    'dmmulroy/tsc.nvim',
+    opts = {
+        flags = {
+            watch = true,
+        },
+    },
 }

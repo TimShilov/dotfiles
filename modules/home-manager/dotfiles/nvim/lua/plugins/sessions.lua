@@ -1,8 +1,11 @@
 return {
   'rmagatti/auto-session',
   enabled = true,
-  lazy = false,
+
+  ---enables autocomplete for opts
+  ---@module "auto-session"
+  ---@type AutoSession.Config   lazy = false,
   opts = {
-    auto_session_suppress_dirs = { '~/', '~/IdeaProjects', '~/Downloads', '~/Desktop' },
+    suppressed_dirs = { '~/', '~/IdeaProjects', '~/Downloads', '~/Desktop' },
   },
 }

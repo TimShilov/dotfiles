@@ -1,7 +1,6 @@
 local telescopeDropdown = require('telescope.themes').get_dropdown
 
-local defaults = -- vim.tbl_extend('force', telescopeDropdown {},
-{
+local defaults = {
     mappings = {
         i = {
             ['<C-u>'] = false,
@@ -16,7 +15,10 @@ local defaults = -- vim.tbl_extend('force', telescopeDropdown {},
     },
     file_ignore_patterns = { 'node_modules', 'package-lock.json', '__snapshots__', '*.snap', 'pnpm-lock.yaml' },
     path_display = { 'truncate' },
-}   -- )
+    extensions = {
+        package_info = {},
+    },
+}
 
 return {
     'nvim-telescope/telescope.nvim',
@@ -37,7 +39,7 @@ return {
         local builtin = require 'telescope.builtin'
         telescope.setup { defaults = defaults }
         -- Enable telescope fzf native, if installed
-        pcall(telescope.load_extension, 'fzf')
+        telescope.load_extension 'fzf'
 
         -- Telescope live_grep in git root
         -- Function to find the git root directory based on the current buffer's path
