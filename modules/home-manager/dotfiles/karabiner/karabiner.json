@@ -47,6 +47,190 @@
             ]
           },
           {
+            "description": "Switch to left window",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus left'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Switch to above window",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus up'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Switch to below window",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus down'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Switch to right window",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus right'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "to": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["control"]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["com.github.wez.wezterm"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Open Terminal",
             "manipulators": [
               {
@@ -215,7 +399,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh affluent"
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affluent'"
                   }
                 ]
               }
@@ -246,7 +430,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh affiliate-etl"
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affiliate-etl'"
                   }
                 ]
               }
@@ -277,7 +461,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh ~/.dotfiles"
+                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect ~/.dotfiles'"
                   }
                 ]
               }
