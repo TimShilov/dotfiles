@@ -15,15 +15,15 @@
   # environment.
   home.packages = with pkgs; [
     atac
-    grizzly
     go
+    grizzly
     kondo
-    mysql84
     luarocks
-    nixfmt
-    watchexec
+    mysql84
+    nixfmt-rfc-style
     sleek
     sshs
+    watchexec
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -39,18 +39,22 @@
   ];
 
   home.file = {
-    "./config/borders/bordersrc" = { source = dotfiles/bordersrc; };
-    ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
-    ".asdfrc" = { source = dotfiles/.asdfrc; };
+    "./config/borders/bordersrc" = {
+      source = dotfiles/bordersrc;
+    };
+    ".aerospace.toml" = {
+      source = dotfiles/.aerospace.toml;
+    };
+    ".asdfrc" = {
+      source = dotfiles/.asdfrc;
+    };
     # TODO: Find a way to make this work with relative path
     ".config/nvim/" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim;
       recursive = true;
     };
     ".config/karabiner/" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/karabiner;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/karabiner;
       recursive = true;
     };
     ".config/sesh/" = {
@@ -67,15 +71,17 @@
       recursive = true;
     };
     ".gitconfig" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/.gitconfig;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/.gitconfig;
     };
-    ".ideavimrc" = { source = dotfiles/.ideavimrc; };
-    ".jqp.yaml" = { source = dotfiles/.jqp.yaml; };
+    ".ideavimrc" = {
+      source = dotfiles/.ideavimrc;
+    };
+    ".jqp.yaml" = {
+      source = dotfiles/.jqp.yaml;
+    };
     # TODO: Find a way to make this work with relative path
     ".ssh/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/ssh/config;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/ssh/config;
     };
 
     # # You can also set the file content immediately.
@@ -92,8 +98,11 @@
     KUBECONFIG = "$HOME/.kube/config";
     USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
   };
-  home.sessionPath =
-    [ "$HOME/.grit/bin" "$HOME/.krew/bin" "$HOME/.dotnet/tools" ];
+  home.sessionPath = [
+    "$HOME/.grit/bin"
+    "$HOME/.krew/bin"
+    "$HOME/.dotnet/tools"
+  ];
 
   catppuccin = {
     enable = true;
@@ -147,14 +156,22 @@
       enable = true;
       enableZshIntegration = true;
       flags = [ "--disable-up-arrow" ];
-      settings = { filter_mode_shell_up_key_binding = "session"; };
+      settings = {
+        filter_mode_shell_up_key_binding = "session";
+      };
     };
-    bat = { enable = true; };
+    bat = {
+      enable = true;
+    };
     fzf = {
       enable = true;
       enableZshIntegration = true;
       defaultCommand = "rg --files --hidden";
-      defaultOptions = [ "--ansi" "--border rounded" "--reverse" ];
+      defaultOptions = [
+        "--ansi"
+        "--border rounded"
+        "--reverse"
+      ];
     };
     zoxide = {
       enable = true;
@@ -164,8 +181,7 @@
       enable = false;
       enableZshIntegration = true;
       settings = {
-        format =
-          "$directory$git_branch$git_state$git_status$nix_shell$sudo$line_break$jobs$battery$character";
+        format = "$directory$git_branch$git_state$git_status$nix_shell$sudo$line_break$jobs$battery$character";
         right_format = "$cmd_duration";
         character = {
           success_symbol = "[>](bold green)";
@@ -180,16 +196,21 @@
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      settings = builtins.fromTOML (builtins.unsafeDiscardStringContext
-        (builtins.readFile ./configs/oh-my-posh.toml));
+      settings = builtins.fromTOML (
+        builtins.unsafeDiscardStringContext (builtins.readFile ./configs/oh-my-posh.toml)
+      );
     };
 
-    gh = { enable = true; };
+    gh = {
+      enable = true;
+    };
     gh-dash = {
       enable = true;
       catppuccin.enable = false;
     };
-    git = { enable = true; };
+    git = {
+      enable = true;
+    };
     yazi = {
       enable = true;
       enableZshIntegration = true;
@@ -214,7 +235,9 @@
       };
     };
 
-    ripgrep = { enable = true; };
+    ripgrep = {
+      enable = true;
+    };
 
     tmux = {
       enable = true;
@@ -253,7 +276,9 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
-      sessionVariables = { LANG = "en_GB.UTF-8"; };
+      sessionVariables = {
+        LANG = "en_GB.UTF-8";
+      };
       shellAliases = {
         nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
         nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
@@ -310,4 +335,3 @@
     home-manager.enable = true;
   };
 }
-

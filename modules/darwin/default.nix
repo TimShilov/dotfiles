@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   system.defaults = {
     dock = {
       autohide = true;
@@ -6,8 +7,12 @@
       autohide-time-modifier = 0.2;
       orientation = "left";
     };
-    spaces = { spans-displays = false; };
-    NSGlobalDomain = { _HIHideMenuBar = true; };
+    spaces = {
+      spans-displays = false;
+    };
+    NSGlobalDomain = {
+      _HIHideMenuBar = true;
+    };
     CustomUserPreferences = {
       NSGlobalDomain = {
         NSStatusItemSpacing = 8;
@@ -42,13 +47,18 @@
 
   # Auto upgrade nix package and the daemon service.
   nix.package = pkgs.nixVersions.latest;
-  nix.gc = { automatic = true; };
-  services = { nix-daemon = { enable = true; }; };
+  nix.gc = {
+    automatic = true;
+  };
+  services = {
+    nix-daemon = {
+      enable = true;
+    };
+  };
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  fonts.packages =
-    [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
+  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
