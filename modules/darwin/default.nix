@@ -127,7 +127,6 @@
       "lf"
       "mas"
       "ncdu"
-      "neovim"
       {
         name = "sketchybar";
         restart_service = "changed";
