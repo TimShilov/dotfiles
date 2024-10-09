@@ -21,12 +21,13 @@ return {
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       query = { 'format-queries' },
-      nix = { 'nixpkgs-fmt' },
+      nix = { 'nixfmt' },
+      ['*'] = { 'injected' },
     },
     default_format_opts = {
       lsp_format = 'fallback',
     },
-    format_on_save = { timeout_ms = 1500 },
+    format_on_save = { timeout_ms = 500 },
     formatters = {
       injected = {},
       shfmt = {
