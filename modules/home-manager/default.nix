@@ -20,6 +20,7 @@
     kondo
     mysql84
     luarocks
+    nixfmt
     watchexec
     sleek
     sshs
@@ -42,16 +43,40 @@
     ".aerospace.toml" = { source = dotfiles/.aerospace.toml; };
     ".asdfrc" = { source = dotfiles/.asdfrc; };
     # TODO: Find a way to make this work with relative path
-    ".config/nvim/" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim; recursive = true; };
-    ".config/karabiner/" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/karabiner; recursive = true; };
-    ".config/sesh/" = { source = dotfiles/sesh; recursive = true; };
-    ".config/sketchybar/" = { source = dotfiles/sketchybar; recursive = true; };
-    ".config/skhd/" = { enable = false; source = dotfiles/skhd; recursive = true; };
-    ".gitconfig" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/.gitconfig; };
+    ".config/nvim/" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim;
+      recursive = true;
+    };
+    ".config/karabiner/" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/karabiner;
+      recursive = true;
+    };
+    ".config/sesh/" = {
+      source = dotfiles/sesh;
+      recursive = true;
+    };
+    ".config/sketchybar/" = {
+      source = dotfiles/sketchybar;
+      recursive = true;
+    };
+    ".config/skhd/" = {
+      enable = false;
+      source = dotfiles/skhd;
+      recursive = true;
+    };
+    ".gitconfig" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/.gitconfig;
+    };
     ".ideavimrc" = { source = dotfiles/.ideavimrc; };
     ".jqp.yaml" = { source = dotfiles/.jqp.yaml; };
     # TODO: Find a way to make this work with relative path
-    ".ssh/config" = { source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/ssh/config; };
+    ".ssh/config" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/ssh/config;
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -67,11 +92,8 @@
     KUBECONFIG = "$HOME/.kube/config";
     USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
   };
-  home.sessionPath = [
-    "$HOME/.grit/bin"
-    "$HOME/.krew/bin"
-    "$HOME/.dotnet/tools"
-  ];
+  home.sessionPath =
+    [ "$HOME/.grit/bin" "$HOME/.krew/bin" "$HOME/.dotnet/tools" ];
 
   catppuccin = {
     enable = true;
@@ -79,14 +101,26 @@
   };
 
   programs = {
-    direnv = { enable = true; enableZshIntegration = true; nix-direnv.enable = true; silent = true; };
-    eza = { enable = true; enableZshIntegration = true; };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+      silent = true;
+    };
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     k9s = {
       enable = true;
       settings = {
         k9s = {
-          ui = { crumbsless = true; logoless = true; reactive = true; };
+          ui = {
+            crumbsless = true;
+            logoless = true;
+            reactive = true;
+          };
         };
       };
       aliases = {
@@ -113,9 +147,7 @@
       enable = true;
       enableZshIntegration = true;
       flags = [ "--disable-up-arrow" ];
-      settings = {
-        filter_mode_shell_up_key_binding = "session";
-      };
+      settings = { filter_mode_shell_up_key_binding = "session"; };
     };
     bat = { enable = true; };
     fzf = {
@@ -124,14 +156,21 @@
       defaultCommand = "rg --files --hidden";
       defaultOptions = [ "--ansi" "--border rounded" "--reverse" ];
     };
-    zoxide = { enable = true; enableZshIntegration = true; };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     starship = {
       enable = false;
       enableZshIntegration = true;
       settings = {
-        format = "$directory$git_branch$git_state$git_status$nix_shell$sudo$line_break$jobs$battery$character";
+        format =
+          "$directory$git_branch$git_state$git_status$nix_shell$sudo$line_break$jobs$battery$character";
         right_format = "$cmd_duration";
-        character = { success_symbol = "[>](bold green)"; error_symbol = "[x](bold red)"; };
+        character = {
+          success_symbol = "[>](bold green)";
+          error_symbol = "[x](bold red)";
+        };
         git_branch = {
           format = "[\\($branch(:$remote_branch)\\)]($style) ";
           symbol = " ";
@@ -141,32 +180,36 @@
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
-      settings = builtins.fromTOML (builtins.unsafeDiscardStringContext (builtins.readFile ./configs/oh-my-posh.toml));
+      settings = builtins.fromTOML (builtins.unsafeDiscardStringContext
+        (builtins.readFile ./configs/oh-my-posh.toml));
     };
 
     gh = { enable = true; };
-    gh-dash = { enable = true; };
+    gh-dash = {
+      enable = true;
+      catppuccin.enable = false;
+    };
     git = { enable = true; };
-    yazi = { enable = true; enableZshIntegration = true; };
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     lazygit = {
       enable = true;
       settings = {
-        customCommands = [
-          {
-            key = "X";
-            prompts = [
-              {
-                type = "input";
-                title = "Commit";
-                initialValue = "";
-              }
-            ];
-            command = "git commit -m \"{{index .PromptResponses 0}}\" --no-verify";
-            context = "global";
-            subprocess = true;
-          }
-        ];
+        customCommands = [{
+          key = "X";
+          prompts = [{
+            type = "input";
+            title = "Commit";
+            initialValue = "";
+          }];
+          command =
+            ''git commit -m "{{index .PromptResponses 0}}" --no-verify'';
+          context = "global";
+          subprocess = true;
+        }];
         gui.mouseEvents = false;
       };
     };
@@ -179,13 +222,12 @@
       baseIndex = 1;
       clock24 = true;
       keyMode = "vi";
-      plugins = with pkgs.tmuxPlugins;
-        [
-          sensible
-          resurrect
-          continuum
-          vim-tmux-navigator
-        ];
+      plugins = with pkgs.tmuxPlugins; [
+        sensible
+        resurrect
+        continuum
+        vim-tmux-navigator
+      ];
       catppuccin = {
         extraConfig = ''
           set -g @catppuccin_icon_window_activity "󱅫"
@@ -211,9 +253,7 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
-      sessionVariables = {
-        LANG = "en_GB.UTF-8";
-      };
+      sessionVariables = { LANG = "en_GB.UTF-8"; };
       shellAliases = {
         nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
         nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";

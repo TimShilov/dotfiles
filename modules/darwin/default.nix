@@ -7,9 +7,7 @@
       orientation = "left";
     };
     spaces = { spans-displays = false; };
-    NSGlobalDomain = {
-      _HIHideMenuBar = true;
-    };
+    NSGlobalDomain = { _HIHideMenuBar = true; };
     CustomUserPreferences = {
       NSGlobalDomain = {
         NSStatusItemSpacing = 8;
@@ -45,19 +43,12 @@
   # Auto upgrade nix package and the daemon service.
   nix.package = pkgs.nixVersions.latest;
   nix.gc = { automatic = true; };
-  services = {
-    nix-daemon = { enable = true; };
-  };
+  services = { nix-daemon = { enable = true; }; };
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-      ];
-    })
-  ];
+  fonts.packages =
+    [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
@@ -74,9 +65,7 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  security.pki.certificateFiles = [
-    "/etc/nix/ca_cert.pem"
-  ];
+  security.pki.certificateFiles = [ "/etc/nix/ca_cert.pem" ];
 
   # Enable using touch id for sudo.
   security.pam.enableSudoTouchIdAuth = true;
@@ -137,7 +126,11 @@
       "mas"
       "ncdu"
       "neovim"
-      { name = "sketchybar"; restart_service = "changed"; start_service = true; }
+      {
+        name = "sketchybar";
+        restart_service = "changed";
+        start_service = true;
+      }
       "gnu-sed"
       "stow"
       "temporal"
