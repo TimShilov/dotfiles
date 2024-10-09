@@ -219,19 +219,31 @@
     lazygit = {
       enable = true;
       settings = {
-        customCommands = [{
-          key = "X";
-          prompts = [{
-            type = "input";
-            title = "Commit";
-            initialValue = "";
-          }];
-          command =
-            ''git commit -m "{{index .PromptResponses 0}}" --no-verify'';
-          context = "global";
-          subprocess = true;
-        }];
-        gui.mouseEvents = false;
+        promptToReturnFromSubprocess = false;
+
+        customCommands = [
+          {
+            key = "X";
+            prompts = [
+              {
+                type = "input";
+                title = "Commit";
+                initialValue = "";
+              }
+            ];
+            command = ''git commit -m "{{index .PromptResponses 0}}" --no-verify'';
+            context = "global";
+            subprocess = true;
+          }
+        ];
+
+        gui = {
+          showFileTree = false;
+          mouseEvents = false;
+          nerdFontsVersion = "3";
+          filterMode = "fuzzy";
+          showDivergenceFromBaseBranch = "onlyArrow";
+        };
       };
     };
 
