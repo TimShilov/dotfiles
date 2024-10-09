@@ -105,6 +105,7 @@
       "raycast"
       "sf-symbols"
       "tableplus"
+      "thunderbird"
     ];
     taps = [
       "FelixKratz/formulae"
@@ -116,6 +117,7 @@
     brews = [
       "asdf"
       "borders"
+      "bitwarden-cli"
       "fd"
       "helm"
       "htop"
