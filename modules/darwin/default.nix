@@ -94,7 +94,7 @@
     casks = [
       "aerospace"
       "arc"
-      "firefox@developer-edition"
+      "firefox@nightly"
       "gather"
       "github"
       "google-cloud-sdk"
