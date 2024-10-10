@@ -240,7 +240,8 @@
                 initialValue = "";
               }
             ];
-            command = ''git commit -m "{{index .PromptResponses 0}}" --no-verify'';
+            command = # bash
+              ''git commit -m "{{index .PromptResponses 0}}" --no-verify'';
             context = "global";
             subprocess = true;
           }
@@ -273,20 +274,21 @@
       ];
       shell = "/bin/zsh";
       catppuccin = {
-        extraConfig = ''
-          set -g @catppuccin_icon_window_activity "󱅫"
-          set -g @catppuccin_icon_window_bell "󰂞"
-          set -g @catppuccin_icon_window_current "null"
-          set -g @catppuccin_icon_window_last "null"
-          set -g @catppuccin_icon_window_zoom "󰁌 "
-          set -g @catppuccin_status_background "default"
-          set -g @catppuccin_status_modules_right "null"
-          set -g @catppuccin_window_current_text "#W"
-          set -g @catppuccin_window_default_text "#W"
-          set -g @catppuccin_window_status "icon"
-          set -g @catppuccin_status_modules_right "session date_time"
-          set -g @catppuccin_date_time_text "%H:%M:%S, %a %d %b"
-        '';
+        extraConfig = # bash
+          ''
+            set -g @catppuccin_icon_window_activity "󱅫"
+            set -g @catppuccin_icon_window_bell "󰂞"
+            set -g @catppuccin_icon_window_current "null"
+            set -g @catppuccin_icon_window_last "null"
+            set -g @catppuccin_icon_window_zoom "󰁌 "
+            set -g @catppuccin_status_background "default"
+            set -g @catppuccin_status_modules_right "null"
+            set -g @catppuccin_window_current_text "#W"
+            set -g @catppuccin_window_default_text "#W"
+            set -g @catppuccin_window_status "icon"
+            set -g @catppuccin_status_modules_right "session date_time"
+            set -g @catppuccin_date_time_text "%H:%M:%S, %a %d %b"
+          '';
       };
 
       extraConfig = (builtins.readFile ./configs/tmux.conf);
@@ -316,40 +318,42 @@
         save = 10000;
         size = 10000;
       };
-      initExtraFirst = ''
-        source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-        source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+      initExtraFirst = # bash
+        ''
+          source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+          source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
-        source <(kubectl completion zsh)
-        . /opt/homebrew/opt/asdf/libexec/asdf.sh
-      '';
+          source <(kubectl completion zsh)
+          . /opt/homebrew/opt/asdf/libexec/asdf.sh
+        '';
 
-      initExtra = ''
-        function gc() {
-            local branches branch
-            branches=$(git branch --all | grep -v HEAD) &&
-                branch=$(echo "$branches" |
-                    fzf-tmux -d $((2 + $(wc -l <<<"$branches"))) +m) &&
-                git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-        }
+      initExtra = # bash
+        ''
+          function gc() {
+              local branches branch
+              branches=$(git branch --all | grep -v HEAD) &&
+                  branch=$(echo "$branches" |
+                      fzf-tmux -d $((2 + $(wc -l <<<"$branches"))) +m) &&
+                  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+          }
 
-        function sc() {
-            if cat package.json >/dev/null 2>&1; then
-                selected_script=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --cycle --height 80% --header="Press ENTER to run the script. ESC to quit.")
+          function sc() {
+              if cat package.json >/dev/null 2>&1; then
+                  selected_script=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --cycle --height 80% --header="Press ENTER to run the script. ESC to quit.")
 
-                if [[ -n "$selected_script" ]]; then
-                    script_name=$(echo "$selected_script" | awk -F ': ' '{gsub(/"/, "", $1); print $1}' | awk '{$1=$1};1')
+                  if [[ -n "$selected_script" ]]; then
+                      script_name=$(echo "$selected_script" | awk -F ': ' '{gsub(/"/, "", $1); print $1}' | awk '{$1=$1};1')
 
-                    print -s "npm run "$script_name
-                    npm run $script_name
-                else
-                    echo "Exit: You haven't selected any script"
-                fi
-            else
-                echo "Error: There's no package.json"
-            fi
-        }
-      '';
+                      print -s "npm run "$script_name
+                      npm run $script_name
+                  else
+                      echo "Exit: You haven't selected any script"
+                  fi
+              else
+                  echo "Error: There's no package.json"
+              fi
+          }
+        '';
     };
 
     # Let Home Manager install and manage itself.
