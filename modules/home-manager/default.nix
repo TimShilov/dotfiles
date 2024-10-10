@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -50,11 +49,11 @@
     };
     # TODO: Find a way to make this work with relative path
     ".config/nvim/" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/nvim;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/nvim;
       recursive = true;
     };
     ".config/karabiner/" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/karabiner;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/karabiner;
       recursive = true;
     };
     ".config/sesh/" = {
@@ -71,7 +70,7 @@
       recursive = true;
     };
     ".gitconfig" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/.gitconfig;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.gitconfig;
     };
     ".ideavimrc" = {
       source = dotfiles/.ideavimrc;
@@ -81,7 +80,7 @@
     };
     # TODO: Find a way to make this work with relative path
     ".ssh/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/.dotfiles/modules/home-manager/dotfiles/ssh/config;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/ssh/config;
     };
 
     # # You can also set the file content immediately.
@@ -97,6 +96,7 @@
     LANG = "en_GB.UTF-8";
     KUBECONFIG = "$HOME/.kube/config";
     USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
+    HOMEBREW_NO_ANALYTICS = 1;
   };
   home.sessionPath = [
     "$HOME/.grit/bin"
@@ -125,10 +125,18 @@
       enable = true;
       settings = {
         k9s = {
+          liveViewAutoRefresh = true;
+          skipLatestRevCheck = false;
+          logger = {
+            textWrap = true;
+            sinceSeconds = 300;
+            buffer = 5000;
+          };
           ui = {
             crumbsless = true;
             logoless = true;
             reactive = true;
+            noIcons = false;
           };
         };
       };
@@ -263,6 +271,7 @@
         continuum
         vim-tmux-navigator
       ];
+      shell = "/bin/zsh";
       catppuccin = {
         extraConfig = ''
           set -g @catppuccin_icon_window_activity "󱅫"
@@ -292,8 +301,8 @@
         LANG = "en_GB.UTF-8";
       };
       shellAliases = {
-        nixswitch = "darwin-rebuild switch --flake ~/.dotfiles/.#";
-        nixup = "pushd ~/.dotfiles; nix flake update; nixswitch; popd";
+        nixswitch = "darwin-rebuild switch --flake ~/dotfiles/.#";
+        nixup = "pushd ~/dotfiles; nix flake update; nixswitch; popd";
 
         cat = "bat";
         v = "nvim";

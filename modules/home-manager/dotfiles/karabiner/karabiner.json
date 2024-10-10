@@ -59,7 +59,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus left'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus left'"
                   }
                 ],
                 "conditions": [
@@ -105,7 +105,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus up'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus up'"
                   }
                 ],
                 "conditions": [
@@ -151,7 +151,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus down'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus down'"
                   }
                 ],
                 "conditions": [
@@ -197,7 +197,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus right'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus right'"
                   }
                 ],
                 "conditions": [
@@ -270,7 +270,7 @@
                   {
                     "software_function": {
                       "open_application": {
-                        "bundle_identifier": "company.thebrowser.Browser"
+                        "bundle_identifier": "org.mozilla.nightly"
                       }
                     }
                   }
@@ -319,6 +319,30 @@
                     "software_function": {
                       "open_application": {
                         "bundle_identifier": "com.spotify.client"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Open Mail",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": ["right_command"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "software_function": {
+                      "open_application": {
+                        "bundle_identifier": "com.apple.mail"
                       }
                     }
                   }
@@ -399,7 +423,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affluent'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affluent'"
                   }
                 ]
               }
@@ -430,7 +454,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affiliate-etl'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affiliate-etl'"
                   }
                 ]
               }
@@ -461,7 +485,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/.dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect ~/.dotfiles'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect ~/.dotfiles'"
                   }
                 ]
               }

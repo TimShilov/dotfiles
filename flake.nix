@@ -36,7 +36,9 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              extraSpecialArgs = { /* example: inherit catppuccin; */ };
+              extraSpecialArgs = {
+                # example: inherit catppuccin;
+              };
               verbose = true;
               users."tim.shilov".imports = [
                 ./modules/home-manager
@@ -51,4 +53,3 @@
       darwinPackages = self.darwinConfigurations."client-Tim-Shilov".pkgs;
     };
 }
-
