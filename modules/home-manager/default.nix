@@ -13,6 +13,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    ast-grep
     atac
     go
     grizzly
@@ -250,7 +251,6 @@
           mouseEvents = false;
           nerdFontsVersion = "3";
           filterMode = "fuzzy";
-          showDivergenceFromBaseBranch = "onlyArrow";
         };
       };
     };
