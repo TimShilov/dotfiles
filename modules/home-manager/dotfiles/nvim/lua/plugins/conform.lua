@@ -20,6 +20,7 @@ return {
       lua = { 'stylua' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      json = { 'prettierd', 'prettier', stop_after_first = true },
       query = { 'format-queries' },
       nix = { 'nixfmt' },
       ['*'] = { 'injected' },
@@ -27,7 +28,7 @@ return {
     default_format_opts = {
       lsp_format = 'fallback',
     },
-    format_on_save = { timeout_ms = 500 },
+    format_on_save = { timeout_ms = 1000 },
     formatters = {
       injected = {},
       shfmt = {
