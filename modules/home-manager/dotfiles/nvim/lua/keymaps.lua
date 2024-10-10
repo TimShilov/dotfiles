@@ -14,19 +14,18 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
 })
 
 -- save file
 vim.keymap.set('n', '<leader>ww', '<cmd> w <CR>', { desc = 'Save file', noremap = true, silent = true })
 
 -- save file without auto-formatting
-vim.keymap.set('n', '<leader>wn', '<cmd>noautocmd w <CR>',
-    { desc = 'Save file without auto-formatting', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>wn', '<cmd>noautocmd w <CR>', { desc = 'Save file without auto-formatting', noremap = true, silent = true })
 
 -- close buffer
 vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', { desc = 'Close buffer', noremap = true, silent = true })
