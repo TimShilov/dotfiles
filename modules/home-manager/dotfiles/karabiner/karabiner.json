@@ -485,7 +485,7 @@
                     }
                   },
                   {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect ~/.dotfiles'"
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect ~/dotfiles'"
                   }
                 ]
               }
