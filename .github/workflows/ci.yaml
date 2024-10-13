@@ -41,5 +41,5 @@ jobs:
         run: pnpm install
 
       - name: Build Karabiner Config
-        run: cd ./module/home-manager/dotfiles/karabiner && pnpm build
+        run: cd ./modules/home-manager/dotfiles/karabiner && pnpm build
 
