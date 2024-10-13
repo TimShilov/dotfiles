@@ -6,8 +6,11 @@ import {
   withModifier,
   writeToProfile,
 } from "karabiner.ts";
+import path from "path";
 
-writeToProfile("Default", [
+const configFilePath = path.resolve("./karabiner.json");
+
+writeToProfile({ karabinerJsonPath: configFilePath, name: "Default" }, [
   rule("Caps Lock → Hyper").manipulators([
     map("caps_lock").toHyper().toIfAlone("escape"),
   ]),
