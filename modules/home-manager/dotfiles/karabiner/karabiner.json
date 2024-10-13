@@ -11,487 +11,351 @@
       "complex_modifications": {
         "rules": [
           {
-            "description": "Hyper Key (⌃⌥⇧⌘)",
+            "description": "Caps Lock → Hyper",
             "manipulators": [
               {
-                "description": "Caps Lock -> Hyper Key",
+                "type": "basic",
                 "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
+                  "key_code": "caps_lock"
                 },
                 "to": [
                   {
-                    "set_variable": {
-                      "name": "hyper",
-                      "value": 1
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "hyper",
-                      "value": 0
-                    }
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "option",
+                      "control",
+                      "shift"
+                    ]
                   }
                 ],
                 "to_if_alone": [
                   {
                     "key_code": "escape"
                   }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Switch to left window",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus left'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
                 ]
               }
             ]
           },
           {
-            "description": "Switch to above window",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus up'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Switch to below window",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus down'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Switch to right window",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'aerospace focus right'"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "to": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": ["control"]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": ["com.github.wez.wezterm"]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Open Terminal",
+            "description": "Layer - Terminal Sessions",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
                   "key_code": "t",
                   "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
                 },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.github.wez.wezterm"
-                      }
+                    "set_variable": {
+                      "name": "Terminal Sessions",
+                      "value": 1
                     }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "Terminal Sessions",
+                    "value": 1
+                  }
+                ],
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "Terminal Sessions",
+                      "value": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/tmux.sh 'sesh connect -s affluent'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "Terminal Sessions",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/tmux.sh 'sesh connect -s affiliate-etl'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "Terminal Sessions",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/tmux.sh 'sesh connect -s ~/dotfiles'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "Terminal Sessions",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/tmux.sh 'sesh connect -s token-registry'"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "Terminal Sessions",
+                    "value": 1
                   }
                 ]
               }
             ]
           },
           {
-            "description": "Open Browser",
+            "description": "Launch Apps",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "w",
+                  "key_code": "t",
                   "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
                 },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "org.mozilla.nightly"
-                      }
-                    }
+                    "shell_command": "open -a \"WezTerm\".app"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "Open Slack",
-            "manipulators": [
+              },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "s",
+                  "key_code": "e",
                   "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
                 },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.tinyspeck.slackmacgap"
-                      }
-                    }
+                    "shell_command": "open -a \"Karabiner-EventViewer\".app"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "Open Spotify",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.spotify.client"
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Open Mail",
-            "manipulators": [
+              },
               {
                 "type": "basic",
                 "from": {
                   "key_code": "m",
                   "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
                 },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.apple.mail"
-                      }
-                    }
+                    "shell_command": "open -a \"Mail\".app"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "Open TablePlus",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.tinyapp.TablePlus"
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Open TablePlus",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "mandatory": ["right_command"],
-                    "optional": ["caps_lock"]
-                  }
-                },
-                "to": [
-                  {
-                    "software_function": {
-                      "open_application": {
-                        "file_path": "/Applications/Karabiner-EventViewer.app"
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Open Affluent",
-            "manipulators": [
+              },
               {
                 "type": "basic",
                 "from": {
                   "key_code": "a",
-                  "modifiers": {}
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
-                ],
+                },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.github.wez.wezterm"
-                      }
-                    }
-                  },
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affluent'"
+                    "shell_command": "open -a \"Activity Monitor\".app"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "Open Etl Engine",
-            "manipulators": [
+              },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "e",
-                  "modifiers": {}
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
-                ],
+                },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.github.wez.wezterm"
-                      }
-                    }
-                  },
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect affiliate-etl'"
+                    "shell_command": "open -a \"Gather\".app"
                   }
                 ]
-              }
-            ]
-          },
-          {
-            "description": "Open dotfiles",
-            "manipulators": [
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Calendar\".app"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Firefox Nightly\".app"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Zoom\".app"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Slack\".app"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Spotify\".app"
+                  }
+                ]
+              },
               {
                 "type": "basic",
                 "from": {
                   "key_code": "d",
-                  "modifiers": {}
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command"
+                    ]
                   }
-                ],
+                },
                 "to": [
                   {
-                    "software_function": {
-                      "open_application": {
-                        "bundle_identifier": "com.github.wez.wezterm"
-                      }
-                    }
-                  },
-                  {
-                    "shell_command": "~/dotfiles/modules/home-manager/dotfiles/karabiner/test.sh 'sesh connect ~/dotfiles'"
+                    "shell_command": "open -a \"TablePlus\".app"
                   }
                 ]
               }
             ]
           }
-        ]
+        ],
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": 1000,
+          "basic.to_if_held_down_threshold_milliseconds": 500,
+          "basic.to_delayed_action_delay_milliseconds": 500,
+          "basic.simultaneous_threshold_milliseconds": 50,
+          "mouse_motion_to_scroll.speed": 100
+        }
       }
     }
   ]
