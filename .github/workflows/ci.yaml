@@ -37,8 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install Karabiner dependencies
-        working-directory: modules/home-manager/dotfiles/karabiner
+      - name: Install PNPM dependencies
         run: pnpm install
 
       - name: Build Karabiner Config
