@@ -38,10 +38,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install Karabiner dependencies
-        directory: modules/home-manager/dotfiles/karabiner
+        working-directory: modules/home-manager/dotfiles/karabiner
         run: pnpm install
 
       - name: Build Karabiner Config
-        directory: modules/home-manager/dotfiles/karabiner
+        working-directory: modules/home-manager/dotfiles/karabiner
         run: pnpm build
 
