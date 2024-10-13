@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "packageManager": "pnpm@9.12.1",
   "devDependencies": {
     "@types/node": "22.7.4",
     "karabiner.ts": "1.30.0",
