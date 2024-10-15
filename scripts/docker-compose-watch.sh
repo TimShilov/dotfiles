@@ -31,18 +31,19 @@ compose_down() {
     $COMPOSE_CMD $COMPOSE_ARGS down
 }
 
+TEMP_FILE=$(mktemp)
+
 # Set up a trap to ensure compose down is called when the script exits
-trap 'compose_down; exit' SIGINT SIGTERM
+trap 'compose_down; rm $TEMP_FILE; exit' SIGINT SIGTERM
 
 # Start compose up
 $COMPOSE_CMD $COMPOSE_ARGS up --force-recreate &
 
-# Initialize the last_change variable
-last_change=$(date +%s)
-
 # Function to check for inactivity and stop if needed
 check_inactivity() {
     current_time=$(date +%s)
+    last_change=$(stat -f %m $TEMP_FILE)
+
     time_diff=$((current_time - last_change))
 
     if [ $time_diff -ge 600 ]; then
@@ -53,12 +54,12 @@ check_inactivity() {
 }
 
 # Watch for file changes
-fswatch -o . | while read f; do
-    last_change=$(date +%s)
+fswatch -o -r --exclude time.log . | while read f; do
+    echo $f >$TEMP_FILE
 done &
 
 # Main loop to periodically check for inactivity
 while true; do
-    sleep 60
+    sleep 5
     check_inactivity
 done
