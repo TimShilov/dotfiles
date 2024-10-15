@@ -16,6 +16,7 @@
     ast-grep
     atac
     go
+    fswatch
     grizzly
     kondo
     luarocks
@@ -306,6 +307,7 @@
         nixswitch = "darwin-rebuild switch --flake ~/dotfiles/.#";
         nixup = "pushd ~/dotfiles; nix flake update; nixswitch; popd";
 
+        dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
         cat = "bat";
         v = "nvim";
       };
