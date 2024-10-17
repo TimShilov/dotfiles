@@ -62,7 +62,7 @@
       recursive = true;
     };
     ".config/sketchybar/" = {
-      source = dotfiles/sketchybar;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/sketchybar;
       recursive = true;
     };
     ".config/skhd/" = {
