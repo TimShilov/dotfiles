@@ -44,7 +44,7 @@
       source = dotfiles/bordersrc;
     };
     ".aerospace.toml" = {
-      source = dotfiles/.aerospace.toml;
+      source = config.lib.file.mkOutOfStoreSymlink dotfiles/.aerospace.toml;
     };
     ".asdfrc" = {
       source = dotfiles/.asdfrc;
@@ -286,8 +286,7 @@
             set -g @catppuccin_window_current_text "#W"
             set -g @catppuccin_window_default_text "#W"
             set -g @catppuccin_window_status "icon"
-            set -g @catppuccin_status_modules_right "session date_time"
-            set -g @catppuccin_date_time_text "%H:%M:%S, %a %d %b"
+            set -g @catppuccin_status_modules_right "session"
           '';
       };
 
