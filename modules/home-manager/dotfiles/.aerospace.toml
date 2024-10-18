@@ -25,7 +25,7 @@ inner.vertical =   8
 outer.bottom =     8
 outer.left =       8
 outer.right =      8
-outer.top =        [{ monitor."main" = 8 }, 48]
+outer.top =        [{ monitor."main" = 14 }, 48]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

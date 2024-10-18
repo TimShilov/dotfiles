@@ -104,6 +104,7 @@
     casks = [
       "aerospace"
       "arc"
+      "bartender"
       "firefox@nightly"
       "gather"
       "google-cloud-sdk"
@@ -135,11 +136,11 @@
       "lf"
       "mas"
       "ncdu"
-      {
-        name = "sketchybar";
-        restart_service = "changed";
-        start_service = true;
-      }
+      # {
+      #   name = "sketchybar";
+      #   restart_service = "changed";
+      #   start_service = true;
+      # }
       "gnu-sed"
       "stow"
       "temporal"
