@@ -11,7 +11,7 @@
       spans-displays = false;
     };
     NSGlobalDomain = {
-      _HIHideMenuBar = true;
+      _HIHideMenuBar = false;
     };
     CustomUserPreferences = {
       NSGlobalDomain = {
