@@ -44,7 +44,7 @@
       source = dotfiles/bordersrc;
     };
     ".aerospace.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink dotfiles/.aerospace.toml;
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.aerospace.toml;
     };
     ".asdfrc" = {
       source = dotfiles/.asdfrc;
