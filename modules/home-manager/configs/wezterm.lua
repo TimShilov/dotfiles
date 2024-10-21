@@ -21,7 +21,7 @@ config = {
         harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
     }),
     window_close_confirmation = "NeverPrompt",
-
+    front_end = "WebGpu",
     enable_tab_bar = false,
     window_decorations = "RESIZE",
     window_padding = {
