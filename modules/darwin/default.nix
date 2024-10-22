@@ -54,6 +54,16 @@
     nix-daemon = {
       enable = true;
     };
+    jankyborders = {
+      active_color = "0xffB4BEFE";
+      enable = true;
+      hidpi = false;
+      inactive_color = "0x00FFFFFF";
+      # TODO: Enable after updating nix-darwin
+      # order = "above";
+      style = "round";
+      width = 5.0;
+    };
   };
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
@@ -117,7 +127,7 @@
       "thunderbird"
     ];
     taps = [
-      "FelixKratz/formulae"
+      # "FelixKratz/formulae"
       "ankitpokhrel/jira-cli"
       "homebrew/bundle"
       "homebrew/services"
@@ -125,7 +135,6 @@
     ];
     brews = [
       "asdf"
-      "borders"
       "bitwarden-cli"
       "fd"
       "helm"
