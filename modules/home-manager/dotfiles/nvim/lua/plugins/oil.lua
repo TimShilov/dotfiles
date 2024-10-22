@@ -7,6 +7,9 @@ return {
       view_options = {
         show_hidden = true,
       },
+      lsp_file_methods = {
+        autosave_changes = 'unmodified',
+      },
       watch_for_changes = true,
       -- See :help oil-actions for a list of all available actions
       keymaps = {
@@ -20,7 +23,7 @@ return {
         ['`'] = 'actions.cd',
         ['~'] = { 'actions.cd', opts = { scope = 'tab' }, desc = ':tcd to the current oil directory' },
         ['gs'] = 'actions.change_sort',
-        ['gx'] = 'actions.open_external',
+        -- ['gx'] = 'actions.open_external',
         ['g.'] = 'actions.toggle_hidden',
         ['g\\'] = 'actions.toggle_trash',
       },
@@ -29,7 +32,7 @@ return {
       skip_confirm_for_simple_edits = true,
     },
     keys = {
-      { '-', ':Oil<CR>', desc = 'Open parent directory' },
+      { '-', ':Oil --float<CR>', desc = 'Open parent directory' },
     },
   },
 }
