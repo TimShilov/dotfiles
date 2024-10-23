@@ -15,8 +15,8 @@ end
 
 config = {
     color_scheme = "Catppuccin Mocha",
-    font_size = 18.0,
     term = "wezterm",
+    font_size = 17.0,
     font = wezterm.font({
         family = "JetBrainsMono Nerd Font",
         harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
