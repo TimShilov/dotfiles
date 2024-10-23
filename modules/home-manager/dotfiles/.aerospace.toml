@@ -1,6 +1,8 @@
 start-at-login = true
 after-login-command = []
-after-startup-command = []
+after-startup-command = [
+  'exec-and-forget borders active_color=0xffFAB387 width=2.0 style=round order=above'
+]
 
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true

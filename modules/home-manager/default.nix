@@ -17,6 +17,7 @@
     atac
     go
     fswatch
+    jankyborders
     grizzly
     kondo
     luarocks
