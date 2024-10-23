@@ -274,6 +274,7 @@
         vim-tmux-navigator
       ];
       shell = "/bin/zsh";
+      terminal = "wezterm";
       catppuccin = {
         extraConfig = # bash
           ''
