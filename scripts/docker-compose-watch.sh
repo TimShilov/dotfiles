@@ -54,12 +54,12 @@ check_inactivity() {
 }
 
 # Watch for file changes
-fswatch -o -r --exclude time.log . | while read f; do
-    echo $f >$TEMP_FILE
+fswatch -o -r --exclude .* . | while read file; do
+    git check-ignore -q $file || echo $file >$TEMP_FILE
 done &
 
 # Main loop to periodically check for inactivity
 while true; do
-    sleep 5
+    sleep 60
     check_inactivity
 done
