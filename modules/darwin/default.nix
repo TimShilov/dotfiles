@@ -55,14 +55,14 @@
       enable = true;
     };
     jankyborders = {
-      active_color = "0xffB4BEFE";
+      active_color = "gradient(top_left=0xffcba6f7,bottom_right=0xfffab387)";
       enable = true;
       hidpi = false;
       inactive_color = "0x00FFFFFF";
       # TODO: Enable after updating nix-darwin
       # order = "above";
       style = "round";
-      width = 5.0;
+      width = 8.0;
     };
   };
   # Necessary for using flakes on this system.
