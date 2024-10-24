@@ -54,9 +54,20 @@
     nix-daemon = {
       enable = true;
     };
+    jankyborders = {
+      active_color = "0xffB4BEFE";
+      enable = true;
+      hidpi = false;
+      inactive_color = "0x00FFFFFF";
+      # TODO: Enable after updating nix-darwin
+      # order = "above";
+      style = "round";
+      width = 5.0;
+    };
   };
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
+
   fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
 
   # Create /etc/zshrc that loads the nix-darwin environment.
