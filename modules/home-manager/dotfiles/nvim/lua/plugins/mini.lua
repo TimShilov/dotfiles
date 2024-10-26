@@ -1,10 +1,5 @@
 return {
   {
-    'echasnovski/mini.ai',
-    version = false,
-    opts = {},
-  },
-  {
     'echasnovski/mini.move',
     version = false,
     opts = {
