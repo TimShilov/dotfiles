@@ -55,7 +55,7 @@
       recursive = true;
     };
     ".config/karabiner/karabiner.json" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/karabiner/karabiner.json;
+      source = dotfiles/karabiner/karabiner.json;
     };
     ".config/sesh/" = {
       source = dotfiles/sesh;
