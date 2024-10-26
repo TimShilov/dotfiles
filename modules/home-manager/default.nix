@@ -305,6 +305,7 @@
       shellAliases = {
         nixswitch = "darwin-rebuild switch --flake ~/dotfiles/.#";
         nixup = "pushd ~/dotfiles; nix flake update; nixswitch; popd";
+        nixclean = "nix-collect-garbage --delete-older-than 14";
 
         dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
         cat = "bat";
