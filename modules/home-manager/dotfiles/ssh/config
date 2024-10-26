@@ -1,5 +1,6 @@
 User tim
 SendEnv LANG
+SetEnv TERM=xterm-256color
 
 Host sentry
    HostName sentry.internal.afflu.net
