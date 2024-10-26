@@ -17,7 +17,7 @@ return {
         ['<CR>'] = 'actions.select',
         ['<C-s>'] = { 'actions.select', opts = { vertical = true }, desc = 'Open the entry in a vertical split' },
         ['<C-p>'] = 'actions.preview',
-        ['<C-c>'] = 'actions.close',
+        ['q'] = 'actions.close',
         ['-'] = 'actions.parent',
         ['_'] = 'actions.open_cwd',
         ['`'] = 'actions.cd',
