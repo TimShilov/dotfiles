@@ -42,7 +42,7 @@ function terminalSessionsLayer() {
   const gotoSession = (session: string) =>
     wrapCommand(`sesh connect -s ${session}`);
 
-  return layer("j", "Terminal Sessions")
+  return layer("k", "Terminal Sessions")
     .modifiers("right_command")
     .manipulators([
       map("a").to$(gotoSession("affluent")),
