@@ -115,6 +115,7 @@
       "aerospace"
       "arc"
       "bartender"
+      "firefox"
       "firefox@nightly"
       "gather"
       "google-cloud-sdk"
