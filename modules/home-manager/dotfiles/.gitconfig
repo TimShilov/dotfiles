@@ -25,3 +25,9 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[maintenance]
+    auto = false
+    strategy = incremental
+    # TODO: Find a way to automate it and to not hard-code user name to make it more portable
+    repo = /Users/tim.shilov/IdeaProjects/affluent
+    repo = /Users/tim.shilov/IdeaProjects/affiliate-etl
