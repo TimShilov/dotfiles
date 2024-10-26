@@ -35,6 +35,11 @@ config = {
         -- Previous tmux session (CMD + l)
         tmuxKeymap("SUPER", "l", "L"),
 
+        -- Open Lazygit (CMD + g)
+        tmuxKeymap("SUPER", "g", "g"),
+        -- Open GitHub Dashboard (CMD + Shift + g)
+        tmuxKeymap("SUPER", "G", "G"),
+
         -- New tmux window (CMD + t)
         tmuxKeymap("SUPER", "t", "c"),
         -- Close tmux window (CMD + w)
