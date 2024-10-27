@@ -94,7 +94,7 @@ return {
             border = 'rounded',
             floating_preview_opts = {},
             peek_definition_code = {
-              ['<leader>cd'] = '@function.outer',
+              ['<leader>cd'] = '@assignment.outer',
               ['<leader>cD'] = '@class.outer',
             },
           },
