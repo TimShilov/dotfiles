@@ -18,9 +18,9 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      json = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'prettier', stop_after_first = true },
+      typescript = { 'prettier', stop_after_first = true },
+      json = { 'prettier', stop_after_first = true },
       query = { 'format-queries' },
       nix = { 'nixfmt' },
       ['*'] = { 'injected' },
