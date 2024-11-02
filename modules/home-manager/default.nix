@@ -111,6 +111,10 @@
   };
 
   programs = {
+    carapace = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     direnv = {
       enable = true;
       enableZshIntegration = true;
@@ -267,6 +271,7 @@
       clock24 = true;
       keyMode = "vi";
       plugins = with pkgs.tmuxPlugins; [
+        tmux-floax
         sensible
         resurrect
         continuum
@@ -321,10 +326,10 @@
       };
       initExtraFirst = # bash
         ''
-          source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-          source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-          source <(kubectl completion zsh)
+          # source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+          # source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+          #
+          # source <(kubectl completion zsh)
           . /opt/homebrew/opt/asdf/libexec/asdf.sh
         '';
 
