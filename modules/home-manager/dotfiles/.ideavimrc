@@ -45,7 +45,7 @@ xnoremap <expr> j (v:count <= 1 ? 'j' : "m'" . v:count . 'j')
 xnoremap <expr> k (v:count <= 1 ? 'k' : "m'" . v:count . 'k')
 
 " map code action
-let g:WhichKeyDesc_Code = "<leader>c Code"
+let g:WhichKeyDesc_Code = "<leader>ca Code"
 map <leader>ca <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_quickfix = "<leader>ca Code Actions"
 
