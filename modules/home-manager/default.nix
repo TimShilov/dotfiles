@@ -8,7 +8,9 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  xdg.enable = true;
+  xdg = {
+    enable = true;
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -219,7 +221,7 @@
     };
     gh-dash = {
       enable = true;
-      catppuccin.enable = false;
+      catppuccin.enable = true;
     };
     git = {
       enable = true;
@@ -296,6 +298,11 @@
       };
 
       extraConfig = (builtins.readFile ./configs/tmux.conf);
+    };
+
+    taskwarrior = {
+      enable = true;
+      package = pkgs.taskwarrior3;
     };
 
     zsh = {
