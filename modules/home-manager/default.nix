@@ -1,4 +1,22 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+let
+  nerdFontWindowNamePlugin = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-nerd-font-window-name";
+    version = "v2.1.2";
+    rtpFilePath = "tmux-nerd-font-window-name.tmux";
+    src = pkgs.fetchFromGitHub {
+      owner = "joshmedeski";
+      repo = "tmux-nerd-font-window-name";
+      rev = "2f5131f01b6cc052069211f6dce02c3fec564da2";
+      sha256 = "sha256-bnlOAfdBv5Rg4z1hu1jtdx5oZ6kAZE40K4zqLxmyYQE=";
+    };
+  };
+in
 {
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -23,6 +41,7 @@
     kondo
     luarocks
     mysql84
+    yq-go
     nixfmt-rfc-style
     sleek
     sshs
@@ -274,6 +293,7 @@
       keyMode = "vi";
       plugins = with pkgs.tmuxPlugins; [
         tmux-floax
+        nerdFontWindowNamePlugin
         sensible
         resurrect
         continuum
