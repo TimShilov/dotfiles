@@ -283,17 +283,20 @@
       catppuccin = {
         extraConfig = # bash
           ''
-            set -g @catppuccin_icon_window_activity "󱅫"
-            set -g @catppuccin_icon_window_bell "󰂞"
-            set -g @catppuccin_icon_window_current "null"
-            set -g @catppuccin_icon_window_last "null"
-            set -g @catppuccin_icon_window_zoom "󰁌 "
-            set -g @catppuccin_status_background "default"
-            set -g @catppuccin_status_modules_right "null"
-            set -g @catppuccin_window_current_text "#W"
-            set -g @catppuccin_window_default_text "#W"
-            set -g @catppuccin_window_status "icon"
+            set -g @catppuccin_status_background "none"
+            # TODO: Make sure that all the options are correct as they were changed in 2.0.0 (@see https://github.com/catppuccin/tmux/blob/main/docs/reference/configuration.md)
             set -g @catppuccin_status_modules_right "session"
+
+            set -g @catppuccin_window_current_text " #W"
+            set -g @catppuccin_window_flags "icon"
+            set -g @catppuccin_window_flags_icon_activity "󱅫"
+            set -g @catppuccin_window_flags_icon_bell "󰂞"
+            set -g @catppuccin_window_flags_icon_current ""
+            set -g @catppuccin_window_flags_icon_last ""
+            set -g @catppuccin_window_flags_icon_zoom "󰁌 "
+            set -g @catppuccin_window_text " #W"
+
+            set -g status-right "#{E:@catppuccin_status_session}"
           '';
       };
 
