@@ -1,8 +1,7 @@
 #!/bin/bash
 
 bkt --ttl=10m --discard-failures -- \
-    jira issues list -a $(jira me) \
+    jira issues list -a $(jira me) -s~Done \
     -q "project IS NOT EMPTY" \
     --plain --no-headers |
-    wc -l |
-    awk '{print $1}'
+    grep -c "."
