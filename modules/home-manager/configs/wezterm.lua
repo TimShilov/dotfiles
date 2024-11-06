@@ -39,6 +39,8 @@ config = {
         tmuxKeymap("SUPER", "r", "r"),
         -- Open Lazygit (CMD + g)
         tmuxKeymap("SUPER", "g", "g"),
+        -- Open Jira CLI (CMD + j)
+        tmuxKeymap("SUPER", "j", "j"),
         -- Open GitHub Dashboard (CMD + Shift + g)
         tmuxKeymap("SUPER", "G", "G"),
 
