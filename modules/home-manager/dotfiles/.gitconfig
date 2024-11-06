@@ -31,3 +31,5 @@
     # TODO: Find a way to automate it and to not hard-code user name to make it more portable
     repo = /Users/tim.shilov/IdeaProjects/affluent
     repo = /Users/tim.shilov/IdeaProjects/affiliate-etl
+[rebase]
+	updateRefs = true
