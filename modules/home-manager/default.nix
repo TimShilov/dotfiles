@@ -50,6 +50,7 @@ in
     taskwarrior-tui
     watchexec
     yq-go
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -65,7 +66,7 @@ in
   ];
 
   home.file = {
-    "./config/borders/bordersrc" = {
+    ".config/borders/bordersrc" = {
       source = dotfiles/bordersrc;
     };
     ".aerospace.toml" = {
@@ -150,7 +151,9 @@ in
       enable = true;
       enableZshIntegration = true;
     };
-
+    password-store = {
+      enable = true;
+    };
     k9s = {
       enable = true;
       settings = {
