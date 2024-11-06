@@ -324,11 +324,16 @@ in
             set -g @catppuccin_window_flags_icon_zoom "󰁌 "
             set -g @catppuccin_window_text " #W"
 
+            GITHUB_PR_COUNT="#(~/dotfiles/scripts/github-prs-count.sh)"
+            JIRA_TICKET_COUNT="#(~/dotfiles/scripts/jira-tickets-count.sh)"
+            JIRA_HOTFIX_COUNT="#(~/dotfiles/scripts/jira-hotfixes-count.sh)"
+
             set -g status-right "#[bg=#{@thm_mauve},fg=#{@thm_crust}]#[reverse]#[noreverse]󰌃  "
-            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] #(~/dotfiles/scripts/jira-tickets-count.sh) "
+            set -ag status-right "#[bg=#{@thm_red},fg=#{@thm_surface_0}]#{?#{>:$JIRA_HOTFIX_COUNT,0}, $JIRA_HOTFIX_COUNT ,}"
+            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] $JIRA_TICKET_COUNT "
 
             set -ag status-right "#[bg=#{@thm_flamingo},fg=#{@thm_crust}]#[reverse]#[noreverse]  "
-            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] #(~/dotfiles/scripts/github-prs-count.sh) "
+            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] $GITHUB_PR_COUNT "
 
             set -ag status-right "#{E:@catppuccin_status_session}"
           '';
