@@ -43,9 +43,6 @@ vim.keymap.set('v', '>', '>gv', opts)
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x', opts)
 
--- Keep last yanked when pasting
-vim.keymap.set('v', 'p', '"_dP', opts)
-
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message', noremap = true })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message', noremap = true })
