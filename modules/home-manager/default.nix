@@ -35,17 +35,21 @@ in
   home.packages = with pkgs; [
     ast-grep
     atac
-    go
+    calcurse
     fswatch
+    gnupg
+    go
     grizzly
     kondo
     luarocks
     mysql84
-    yq-go
     nixfmt-rfc-style
+    rainfrog # Database management TUI
     sleek
     sshs
+    taskwarrior-tui
     watchexec
+    yq-go
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
