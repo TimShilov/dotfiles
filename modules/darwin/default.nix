@@ -108,8 +108,6 @@
       "Bitwarden" = 1352778147;
       "In Your Face" = 1476964367;
       "StudyCards" = 1534325530;
-      "Telegram" = 747648890;
-      "rcmd" = 1596283165;
     };
     casks = [
       "aerospace"
