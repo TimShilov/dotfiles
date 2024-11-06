@@ -35,6 +35,7 @@ in
   home.packages = with pkgs; [
     ast-grep
     atac
+    bkt # Bash caching
     calcurse
     fswatch
     gnupg
@@ -323,7 +324,13 @@ in
             set -g @catppuccin_window_flags_icon_zoom "󰁌 "
             set -g @catppuccin_window_text " #W"
 
-            set -g status-right "#{E:@catppuccin_status_session}"
+            set -g status-right "#[bg=#{@thm_mauve},fg=#{@thm_crust}]#[reverse]#[noreverse]󰌃  "
+            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] #(~/dotfiles/scripts/jira-tickets-count.sh) "
+
+            set -ag status-right "#[bg=#{@thm_flamingo},fg=#{@thm_crust}]#[reverse]#[noreverse]  "
+            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] #(~/dotfiles/scripts/github-prs-count.sh) "
+
+            set -ag status-right "#{E:@catppuccin_status_session}"
           '';
       };
 
