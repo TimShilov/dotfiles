@@ -1,0 +1,47 @@
+[general]
+# Here you define a comma separated list of targets.  Each of them must have a
+# section below determining their properties, how to query them, etc.  The name
+# is just a symbol, and doesn't have any functional importance.
+# targets = my_github, my_bitbucket, paj_bitbucket, moksha_trac, bz.redhat
+targets = github_personal, github_impact, jira
+
+# If unspecified, the default taskwarrior config will be used.
+taskrc = ~/.config/task/home-manager-taskrc
+
+[github_personal]
+service = github
+github.login = TimShilov
+github.only_if_assigned = True
+github.token = @oracle:eval:pass github/bugwarrior-token
+github.query = "is:open assignee:TimShilov"
+github.username = TimShilov
+github.include_user_issues = False
+github.include_user_repos = False
+github.filter_pull_requests = True
+github.add_tags = [github,personal]
+
+[github_impact]
+service = github
+github.login = TimShilov
+github.only_if_assigned = True
+github.token = @oracle:eval:pass github/bugwarrior-token
+github.query = "is:open assignee:TimShilov"
+github.username = ImpactInc
+github.include_user_issues = False
+github.include_user_repos = False
+github.filter_pull_requests = True
+github.add_tags = [github,impact]
+
+
+[jira]
+service = jira
+jira.base_uri = https://impact.atlassian.net
+jira.username = tim.shilov@impact.com
+jira.password = @oracle:eval:pass jira/token
+jira.query = assignee = "tim.shilov@impact.com" and status != closed and status != resolved
+# Set this to your jira major version. We currently support only jira version
+# 4 and 5(the default). You can find your particular version in the footer at
+# the dashboard.
+jira.version = 5
+# jira.add_tags = enterprisey,work
+
