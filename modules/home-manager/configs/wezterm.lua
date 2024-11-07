@@ -18,7 +18,7 @@ config = {
     term = "wezterm",
     font_size = 17.0,
     font = wezterm.font({
-        family = "JetBrainsMono Nerd Font",
+        family = "JetBrainsMono NF",
         harfbuzz_features = { "calt=1", "clig=1", "liga=1" },
     }),
     window_close_confirmation = "NeverPrompt",

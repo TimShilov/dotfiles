@@ -68,8 +68,6 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
 
-  fonts.packages = [ (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) ];
-
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
 

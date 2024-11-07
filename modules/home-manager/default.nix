@@ -51,11 +51,7 @@ in
     watchexec
     yq-go
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -326,11 +322,11 @@ in
             JIRA_TICKET_COUNT="#(~/dotfiles/scripts/jira-tickets-count.sh)"
             JIRA_HOTFIX_COUNT="#(~/dotfiles/scripts/jira-hotfixes-count.sh)"
 
-            set -g status-right "#[bg=#{@thm_mauve},fg=#{@thm_crust}]#[reverse]#[noreverse]󰌃  "
+            set -g status-right "#[bg=#{@thm_blue},fg=#{@thm_crust}]#[reverse]#[noreverse]󰌃  "
             set -ag status-right "#[bg=#{@thm_red},fg=#{@thm_surface_0}]#{?#{>:$JIRA_HOTFIX_COUNT,0}, $JIRA_HOTFIX_COUNT ,}"
             set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] $JIRA_TICKET_COUNT "
 
-            set -ag status-right "#[bg=#{@thm_flamingo},fg=#{@thm_crust}]#[reverse]#[noreverse]  "
+            set -ag status-right "#[bg=#{@thm_lavender},fg=#{@thm_crust}]#[reverse]#[noreverse]  "
             set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] $GITHUB_PR_COUNT "
 
             set -ag status-right "#{E:@catppuccin_status_session}"
