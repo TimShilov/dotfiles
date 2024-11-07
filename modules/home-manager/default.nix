@@ -36,7 +36,6 @@ in
     ast-grep
     atac
     bkt # Bash caching
-    calcurse
     fswatch
     gnupg
     go
@@ -300,7 +299,6 @@ in
       clock24 = true;
       keyMode = "vi";
       plugins = with pkgs.tmuxPlugins; [
-        tmux-floax
         nerdFontWindowNamePlugin
         sensible
         resurrect
