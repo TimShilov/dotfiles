@@ -125,21 +125,13 @@
     ];
     taps = [
       # "FelixKratz/formulae"
-      "ankitpokhrel/jira-cli"
       "homebrew/bundle"
       "homebrew/services"
       "nikitabobko/tap"
     ];
     brews = [
-      "asdf"
       "bitwarden-cli"
-      "fd"
       "helm"
-      "htop"
-      "jira-cli"
-      "kubectx"
-      "kustomize"
-      "lf"
       "mas"
       "ncdu"
       # {
@@ -148,11 +140,7 @@
       #   start_service = true;
       # }
       "gnu-sed"
-      "stow"
-      "temporal"
-      "tree"
       "watch"
-      "wget"
     ];
   };
 }
