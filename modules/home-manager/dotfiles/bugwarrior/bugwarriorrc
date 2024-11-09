@@ -7,6 +7,8 @@ targets = github_personal, github_impact, jira
 
 # If unspecified, the default taskwarrior config will be used.
 taskrc = ~/.config/task/home-manager-taskrc
+annotation_links = True
+annotation_comments = False
 
 [github_personal]
 service = github
@@ -38,7 +40,8 @@ service = jira
 jira.base_uri = https://impact.atlassian.net
 jira.username = tim.shilov@impact.com
 jira.password = @oracle:eval:pass jira/token
-jira.query = assignee = "tim.shilov@impact.com" and status != closed and status != resolved
+jira.query = assignee = "tim.shilov@impact.com" and resolution = Unresolved
+jira.description_template = {{jiraissuetype}}: {{jirasummary}}
 # Set this to your jira major version. We currently support only jira version
 # 4 and 5(the default). You can find your particular version in the footer at
 # the dashboard.
