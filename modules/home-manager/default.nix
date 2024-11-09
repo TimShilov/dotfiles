@@ -381,6 +381,7 @@ in
 
         dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
         cat = "bat";
+        tt = "taskwarrior-tui";
         v = "nvim";
       };
       history = {
