@@ -345,8 +345,10 @@ in
             set -g @catppuccin_window_text " #W"
 
             GITHUB_PR_COUNT="#(~/dotfiles/scripts/github-prs-count.sh)"
-            JIRA_TICKET_COUNT="#(~/dotfiles/scripts/jira-tickets-count.sh)"
-            JIRA_HOTFIX_COUNT="#(~/dotfiles/scripts/jira-hotfixes-count.sh)"
+            JIRA_TICKET_COUNT="#(bkt --ttl=60s --discard-failures -- task jiraid +READY count)"
+            JIRA_HOTFIX_COUNT="#(bkt --ttl=55s --discard-failures -- task jiraissuetype:HotFix +READY count)"
+
+            STATUS_SEPARATOR=" "
 
             set -g status-right "#[bg=#{@thm_blue},fg=#{@thm_crust}]#[reverse]#[noreverse]󰌃  "
             set -ag status-right "#[bg=#{@thm_red},fg=#{@thm_surface_0}]#{?#{>:$JIRA_HOTFIX_COUNT,0}, $JIRA_HOTFIX_COUNT ,}"
