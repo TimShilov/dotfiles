@@ -350,12 +350,16 @@ in
 
             STATUS_SEPARATOR=" "
 
-            set -g status-right "#[bg=#{@thm_blue},fg=#{@thm_crust}]#[reverse]#[noreverse]󰌃  "
-            set -ag status-right "#[bg=#{@thm_red},fg=#{@thm_surface_0}]#{?#{>:$JIRA_HOTFIX_COUNT,0}, $JIRA_HOTFIX_COUNT ,}"
-            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] $JIRA_TICKET_COUNT "
+            set -g status-right "#[fg=#{@thm_subtext_1},align=centre]#(task _get $(task next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description)#[align=right]"
 
-            set -ag status-right "#[bg=#{@thm_lavender},fg=#{@thm_crust}]#[reverse]#[noreverse]  "
-            set -ag status-right "#[bg=#{@thm_surface_0},fg=#{@thm_fg}] $GITHUB_PR_COUNT "
+            set -ag status-right "#[fg=#{@thm_blue}]󰌃 "
+            set -ag status-right "#[fg=#{@thm_red}]#{?#{>:$JIRA_HOTFIX_COUNT,0},$JIRA_HOTFIX_COUNT ,}"
+            set -ag status-right "#[fg=#{@thm_blue}]$JIRA_TICKET_COUNT "
+            set -ag status-right "$STATUS_SEPARATOR"
+
+            set -ag status-right "#[fg=#{@thm_peach}] "
+            set -ag status-right "#[fg=#{@thm_peach}]$GITHUB_PR_COUNT "
+            set -ag status-right "$STATUS_SEPARATOR"
 
             set -ag status-right "#{E:@catppuccin_status_session}"
           '';
