@@ -41,6 +41,8 @@ config = {
         tmuxKeymap("SUPER", "g", "g"),
         -- Open Jira CLI (CMD + j)
         tmuxKeymap("SUPER", "j", "j"),
+        -- Open Jira CLI - hotfixes only (CMD + J)
+        tmuxKeymap("SUPER", "J", "J"),
         -- Open GitHub Dashboard (CMD + Shift + g)
         tmuxKeymap("SUPER", "G", "G"),
 
