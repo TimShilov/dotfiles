@@ -150,8 +150,6 @@
       "gnu-sed"
       "stow"
       "temporal"
-      "tlrc"
-      "tokei"
       "tree"
       "watch"
       "wget"

@@ -41,6 +41,8 @@ in
     go
     grizzly
     kondo
+    tlrc
+    tokei
     luarocks
     mysql84
     nixfmt-rfc-style
