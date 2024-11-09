@@ -365,6 +365,11 @@ in
     taskwarrior = {
       enable = true;
       package = pkgs.taskwarrior3;
+      config = {
+        uda.taskwarrior-tui.shortcuts = {
+          "1" = "~/dotfiles/scripts/taskopen.sh";
+        };
+      };
     };
 
     zsh = {
