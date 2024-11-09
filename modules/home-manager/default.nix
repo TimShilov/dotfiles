@@ -470,7 +470,6 @@ in
           # source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
           #
           # source <(kubectl completion zsh)
-          . /opt/homebrew/opt/asdf/libexec/asdf.sh
         '';
 
       initExtra = # bash
