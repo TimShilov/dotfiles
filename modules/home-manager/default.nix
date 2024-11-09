@@ -37,6 +37,7 @@ in
     atac
     bkt # Bash caching
     fswatch
+    taskopen
     gnupg
     go
     grizzly
