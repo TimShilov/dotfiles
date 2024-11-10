@@ -3,36 +3,37 @@
 # section below determining their properties, how to query them, etc.  The name
 # is just a symbol, and doesn't have any functional importance.
 # targets = my_github, my_bitbucket, paj_bitbucket, moksha_trac, bz.redhat
-targets = github_personal, github_impact, jira
+targets = github_impact, github_personal, jira
 
 # If unspecified, the default taskwarrior config will be used.
 taskrc = ~/.config/task/home-manager-taskrc
+replace_tags = True
 annotation_links = True
 annotation_comments = False
 
 [github_personal]
 service = github
+github.description_template = PR#{{githubnumber}}: {{githubtitle}}
 github.login = TimShilov
-github.only_if_assigned = True
+github.only_if_assigned = False
 github.token = @oracle:eval:pass github/bugwarrior-token
-github.query = "is:open assignee:TimShilov"
+github.query = is:open is:pr user-review-requested:TimShilov
 github.username = TimShilov
 github.include_user_issues = False
 github.include_user_repos = False
-github.filter_pull_requests = True
-github.add_tags = [github,personal]
+github.add_tags = personal
 
 [github_impact]
 service = github
+github.description_template = PR#{{githubnumber}}: {{githubtitle}}
 github.login = TimShilov
-github.only_if_assigned = True
+github.only_if_assigned = False
 github.token = @oracle:eval:pass github/bugwarrior-token
-github.query = "is:open assignee:TimShilov"
+github.query = is:open is:pr user-review-requested:TimShilov
 github.username = ImpactInc
 github.include_user_issues = False
 github.include_user_repos = False
-github.filter_pull_requests = True
-github.add_tags = [github,impact]
+github.add_tags = impact
 
 
 [jira]
