@@ -42,7 +42,6 @@ in
     gnupg
     go
     grizzly
-    helm-dashboard
     jira-cli-go
     kondo
     kubectx
@@ -158,7 +157,7 @@ in
   home.sessionPath = [
     "$HOME/.grit/bin"
     "$HOME/.krew/bin"
-    "$HOME/.dotnet/tools"
+    # "$HOME/.dotnet/tools"
   ];
 
   catppuccin = {
@@ -470,6 +469,7 @@ in
           # source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
           #
           # source <(kubectl completion zsh)
+          . $(brew --prefix asdf)/libexec/asdf.sh
         '';
 
       initExtra = # bash

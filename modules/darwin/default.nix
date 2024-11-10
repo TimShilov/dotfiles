@@ -134,6 +134,7 @@
       "helm"
       "mas"
       "ncdu"
+      "asdf"
       # {
       #   name = "sketchybar";
       #   restart_service = "changed";
