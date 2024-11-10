@@ -46,9 +46,10 @@
   };
 
   # Auto upgrade nix package and the daemon service.
-  nix.package = pkgs.nixVersions.latest;
-  nix.gc = {
-    automatic = true;
+  nix = {
+    package = pkgs.nixVersions.latest;
+    gc.automatic = true;
+    optimise.automatic = true;
   };
   services = {
     nix-daemon = {
