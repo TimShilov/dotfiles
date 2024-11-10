@@ -26,9 +26,6 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  xdg = {
-    enable = true;
-  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -144,6 +141,16 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+  };
+
+  xdg = {
+    enable = true;
+    dataFile = {
+      "password-store/" = {
+        source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/password-store;
+        recursive = true;
+      };
+    };
   };
 
   home.sessionVariables = {
