@@ -81,6 +81,7 @@ vim.diagnostic.config {
       return diagnostic.message
     end,
   },
+  severity_sort = true,
   underline = true,
   update_in_insert = true,
   float = {
@@ -91,7 +92,7 @@ vim.diagnostic.config {
   },
   -- Make diagnostic background transparent
   on_ready = function()
-    vim.cmd 'highlight DiagnosticVirtualText guibg=NONE'
+    vim.cmd 'highlight NormalFloat guibg=NONE'
   end,
 }
 vim.filetype.add {
