@@ -10,10 +10,11 @@ taskrc = ~/.config/task/home-manager-taskrc
 replace_tags = True
 annotation_links = True
 annotation_comments = False
+description_length = 45
 
 [github_personal]
 service = github
-github.description_template = PR#{{githubnumber}}: {{githubtitle}}
+github.description_template = PR#{{githubnumber}}: {{githubtitle | trim}}
 github.login = TimShilov
 github.only_if_assigned = False
 github.token = @oracle:eval:pass github/bugwarrior-token
@@ -25,7 +26,7 @@ github.add_tags = personal
 
 [github_impact]
 service = github
-github.description_template = PR#{{githubnumber}}: {{githubtitle}}
+github.description_template = PR#{{githubnumber}}: {{githubtitle | trim}}
 github.login = TimShilov
 github.only_if_assigned = False
 github.token = @oracle:eval:pass github/bugwarrior-token
@@ -42,7 +43,7 @@ jira.base_uri = https://impact.atlassian.net
 jira.username = tim.shilov@impact.com
 jira.password = @oracle:eval:pass jira/token
 jira.query = assignee = "tim.shilov@impact.com" and resolution = Unresolved
-jira.description_template = {{jiraissuetype}}: {{jirasummary}}
+jira.description_template = {{jirastatus}}: {{jirasummary | trim | truncate(60)}}
 # Set this to your jira major version. We currently support only jira version
 # 4 and 5(the default). You can find your particular version in the footer at
 # the dashboard.
