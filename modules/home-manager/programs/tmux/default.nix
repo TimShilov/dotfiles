@@ -26,6 +26,7 @@ in
     keyMode = "vi";
     plugins = with pkgs.tmuxPlugins; [
       nerdFontWindowNamePlugin
+      fzf-tmux-url
       sensible
       resurrect
       continuum
@@ -48,13 +49,14 @@ in
           set -g @catppuccin_window_flags_icon_zoom "󰁌 "
           set -g @catppuccin_window_text " #W"
 
-          GITHUB_PR_COUNT="#(bkt --ttl=112s --discard-failures -- task githubnumber +READY count)"
-          JIRA_TICKET_COUNT="#(bkt --ttl=60s --discard-failures -- task jiraid +READY count)"
-          JIRA_HOTFIX_COUNT="#(bkt --ttl=55s --discard-failures -- task jiraissuetype:HotFix +READY count)"
+          TASK_CMD="task rc.gc=off"
+          GITHUB_PR_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD githubnumber +READY count)"
+          JIRA_TICKET_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD jiraid +READY count)"
+          JIRA_HOTFIX_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD jiraissuetype:HotFix +READY count)"
 
           STATUS_SEPARATOR=" "
 
-          set -g status-right "#[fg=#{@thm_subtext_1},align=centre]#(task _get $(task next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description)#[align=right]"
+          set -g status-right "#[fg=#{@thm_subtext_1},align=centre]#($TASK_CMD _get $($TASK_CMD next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description)#[align=right]"
 
           set -ag status-right "#[fg=#{@thm_blue}]󰌃 "
           set -ag status-right "#[fg=#{@thm_red}]#{?#{>:$JIRA_HOTFIX_COUNT,0},$JIRA_HOTFIX_COUNT ,}"
