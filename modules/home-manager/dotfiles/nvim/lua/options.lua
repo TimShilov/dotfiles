@@ -84,7 +84,7 @@ vim.diagnostic.config {
   underline = true,
   update_in_insert = true,
   float = {
-    header = 'false',
+    header = false,
     source = true,
     border = 'rounded',
     focusable = true,
