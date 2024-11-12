@@ -14,9 +14,6 @@ return {
       },
     },
     views = {
-      mini = {
-        win_options = { winblend = 0 },
-      },
       hover = {
         border = { style = 'rounded' },
         size = { max_width = 80 },
