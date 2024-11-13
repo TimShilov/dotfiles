@@ -1,13 +1,16 @@
 {
   programs.k9s = {
     enable = true;
+    catppuccin = {
+      transparent = true;
+    };
     settings = {
       k9s = {
         liveViewAutoRefresh = true;
         skipLatestRevCheck = false;
         logger = {
           textWrap = true;
-          sinceSeconds = 300;
+          sinceSeconds = -1; # -1 means tail
           buffer = 5000;
         };
         ui = {
