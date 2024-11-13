@@ -57,7 +57,7 @@ return { -- LSP Configuration & Plugins
         end
 
         vim.api.nvim_create_autocmd('BufWritePre', {
-          pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
+          pattern = { '*.tsx', '*.mjs', '*.cjs', '*.ts', '*.jsx', '*.js' },
           command = 'silent! EslintFixAll',
           group = vim.api.nvim_create_augroup('ESlintFixAll', {}),
         })
