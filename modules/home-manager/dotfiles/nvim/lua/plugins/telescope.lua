@@ -32,6 +32,7 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
+    'nvim-telescope/telescope-frecency.nvim',
     'nvim-tree/nvim-web-devicons',
   },
 
@@ -41,6 +42,7 @@ return {
     telescope.setup { defaults = defaults }
     -- Enable telescope fzf native, if installed
     telescope.load_extension 'fzf'
+    telescope.load_extension 'frecency'
 
     -- Telescope live_grep in git root
     -- Function to find the git root directory based on the current buffer's path
@@ -79,7 +81,7 @@ return {
     vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
     -- See `:help telescope.builtin`
-    vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+    vim.keymap.set('n', '<leader>?', '<cmd>Telescope frecency<CR>', { desc = '[?] Find recently opened files' })
     vim.keymap.set('n', '<leader>.', function()
       builtin.find_files { cwd = vim.fn.expand '%:p:h:h' }
     end, { desc = '[.] Find close files (at most 2 levels up)' })
