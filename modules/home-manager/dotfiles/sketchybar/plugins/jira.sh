@@ -8,12 +8,14 @@ JIRA_TICKET_COUNT=$($CACHE_CMD $TASK_CMD jiraid +READY count)
 JIRA_HOTFIX_COUNT=$($CACHE_CMD $TASK_CMD jiraissuetype:HotFix +READY count)
 
 LABEL="$JIRA_TICKET_COUNT"
+COLOR="$BLUE"
 
 if [ "$JIRA_HOTFIX_COUNT" -gt 0 ]; then
     LABEL="$JIRA_HOTFIX_COUNT $JIRA_TICKET_COUNT"
+    COLOR="$RED"
 fi
 
 sketchybar --set "$NAME" \
-    icon="󰌃 " icon.color="$BLUE" \
+    icon="󰌃 " icon.color="$COLOR" \
     label="$LABEL" \
-    label.color="$BLUE"
+    label.color="$COLOR"

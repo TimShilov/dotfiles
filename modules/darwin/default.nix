@@ -55,6 +55,13 @@
     nix-daemon = {
       enable = true;
     };
+    sketchybar = {
+      enable = true;
+      extraPackages = with pkgs; [
+        bkt
+        taskwarrior3
+      ];
+    };
     jankyborders = {
       active_color = "gradient(top_left=0xffcba6f7,bottom_right=0xfffab387)";
       enable = true;
@@ -67,7 +74,9 @@
     };
   };
   # Necessary for using flakes on this system.
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+  };
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;
@@ -124,7 +133,6 @@
       "tableplus"
     ];
     taps = [
-      "FelixKratz/formulae"
       "homebrew/bundle"
       "homebrew/services"
       "nikitabobko/tap"
@@ -135,11 +143,6 @@
       "mas"
       "ncdu"
       "asdf"
-      {
-        name = "sketchybar";
-        restart_service = "changed";
-        start_service = true;
-      }
       "gnu-sed"
       "watch"
     ];
