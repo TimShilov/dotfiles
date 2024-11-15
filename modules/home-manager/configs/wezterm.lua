@@ -36,15 +36,20 @@ config = {
         tmuxKeymap("SUPER", "l", "L"),
 
         -- Reload tmux config (CMD + r)
-        tmuxKeymap("SUPER", "r", "r"),
         -- Open Lazygit (CMD + g)
         tmuxKeymap("SUPER", "g", "g"),
+        tmuxKeymap("SUPER", "r", "r"),
         -- Open Jira CLI (CMD + j)
         tmuxKeymap("SUPER", "j", "j"),
         -- Open Jira CLI - hotfixes only (CMD + J)
         tmuxKeymap("SUPER", "J", "J"),
         -- Open GitHub Dashboard (CMD + Shift + g)
         tmuxKeymap("SUPER", "G", "G"),
+
+        -- Split vertically (CMD + n)
+        tmuxKeymap("SUPER", "n", "n"),
+        -- Split horizontally (CMD + Shift + n)
+        tmuxKeymap("SUPER", "N", "N"),
 
         -- New tmux window (CMD + t)
         tmuxKeymap("SUPER", "t", "c"),
