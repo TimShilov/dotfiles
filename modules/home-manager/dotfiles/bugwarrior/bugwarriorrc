@@ -43,7 +43,7 @@ jira.base_uri = https://impact.atlassian.net
 jira.username = tim.shilov@impact.com
 jira.password = @oracle:eval:pass jira/token
 jira.query = assignee = "tim.shilov@impact.com" and resolution = Unresolved
-jira.description_template = {{jirastatus}}: {{jirasummary | trim | truncate(60)}}
+jira.description_template = {{jirastatus}}: {{jirasummary | trim}}
 # Set this to your jira major version. We currently support only jira version
 # 4 and 5(the default). You can find your particular version in the footer at
 # the dashboard.
