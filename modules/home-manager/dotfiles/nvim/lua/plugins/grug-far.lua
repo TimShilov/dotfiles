@@ -5,9 +5,13 @@ return {
     searchOnInsertLeave = false,
 
     -- whether or not to make a transient buffer which is both unlisted and fully deletes itself when not in use
-    transient = false,
+    transient = true,
+
+    history = {
+      autoSave = { enabled = true },
+    },
   },
-  -- config = function()
-  --   require('grug-far').setup {}
-  -- end,
+  keys = {
+    { '<leader>ss', '<cmd>GrugFar<CR>', desc = 'GrugFar: Search' },
+  },
 }
