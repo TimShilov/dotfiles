@@ -49,25 +49,28 @@ in
           set -g @catppuccin_window_flags_icon_zoom "󰁌 "
           set -g @catppuccin_window_text " #W"
 
-          TASK_CMD="task rc.gc=off"
-          GITHUB_PR_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD githubnumber +READY count)"
-          JIRA_TICKET_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD jiraid +READY count)"
-          JIRA_HOTFIX_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD jiraissuetype:HotFix +READY count)"
+          set -g status-right ""
 
-          STATUS_SEPARATOR=" "
+          # Replaced with SketchyBar. TODO: Consider removing
+          # TASK_CMD="task rc.gc=off"
+          # GITHUB_PR_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD githubnumber +READY count)"
+          # JIRA_TICKET_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD jiraid +READY count)"
+          # JIRA_HOTFIX_COUNT="#(bkt --ttl=1m --discard-failures -- $TASK_CMD jiraissuetype:HotFix +READY count)"
+          #
+          # STATUS_SEPARATOR=" "
+          #
+          # set -g status-right "#[fg=#{@thm_subtext_1},align=centre]#($TASK_CMD _get $($TASK_CMD next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description)#[align=right]"
+          #
+          # set -ag status-right "#[fg=#{@thm_blue}]󰌃 "
+          # set -ag status-right "#[fg=#{@thm_red}]#{?#{>:$JIRA_HOTFIX_COUNT,0},$JIRA_HOTFIX_COUNT ,}"
+          # set -ag status-right "#[fg=#{@thm_blue}]$JIRA_TICKET_COUNT "
+          # set -ag status-right "$STATUS_SEPARATOR"
+          #
+          # set -ag status-right "#[fg=#{@thm_peach}] "
+          # set -ag status-right "#[fg=#{@thm_peach}]$GITHUB_PR_COUNT "
+          # set -ag status-right "$STATUS_SEPARATOR"
 
-          set -g status-right "#[fg=#{@thm_subtext_1},align=centre]#($TASK_CMD _get $($TASK_CMD next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description)#[align=right]"
-
-          set -ag status-right "#[fg=#{@thm_blue}]󰌃 "
-          set -ag status-right "#[fg=#{@thm_red}]#{?#{>:$JIRA_HOTFIX_COUNT,0},$JIRA_HOTFIX_COUNT ,}"
-          set -ag status-right "#[fg=#{@thm_blue}]$JIRA_TICKET_COUNT "
-          set -ag status-right "$STATUS_SEPARATOR"
-
-          set -ag status-right "#[fg=#{@thm_peach}] "
-          set -ag status-right "#[fg=#{@thm_peach}]$GITHUB_PR_COUNT "
-          set -ag status-right "$STATUS_SEPARATOR"
-
-          set -ag status-right "#{E:@catppuccin_status_session}"
+          set -ag status-right "#[fg=#{@thm_green}] #S "
         '';
     };
 
