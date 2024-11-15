@@ -11,7 +11,7 @@
       spans-displays = false;
     };
     NSGlobalDomain = {
-      _HIHideMenuBar = false;
+      _HIHideMenuBar = true;
     };
     CustomUserPreferences = {
       NSGlobalDomain = {
@@ -125,7 +125,7 @@
       "thunderbird"
     ];
     taps = [
-      # "FelixKratz/formulae"
+      "FelixKratz/formulae"
       "homebrew/bundle"
       "homebrew/services"
       "nikitabobko/tap"
@@ -136,11 +136,11 @@
       "mas"
       "ncdu"
       "asdf"
-      # {
-      #   name = "sketchybar";
-      #   restart_service = "changed";
-      #   start_service = true;
-      # }
+      {
+        name = "sketchybar";
+        restart_service = "changed";
+        start_service = true;
+      }
       "gnu-sed"
       "watch"
     ];

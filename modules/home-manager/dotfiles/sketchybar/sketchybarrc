@@ -2,6 +2,7 @@
 # It is meant to be changed and configured, as it is intentionally kept sparse.
 # For a (much) more advanced configuration example see my dotfiles:
 # https://github.com/FelixKratz/dotfiles
+
 # TODO: Rewrite to Lua
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
@@ -18,9 +19,11 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 #
 
-FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+# FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+FONT="JetBrainsMono NF" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 SHADOW=on
-PADDINGS=3 # All paddings use this value (icon, label, background and bar paddings)
+PADDINGS=4 # All paddings use this value (icon, label, background and bar paddings)
+ITEM_SEPARATOR_PADDING=8
 
 POPUP_BORDER_WIDTH=2
 POPUP_CORNER_RADIUS=11
@@ -30,25 +33,26 @@ sketchybar --bar     height=38                                           \
                      border_width=0                                      \
                      blur_radius=50                                      \
                      position=top                                        \
-                     padding_left=10                                     \
-                     padding_right=10                                    \
+                     padding_left=12                                     \
+                     padding_right=12                                    \
                      color=$BAR_COLOR                                    \
+                     display=all                                         \
                      topmost=off                                         \
                      sticky=on                                           \
-                     font_smoothing=off                                  \
+                     font_smoothing=on                                   \
                      shadow=$SHADOW                                      \
                      notch_width=200                                     \
                                                                          \
            --default drawing=on                                          \
                      updates=when_shown                                  \
-                     label.font="$FONT:Semibold:14.0"                    \
-                     icon.font="$FONT:Bold:15.0"                         \
+                     label.font="$FONT:Regular:15.0"                    \
+                     icon.font="$FONT:Bold:16.0"                         \
                      icon.color=$ICON_COLOR                              \
                      label.color=$LABEL_COLOR                            \
                      icon.padding_left=$PADDINGS                         \
                      icon.padding_right=$PADDINGS                        \
                      label.padding_left=$PADDINGS                        \
-                     label.padding_right=$PADDINGS                       \
+                     label.padding_right=$ITEM_SEPARATOR_PADDING         \
                      background.padding_right=$PADDINGS                  \
                      background.padding_left=$PADDINGS                   \
                      popup.background.border_width=$POPUP_BORDER_WIDTH   \
@@ -89,8 +93,8 @@ sketchybar --bar     height=38                                           \
 source "$ITEM_DIR/spaces.sh"
 
 sketchybar --add item front_app left \
-           --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
-           --subscribe front_app front_app_switched
+       --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+       --subscribe front_app front_app_switched
 
 ##### Adding Right Items #####
 # In the same way as the left items we can add items to the right side.
@@ -104,10 +108,18 @@ sketchybar --add item front_app left \
 # https://felixkratz.github.io/SketchyBar/config/events
 
 sketchybar --add item clock right \
-           --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
-           --add item battery right \
-           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change
+       --set clock update_freq=10 updates=when_shown script="$PLUGIN_DIR/clock.sh" \
+       \
+       --add item battery right \
+       --set battery update_freq=120 updates=when_shown script="$PLUGIN_DIR/battery.sh" \
+       --subscribe battery system_woke power_source_change \
+       \
+       --add item github right \
+       --set github update_freq=120 script="$PLUGIN_DIR/github.sh" \
+       \
+       --add item jira right \
+       --set jira update_freq=120 script="$PLUGIN_DIR/jira.sh"
+
 
 
 ##### Force all scripts to run the first time (never do this in a script) #####
