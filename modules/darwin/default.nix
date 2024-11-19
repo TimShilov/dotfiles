@@ -139,6 +139,7 @@
     brews = [
       "bitwarden-cli"
       "helm"
+      "dhth/tap/act3"
       "mas"
       "ncdu"
       "asdf"
