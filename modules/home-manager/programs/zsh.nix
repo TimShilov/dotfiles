@@ -12,8 +12,10 @@
       nixup = "pushd ~/dotfiles; nix flake update; nixswitch; popd";
       nixclean = "nix-collect-garbage --delete-older-than 14d";
 
-      dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
       cat = "bat";
+      dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
+      k = "~/dotfiles/scripts/kubernetes.sh";
+      p = "pet exec";
       tt = "taskwarrior-tui";
       v = "nvim";
     };
