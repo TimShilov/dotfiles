@@ -180,6 +180,34 @@
     ripgrep = {
       enable = true;
     };
+    pet = {
+      enable = true;
+      snippets = [
+        {
+          command = "npx vitest run --disableConsoleIntercept --changed -u && pnpm lint:ci";
+          description = "Test Everything (vitest + ts)";
+          tag = [
+            "vitest"
+            "typescript"
+          ];
+        }
+        {
+          command = "pnpm index tasks run maintenance/migrate-db --debug";
+          description = "Migrate DB (ETL Engine)";
+          tag = [ "etl engine" ];
+        }
+        {
+          command = "node temp/run-mysql-for-all-agencies.js";
+          description = "Run MySQL for all agencies";
+          tag = [ "agency" ];
+        }
+        {
+          command = "pnpm index validate-staging-debug-files --debug";
+          description = "Validate Staging Debug Files (ETL Engine)";
+          tag = [ "etl engine" ];
+        }
+      ];
+    };
 
     # Let Home Manager install and manage itself.
     home-manager.enable = true;

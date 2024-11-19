@@ -17,7 +17,6 @@
     grizzly
     jira-cli-go
     lynx
-    pet # CLI snippet manager
     kondo
     kubectx
     luarocks
