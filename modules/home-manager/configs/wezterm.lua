@@ -56,6 +56,9 @@ config = {
         -- Close tmux window (CMD + w)
         tmuxKeymap("SUPER", "w", "&"),
 
+        -- tmux-fzf-url (CMD + u)
+        tmuxKeymap("SUPER", "u", "u"),
+
         -- Zoom in tmux pane (CMD + f)
         tmuxKeymap("SUPER", "f", "z"),
 
