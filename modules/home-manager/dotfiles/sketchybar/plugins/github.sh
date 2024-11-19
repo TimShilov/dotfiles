@@ -6,7 +6,7 @@ TASK_CMD="task rc.gc=off"
 CACHE_CMD="bkt --ttl=1m --discard-failures --"
 
 GITHUB_PR_COUNT=$(
-    $CACHE_CMD $TASK_CMD githubnumber +READY count
+    $TASK_CMD githubnumber +READY count
 )
 
 sketchybar --set "$NAME" \

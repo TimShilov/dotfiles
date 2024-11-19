@@ -4,8 +4,8 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 TASK_CMD="task rc.gc=off"
 CACHE_CMD="bkt --ttl=1m --discard-failures --"
-JIRA_TICKET_COUNT=$($CACHE_CMD $TASK_CMD jiraid +READY count)
-JIRA_HOTFIX_COUNT=$($CACHE_CMD $TASK_CMD jiraissuetype:HotFix +READY count)
+JIRA_TICKET_COUNT=$($TASK_CMD jiraid +READY count)
+JIRA_HOTFIX_COUNT=$($TASK_CMD jiraissuetype:HotFix +READY count)
 
 LABEL="$JIRA_TICKET_COUNT"
 COLOR="$BLUE"
