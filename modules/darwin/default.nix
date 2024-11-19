@@ -120,7 +120,6 @@
     casks = [
       "aerospace"
       "arc"
-      "bartender"
       "firefox"
       "firefox@nightly"
       "gather"
