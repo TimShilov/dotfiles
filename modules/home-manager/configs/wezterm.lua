@@ -59,6 +59,9 @@ config = {
         -- tmux-fzf-url (CMD + u)
         tmuxKeymap("SUPER", "u", "u"),
 
+        -- kubernetes (CMD + e)
+        tmuxKeymap("SUPER", "e", "e"),
+
         -- Zoom in tmux pane (CMD + f)
         tmuxKeymap("SUPER", "f", "z"),
 
