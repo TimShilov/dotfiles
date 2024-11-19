@@ -81,7 +81,7 @@ return {
     vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
     -- See `:help telescope.builtin`
-    vim.keymap.set('n', '<leader>?', '<cmd>Telescope frecency<CR>', { desc = '[?] Find recently opened files' })
+    vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
     vim.keymap.set('n', '<leader>.', function()
       builtin.find_files { cwd = vim.fn.expand '%:p:h:h' }
     end, { desc = '[.] Find close files (at most 2 levels up)' })
