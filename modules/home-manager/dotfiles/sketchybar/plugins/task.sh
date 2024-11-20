@@ -9,4 +9,29 @@ TOP_TASK=$(
     $TASK_CMD _get $($TASK_CMD next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description
 )
 
-sketchybar --set "$NAME" label="$TOP_TASK" label.color="$GREEN"
+COLORS=(
+    "$ROSEWATER"
+    "$FLAMINGO"
+    "$PINK"
+    "$MAUVE"
+    "$MAROON"
+    "$PEACH"
+    "$YELLOW"
+    "$GREEN"
+    "$TEAL"
+    "$SKY"
+    "$SAPPHIRE"
+    "$BLUE"
+    "$LAVENDER"
+)
+
+# Get the current hour (0-23)
+CURRENT_HOUR=$(date +%H)
+
+# Calculate the index by taking the modulo of the current hour and the number of colors
+COLOR_INDEX=$((CURRENT_HOUR % ${#COLORS[@]}))
+
+# Get the color for this hour
+COLOR=${COLORS[$COLOR_INDEX]}
+
+sketchybar --set "$NAME" label="$TOP_TASK" label.color="$COLOR"
