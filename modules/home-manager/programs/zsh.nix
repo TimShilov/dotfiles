@@ -14,6 +14,7 @@
 
       cat = "bat";
       dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
+      gs = "git status";
       k = "~/dotfiles/scripts/kubernetes.sh";
       p = "pet exec";
       tt = "taskwarrior-tui";
