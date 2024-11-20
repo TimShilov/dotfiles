@@ -23,6 +23,7 @@ local defaults = {
 
 return {
   'nvim-telescope/telescope.nvim',
+  tag = '0.1.8',
   dependencies = {
     'nvim-lua/plenary.nvim',
     {
@@ -53,7 +54,6 @@ return {
       if current_file == '' then
         current_dir = cwd
       else
-        -- Extract the directory from the current file's path
         current_dir = vim.fn.fnamemodify(current_file, ':h')
       end
 
@@ -101,6 +101,7 @@ return {
       builtin.find_files { hidden = true, search_file = search_file }
     end, { desc = '[S]earch by [N]ame' })
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+    vim.keymap.set('n', '<leader>st', ':Telescope<cr>', { desc = 'Search [T]elescope' })
     vim.keymap.set('n', '<leader>sf', function()
       builtin.find_files { hidden = true, file_ignore_patterns = { '.git' } }
     end, { desc = '[S]earch [F]iles' })
