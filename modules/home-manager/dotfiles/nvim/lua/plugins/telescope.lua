@@ -32,7 +32,6 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
-    'nvim-telescope/telescope-frecency.nvim',
     'nvim-tree/nvim-web-devicons',
   },
 
@@ -42,7 +41,6 @@ return {
     telescope.setup { defaults = defaults }
     -- Enable telescope fzf native, if installed
     telescope.load_extension 'fzf'
-    telescope.load_extension 'frecency'
 
     -- Telescope live_grep in git root
     -- Function to find the git root directory based on the current buffer's path
