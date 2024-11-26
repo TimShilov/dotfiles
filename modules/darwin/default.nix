@@ -33,8 +33,6 @@
       pam-reattach
       btop
       cargo
-      podman
-      podman-compose
       fd
       gh-ost
       htop
@@ -141,6 +139,8 @@
       "helm"
       "dhth/tap/act3"
       "mas"
+      "podman" # Must be installed with Brew to not have issues with Netskope
+      "podman-compose"
       "ncdu"
       "asdf"
       "gnu-sed"
