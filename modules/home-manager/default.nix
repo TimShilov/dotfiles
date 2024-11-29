@@ -170,9 +170,6 @@
     gh-dash = {
       enable = true;
     };
-    git = {
-      enable = true;
-    };
     yazi = {
       enable = true;
       enableZshIntegration = true;
