@@ -67,7 +67,7 @@ config = {
 
         -- Tmux window navigation (CMD + [/])
         tmuxKeymap("SUPER", "[", "p"),
-        tmuxKeymap("SUPER", "]", "n"),
+        tmuxKeymap("SUPER", "]", "]"),
 
         -- Switch to tmux window (CMD + 1..5)
         tmuxKeymap("SUPER", "1", "1"),
