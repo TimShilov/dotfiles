@@ -133,11 +133,6 @@ check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace 9']
-
-[[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 2']
@@ -153,11 +148,6 @@ check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 8']
 
 [[on-window-detected]]
-if.app-id = 'us.zoom.xos'
-check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace 9']
-
-[[on-window-detected]]
 if.app-id = 'org.mozilla.thunderbird'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 3']
@@ -166,3 +156,19 @@ run = ['layout tiling', 'move-node-to-workspace 3']
 if.app-id = 'com.apple.mail'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.gather.Gather'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 9']
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 9']
+
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 9']
+
