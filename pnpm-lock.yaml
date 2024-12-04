@@ -17,8 +17,8 @@ importers:
         specifier: 1.30.1
         version: 1.30.1
       prettier:
-        specifier: 3.4.1
-        version: 3.4.1
+        specifier: 3.4.2
+        version: 3.4.2
       tsx:
         specifier: 4.19.2
         version: 4.19.2
@@ -191,8 +191,8 @@ packages:
   karabiner.ts@1.30.1:
     resolution: {integrity: sha512-a7TnErawJyVlq92rfczfVqU6X7Z4PLe2dnQb/VKsHcQz6N4ZXgTgDLv++7xkLAYYZ1Z3/sGFZCT8CsqZDNqf6Q==}
 
-  prettier@3.4.1:
-    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
+  prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -326,7 +326,7 @@ snapshots:
 
   karabiner.ts@1.30.1: {}
 
-  prettier@3.4.1: {}
+  prettier@3.4.2: {}
 
   resolve-pkg-maps@1.0.0: {}
 
