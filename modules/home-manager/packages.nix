@@ -21,6 +21,7 @@
     kubectx
     luarocks
     mysql84
+    nodePackages.cspell
     nixfmt-rfc-style
     rainfrog # Database management TUI
     sleek

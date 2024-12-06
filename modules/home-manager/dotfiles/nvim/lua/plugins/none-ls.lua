@@ -1,51 +1,29 @@
 return {
   'nvimtools/none-ls.nvim',
-  enabled = false,
+  enabled = true,
   dependencies = {
     'nvimtools/none-ls-extras.nvim',
+    'davidmh/cspell.nvim',
     'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
   },
   config = function()
+    local cspell = require 'cspell'
     local null_ls = require 'null-ls'
-    local formatting = null_ls.builtins.formatting
 
     require('mason-null-ls').setup {
       ensure_installed = {
-        'prettier',
-        'stylua',
-        'shfmt',
+        'cspell',
       },
       automatic_installation = true,
     }
 
     local sources = {
-      formatting.prettier.with {
-        filetypes = {
-          'javascript',
-          'javascriptreact',
-          'typescript',
-          'typescriptreact',
-          'vue',
-          'css',
-          'scss',
-          'less',
-          'html',
-          'json',
-          'json5',
-          'jsonc',
-          'yaml',
-          'markdown',
-          'markdown.mdx',
-          'graphql',
-          'handlebars',
-          'svelte',
-          'astro',
-          'htmlangular',
-        },
+      cspell.diagnostics.with {
+        diagnostics_postprocess = function(diagnostic)
+          diagnostic.severity = vim.diagnostic.severity['WARN']
+        end,
       },
-      formatting.stylua,
-      formatting.shfmt.with { args = { '-i', '4' } },
-      formatting.sql_formatter.with { command = { 'sleek' } },
+      cspell.code_actions,
     }
 
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
@@ -66,7 +44,5 @@ return {
         end
       end,
     }
-
-    vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, { noremap = true, desc = 'Format buffer' })
   end,
 }
