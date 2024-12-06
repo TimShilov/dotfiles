@@ -2,6 +2,8 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+config.max_fps = 120
+
 local tmuxKeymap = function(mods, key, tmuxHotkey)
     return {
         key = key,
