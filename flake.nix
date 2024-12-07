@@ -17,6 +17,9 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    # private.url = "git+ssh://git@github.com/TimShilov/dotfiles-private";
+    private.url = "git+file:///Users/tim.shilov/dotfiles/private";
   };
 
   outputs =
@@ -26,6 +29,7 @@
       catppuccin,
       home-manager,
       nixpkgs,
+      private,
     }:
     {
       # Build darwin flake using:
@@ -47,7 +51,7 @@
               users."tim.shilov".imports = [
                 ./modules/home-manager
                 catppuccin.homeManagerModules.catppuccin
-              ];
+              ] ++ private.modules;
             };
           }
         ];
