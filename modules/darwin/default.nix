@@ -137,6 +137,7 @@
     brews = [
       "bitwarden-cli"
       "helm"
+      "imapfilter"
       "dhth/tap/act3"
       "mas"
       "podman" # Must be installed with Brew to not have issues with Netskope
