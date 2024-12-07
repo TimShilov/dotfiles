@@ -114,11 +114,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1733602049,
-        "narHash": "sha256-f6f5o3Z9iCSt/8LqhO3b72XwQf5G04Uluk29S9YterM=",
+        "lastModified": 1733604979,
+        "narHash": "sha256-A6xULp+dTNMNoCCRyQ04X6HS0JrvdpdAgRjFpkd+wcs=",
         "ref": "refs/heads/main",
-        "rev": "735693cb5a46e989da7fd0630aaf5011d50c9625",
-        "revCount": 9,
+        "rev": "a0135bdb805fdf8c8202aa113b9d3c44acb119e3",
+        "revCount": 12,
         "type": "git",
         "url": "file:///Users/tim.shilov/dotfiles/private"
       },
