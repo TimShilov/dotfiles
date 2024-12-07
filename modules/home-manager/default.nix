@@ -86,7 +86,7 @@
     enable = true;
     dataFile = {
       "password-store/" = {
-        source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/password-store;
+        source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/private/modules/password-store;
         recursive = true;
       };
     };
