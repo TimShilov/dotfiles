@@ -16,9 +16,6 @@ local defaults = {
   },
   file_ignore_patterns = { 'node_modules', 'package-lock.json', '__snapshots__', '*.snap', 'pnpm-lock.yaml' },
   path_display = { 'truncate' },
-  extensions = {
-    package_info = {},
-  },
 }
 
 return {
@@ -26,20 +23,20 @@ return {
   tag = '0.1.8',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make',
-      cond = function()
-        return vim.fn.executable 'make' == 1
-      end,
-    },
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     'nvim-tree/nvim-web-devicons',
   },
 
   config = function()
     local telescope = require 'telescope'
     local builtin = require 'telescope.builtin'
-    telescope.setup { defaults = defaults }
+    telescope.setup {
+      defaults = defaults,
+      extensions = {
+        package_info = {},
+        fzf = {},
+      },
+    }
     -- Enable telescope fzf native, if installed
     telescope.load_extension 'fzf'
 
