@@ -51,3 +51,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 vim.keymap.set('n', '<leader>jo', 'i{oneOf:[<esc>l%a]}<esc>', { desc = 'Wrap with oneOf', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ja', 'i{anyOf:[<esc>l%a]}<esc>', { desc = 'Wrap with anyOf', noremap = true, silent = true })
+
+-- Source file
+vim.keymap.set('n', '<leader>x', ':luafile %<CR>', { desc = 'Source file', noremap = true, silent = true })
