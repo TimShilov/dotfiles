@@ -16,6 +16,7 @@
     ./programs/zsh.nix
 
     ./services/bugwarrior.nix
+    ./services/imapfilter.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
