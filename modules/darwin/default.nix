@@ -58,6 +58,7 @@
       extraPackages = with pkgs; [
         bkt
         taskwarrior3
+        notmuch
       ];
     };
     jankyborders = {
