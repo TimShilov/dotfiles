@@ -47,6 +47,7 @@ return {
   },
   {
     'echasnovski/mini.pairs',
+    enabled = false,
     version = false,
     opts = {
       -- Global mappings. Each right hand side should be a pair information, a
