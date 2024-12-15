@@ -117,6 +117,9 @@
       enable = true;
       enableZshIntegration = true;
     };
+    khal = {
+      enable = true;
+    };
     direnv = {
       enable = true;
       enableZshIntegration = true;
