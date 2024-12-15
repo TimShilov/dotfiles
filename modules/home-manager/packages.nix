@@ -27,6 +27,7 @@
     sleek
     sshs
     taskopen
+    vcal
     tasksh
     taskwarrior-tui
     tlrc
