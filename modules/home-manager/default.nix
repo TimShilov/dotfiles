@@ -17,6 +17,7 @@
 
     ./services/bugwarrior.nix
     ./services/imapfilter.nix
+    ./services/podman-machine.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
