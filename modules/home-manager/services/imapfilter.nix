@@ -9,7 +9,7 @@
       imapfilter = {
         enable = true;
         config = {
-          Label = "tim.imapfilter.run";
+          Label = "dev.shilov.imapfilter.run";
           Program = "/opt/homebrew/bin/imapfilter";
           UserName = "tim.shilov";
           RunAtLoad = true;
