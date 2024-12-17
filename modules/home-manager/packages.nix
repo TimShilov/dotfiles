@@ -16,7 +16,6 @@
     go
     grizzly
     jira-cli-go
-    lynx
     kondo
     kubectx
     luarocks
