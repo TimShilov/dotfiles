@@ -1,7 +1,10 @@
 #!/bin/sh
 
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 DRAWING="on"
+COLOR="$RED"
 
 if [ "$PERCENTAGE" = "" ]; then
     exit 0
@@ -34,4 +37,4 @@ fi
 
 # The item invoking this script (name $NAME) will get its icon and label
 # updated with the current battery status
-sketchybar --set "$NAME" drawing="$DRAWING" icon="$ICON" label="${PERCENTAGE}%"
+sketchybar --set "$NAME" drawing="$DRAWING" icon="$ICON" icon.color="$COLOR" label.color="$COLOR" label="${PERCENTAGE}%"
