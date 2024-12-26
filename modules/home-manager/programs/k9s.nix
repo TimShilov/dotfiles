@@ -1,9 +1,6 @@
 {
   programs.k9s = {
     enable = true;
-    catppuccin = {
-      transparent = true;
-    };
     settings = {
       k9s = {
         liveViewAutoRefresh = true;

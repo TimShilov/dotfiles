@@ -111,6 +111,26 @@
   catppuccin = {
     enable = true;
     flavor = "mocha";
+    k9s = {
+      transparent = true;
+    };
+    tmux = {
+      extraConfig = # bash
+        ''
+          set -g @catppuccin_status_background "none"
+          # TODO: Make sure that all the options are correct as they were changed in 2.0.0 (@see https://github.com/catppuccin/tmux/blob/main/docs/reference/configuration.md)
+          set -g @catppuccin_status_modules_right "session"
+
+          set -g @catppuccin_window_current_text " #W"
+          set -g @catppuccin_window_flags "icon"
+          set -g @catppuccin_window_flags_icon_activity "󱅫"
+          set -g @catppuccin_window_flags_icon_bell "󰂞"
+          set -g @catppuccin_window_flags_icon_current ""
+          set -g @catppuccin_window_flags_icon_last ""
+          set -g @catppuccin_window_flags_icon_zoom "󰁌 "
+          set -g @catppuccin_window_text " #W"
+        '';
+    };
   };
 
   programs = {
