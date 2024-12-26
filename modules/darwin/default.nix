@@ -12,6 +12,8 @@
     };
     NSGlobalDomain = {
       _HIHideMenuBar = true;
+      KeyRepeat = 1;
+      InitialKeyRepeat = 10;
     };
     CustomUserPreferences = {
       NSGlobalDomain = {
