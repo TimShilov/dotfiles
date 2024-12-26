@@ -156,6 +156,11 @@
     mbsync = {
       enable = true;
     };
+    pay-respects = {
+      # TODO[2025-02-01]: Remove if not used
+      enable = true;
+      enableZshIntegration = true;
+    };
     notmuch = {
       enable = true;
       search = {
