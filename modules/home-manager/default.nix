@@ -17,6 +17,8 @@
 
     ./services/bugwarrior.nix
     ./services/imapfilter.nix
+    ./services/email-sync.nix
+    ./services/email-index.nix
     ./services/podman-machine.nix
   ];
 

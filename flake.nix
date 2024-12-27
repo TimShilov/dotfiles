@@ -18,7 +18,6 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # private.url = "git+ssh://git@github.com/TimShilov/dotfiles-private";
