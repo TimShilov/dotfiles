@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   ...
 }:
 {
@@ -17,8 +18,14 @@
           StandardErrorPath = "${config.home.homeDirectory}/logs/imapfilter.err";
           StandardOutPath = "${config.home.homeDirectory}/logs/imapfilter.out";
           EnvironmentVariables = {
-            PATH = "${config.home.profileDirectory}/bin:/usr/local/bin:/usr/bin:/bin";
-            PASSWORD_STORE_DIR = "${config.home.profileDirectory}/.password-store";
+            PATH = lib.concatStringsSep ":" [
+              "${config.home.profileDirectory}/bin"
+              "/usr/local/bin"
+              "/opt/homebrew/bin/"
+              "/usr/bin"
+              "/bin"
+            ];
+            PASSWORD_STORE_DIR = "${config.xdg.dataHome}/password-store";
           };
         };
       };
