@@ -124,6 +124,7 @@
       "firefox"
       "firefox@nightly"
       "gather"
+      "ghostty"
       "google-cloud-sdk"
       "karabiner-elements"
       "macs-fan-control"
