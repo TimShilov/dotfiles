@@ -5,6 +5,7 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'aznhe21/actions-preview.nvim',
+    'saghen/blink.cmp',
   },
   event = { 'BufReadPre', 'BufNewFile', 'BufEnter' },
   config = function()
@@ -65,7 +66,7 @@ return { -- LSP Configuration & Plugins
     })
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
 
     -- Enable the following language servers
     local servers = {
