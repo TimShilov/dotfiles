@@ -6,6 +6,7 @@ window-padding-x = 0
 window-padding-y = 0
 macos-window-shadow = false
 confirm-close-surface = false
+cursor-style = block
 
 keybind = ctrl+f=unbind
 keybind = super+n=unbind
