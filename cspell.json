@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "dictionaries": [
+    "bash",
+    "companies",
+    "en_US",
+    "misc",
+    "node",
+    "npm",
+    "softwareTerms",
+    "typescript"
+  ],
+  "words": ["catppuccin", "nvim", "noice", "neotest", "dadbod", "undercurl"],
+  "flagWords": [],
+  "useGitignore": true,
+  "ignorePaths": ["pnpm-lock.yaml", "flake.lock"],
+  "language": "en"
+}
