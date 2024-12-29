@@ -17,13 +17,17 @@ return {
       automatic_installation = true,
     }
 
+    local project_root = { vim.fs.dirname(vim.fs.find({ '.git', 'cspell.json' }, { upward = true })[1]), '~/.config/' }
+    local cspell_options = {
+      cspell_config_dirs = { project_root, '~/.config/' },
+      diagnostics_postprocess = function(diagnostic)
+        diagnostic.severity = vim.diagnostic.severity['WARN']
+      end,
+    }
+
     local sources = {
-      cspell.diagnostics.with {
-        diagnostics_postprocess = function(diagnostic)
-          diagnostic.severity = vim.diagnostic.severity['WARN']
-        end,
-      },
-      cspell.code_actions,
+      cspell.diagnostics.with(cspell_options),
+      cspell.code_actions.with(cspell_options),
     }
 
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
