@@ -8,6 +8,8 @@ macos-window-shadow = false
 confirm-close-surface = false
 
 keybind = ctrl+f=unbind
+keybind = super+n=unbind
+keybind = super+shift+n=unbind
 
 # \x02 is Ctrl+b
 # Previous tmux session (CMD + l)
@@ -26,10 +28,10 @@ keybind = super+shift+j=text:\x02J
 # Open GitHub Dashboard (CMD + Shift + g)
 keybind = super+shift+g=text:\x02G
 
-# Split vertically (CMD + n)
-keybind = super+n=text:\x02n
-# Split horizontally (CMD + Shift + n)
-keybind = super+shift+n=text:\x02N
+# Split vertically (CMD + d)
+keybind = super+d=text:\x02n
+# Split horizontally (CMD + Shift + d)
+keybind = super+shift+d=text:\x02N
 
 # New tmux window (CMD + t)
 keybind = super+t=text:\x02c
