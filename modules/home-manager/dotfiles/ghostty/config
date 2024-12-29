@@ -1,0 +1,59 @@
+theme = catppuccin-mocha
+font-size = 17
+
+macos-titlebar-style = hidden
+window-padding-x = 0
+window-padding-y = 0
+macos-window-shadow = false
+confirm-close-surface = false
+
+keybind = ctrl+f=unbind
+
+# \x02 is Ctrl+b
+# Previous tmux session (CMD + l)
+keybind = super+l=text:\x02L
+
+# Reload tmux config (CMD + r)
+keybind = super+r=text:\x02r
+
+# Open Lazygit (CMD + g)
+keybind = super+g=text:\x02g
+
+# Open Jira CLI (CMD + j)
+keybind = super+j=text:\x02j
+# Open Jira CLI - hotfixes only (CMD + J)
+keybind = super+shift+j=text:\x02J
+# Open GitHub Dashboard (CMD + Shift + g)
+keybind = super+shift+g=text:\x02G
+
+# Split vertically (CMD + n)
+keybind = super+n=text:\x02n
+# Split horizontally (CMD + Shift + n)
+keybind = super+shift+n=text:\x02N
+
+# New tmux window (CMD + t)
+keybind = super+t=text:\x02c
+
+# Close tmux window (CMD + w)
+keybind = super+w=text:\x02&
+
+# tmux-fzf-url (CMD + u)
+keybind = super+u=text:\x02u
+
+# kubernetes (CMD + e)
+keybind = super+e=text:\x02e
+
+# Zoom in tmux pane (CMD + f)
+keybind = super+f=text:\x02z
+
+# Tmux window navigation (CMD + [/])
+keybind = super+left_bracket=text:\x02p
+keybind = super+right_bracket=text:\x02]
+
+# Switch to tmux window (CMD + 1..5)
+keybind = super+one=text:\x021
+keybind = super+two=text:\x022
+keybind = super+three=text:\x023
+keybind = super+four=text:\x024
+keybind = super+five=text:\x025
+
