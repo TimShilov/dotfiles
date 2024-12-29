@@ -21,8 +21,8 @@ writeToProfile({ karabinerJsonPath: configFilePath, name: "Default" }, [
 function launchAppRules() {
   return rule("Launch Apps").manipulators([
     withModifier("right_command")({
-      t: toApp("WezTerm"),
       e: toApp("Karabiner-EventViewer.app"),
+      t: toApp("Ghostty"),
       m: toApp("Mail"),
       a: toApp("Activity Monitor"),
       g: toApp("Gather"),

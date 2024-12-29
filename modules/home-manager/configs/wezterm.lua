@@ -38,9 +38,9 @@ config = {
         tmuxKeymap("SUPER", "l", "L"),
 
         -- Reload tmux config (CMD + r)
+        tmuxKeymap("SUPER", "r", "r"),
         -- Open Lazygit (CMD + g)
         tmuxKeymap("SUPER", "g", "g"),
-        tmuxKeymap("SUPER", "r", "r"),
         -- Open Jira CLI (CMD + j)
         tmuxKeymap("SUPER", "j", "j"),
         -- Open Jira CLI - hotfixes only (CMD + J)
