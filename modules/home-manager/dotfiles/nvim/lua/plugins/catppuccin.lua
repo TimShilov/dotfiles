@@ -23,9 +23,9 @@ return {
           ok = { 'italic' },
         },
         underlines = {
-          errors = { 'underline' },
-          hints = { 'underline' },
-          warnings = { 'underline' },
+          errors = { 'undercurl' },
+          hints = { 'undercurl' },
+          warnings = { 'undercurl' },
           information = { 'underline' },
           ok = { 'underline' },
         },
