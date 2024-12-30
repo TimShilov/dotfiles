@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@cspell/dict-vim':
         specifier: ^1.0.7
-        version: 1.0.7
+        version: 1.0.8
 
   modules/home-manager/dotfiles/karabiner:
     devDependencies:
@@ -32,8 +32,8 @@ importers:
 
 packages:
 
-  '@cspell/dict-vim@1.0.7':
-    resolution: {integrity: sha512-jpZ9rmZAQL7igknGFgkplMB87qWQJ34zYaPpcHzRv84m6YDFZnSp2JrXsJP8/KuByQaoWgmHVhje30vAsa9WcA==}
+  '@cspell/dict-vim@1.0.8':
+    resolution: {integrity: sha512-LUnznQiaNatVfb89pu916qYJwbkvgTKyNXK17MRHm1AgcCxN5Z1V5hyqTlQumhQYVAFFvN8t9VQDUw6k47spiw==}
 
   '@esbuild/aix-ppc64@0.23.1':
     resolution: {integrity: sha512-6VhYk1diRqrhBAqpJEdjASR/+WVRtfjpqKuNw11cLiaWpAT/Uu+nokB+UJnevzy/P9C/ty6AOe0dwueMrGh/iQ==}
@@ -221,7 +221,7 @@ packages:
 
 snapshots:
 
-  '@cspell/dict-vim@1.0.7': {}
+  '@cspell/dict-vim@1.0.8': {}
 
   '@esbuild/aix-ppc64@0.23.1':
     optional: true
