@@ -239,6 +239,29 @@
     };
     gh-dash = {
       enable = true;
+      settings = {
+        prSections = [
+          {
+            title = "Needs My Review";
+            filters = "is:open review-requested:@me";
+          }
+          {
+            title = "My Pull Requests";
+            filters = "is:open author:@me";
+            layout.author.hidden = true;
+          }
+          {
+            title = "Dependencies";
+            filters = "is:open label:dependencies involves:@me";
+          }
+        ];
+        defaults = {
+          preview = {
+            open = false;
+            width = 90;
+          };
+        };
+      };
     };
     yazi = {
       enable = true;
