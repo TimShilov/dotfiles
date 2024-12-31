@@ -10,6 +10,9 @@ return {
     keymap = { preset = 'default' },
     completion = {
       menu = {
+        auto_show = function()
+          return vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false and vim.bo.filetype ~= 'TelescopePrompt'
+        end,
         border = 'rounded',
         draw = {
           columns = { { 'label', 'label_description', 'source_name', gap = 1 }, { 'kind_icon', 'kind', gap = 1 } },
