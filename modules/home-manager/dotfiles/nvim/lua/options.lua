@@ -7,6 +7,8 @@ vim.g.maplocalleader = ' '
 -- make sure filetype and highlighting work correctly after a session is restored
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 
+vim.opt.exrc = true -- Enable per-directory .nvim.lua files
+
 vim.o.splitbelow = true -- force all horizontal splits to go below current window
 vim.o.splitright = true -- force all vertical splits to go to the right of current window
 
