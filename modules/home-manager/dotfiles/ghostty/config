@@ -55,9 +55,9 @@ keybind = super+left_bracket=text:\x02p
 keybind = super+right_bracket=text:\x02]
 
 # Switch to tmux window (CMD + 1..5)
-keybind = super+one=text:\x021
-keybind = super+two=text:\x022
-keybind = super+three=text:\x023
-keybind = super+four=text:\x024
-keybind = super+five=text:\x025
+keybind = super+1=text:\x021
+keybind = super+2=text:\x022
+keybind = super+3=text:\x023
+keybind = super+4=text:\x024
+keybind = super+5=text:\x025
 
