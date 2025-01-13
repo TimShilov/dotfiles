@@ -13,12 +13,5 @@ return {
     input = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
-    scroll = {
-      enabled = true,
-      animate = {
-        duration = { step = 25, total = 100 },
-        easing = 'linear',
-      },
-    },
   },
 }
