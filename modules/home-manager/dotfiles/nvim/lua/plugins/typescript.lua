@@ -20,8 +20,8 @@ return {
       pattern = '*.ts',
       group = typescript_on_save_augroup,
       callback = function(event)
-        vim.cmd 'TSToolsRemoveUnusedImports sync'
-        vim.cmd 'TSToolsAddMissingImports sync'
+        vim.cmd 'silent! TSToolsRemoveUnusedImports sync'
+        vim.cmd 'silent! TSToolsAddMissingImports sync'
       end,
     })
   end,
