@@ -152,8 +152,8 @@
         filters = {
           "text/plain" = "colorize";
           "text/html" = "html | colorize";
-          "text/calendar" = "bat";
-          "application/ics" = "bat";
+          "text/calendar" = "calendar";
+          "application/ics" = "calendar";
           ".headers" = "colorize";
         };
       };
