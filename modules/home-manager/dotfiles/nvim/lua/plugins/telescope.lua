@@ -109,6 +109,6 @@ return {
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
 
-    require('custom.telescope-multigrep').setup()
+    require('custom.telescope-multigrep').setup(defaults)
   end,
 }
