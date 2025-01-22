@@ -4,7 +4,6 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-    'aznhe21/actions-preview.nvim',
     'saghen/blink.cmp',
   },
   event = { 'BufReadPre', 'BufNewFile', 'BufEnter' },
@@ -24,7 +23,7 @@ return { -- LSP Configuration & Plugins
 
         map('n', '<leader>lr', '<cmd>LspRestart<cr>', '[L]SP [R]estart')
         map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('n', '<leader>ca', require('actions-preview').code_actions, '[C]ode [A]ction')
+        map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
         map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
