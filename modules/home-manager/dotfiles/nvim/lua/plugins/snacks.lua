@@ -7,14 +7,14 @@ return {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-    bigfile = {},
-    dashboard = {},
-    indent = {},
-    toggle = {},
-    input = {},
-    notifier = {},
-    quickfile = {},
-    statuscolumn = {},
-    words = {},
+    bigfile = { enabled = true },
+    dashboard = { enabled = true, example = 'github' },
+    indent = { enabled = true },
+    toggle = { enabled = true },
+    input = { enabled = true },
+    notifier = { enabled = true },
+    quickfile = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
   },
 }
