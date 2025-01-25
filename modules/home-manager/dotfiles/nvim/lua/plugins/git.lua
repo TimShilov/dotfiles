@@ -45,7 +45,7 @@ return {
         map('n', '<leader>hb', function()
           gitsigns.blame_line { full = true }
         end, { desc = 'Blame line' })
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle current line blame' })
+        map('n', '<leader>gb', gitsigns.blame, { desc = 'Git Blame' })
         map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Diff this' })
         map('n', '<leader>hD', function()
           gitsigns.diffthis '~'
