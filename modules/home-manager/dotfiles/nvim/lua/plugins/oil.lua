@@ -8,7 +8,7 @@ return {
         show_hidden = true,
       },
       lsp_file_methods = {
-        autosave_changes = 'unmodified',
+        autosave_changes = true,
       },
       watch_for_changes = true,
       -- See :help oil-actions for a list of all available actions
@@ -32,7 +32,7 @@ return {
       skip_confirm_for_simple_edits = true,
     },
     keys = {
-      { '-', ':Oil --float<CR>', desc = 'Open parent directory' },
+      { '-', ':Oil --float --preview<CR>', desc = 'Open parent directory' },
     },
   },
 }
