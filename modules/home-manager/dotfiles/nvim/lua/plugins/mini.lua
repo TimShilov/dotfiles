@@ -46,6 +46,11 @@ return {
     opts = {},
   },
   {
+    'echasnovski/mini.snippets',
+    version = false,
+    opts = {},
+  },
+  {
     'echasnovski/mini.pairs',
     enabled = false,
     version = false,

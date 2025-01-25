@@ -1,13 +1,17 @@
 return {
   'saghen/blink.cmp',
-  -- optional: provides snippets for the snippet source
-  dependencies = 'rafamadriz/friendly-snippets',
+  dependencies = {
+    -- optional: provides snippets for the snippet source
+    'rafamadriz/friendly-snippets',
+    'echasnovski/mini.snippets',
+  },
   version = 'v0.*',
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
     keymap = { preset = 'default' },
+    snippets = { preset = 'mini_snippets' },
     completion = {
       menu = {
         auto_show = function()
