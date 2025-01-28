@@ -32,7 +32,7 @@ return {
       skip_confirm_for_simple_edits = true,
     },
     keys = {
-      { '-', ':Oil --float --preview<CR>', desc = 'Open parent directory' },
+      { '-', ':Oil --float<CR>', desc = 'Open parent directory' },
     },
   },
 }
