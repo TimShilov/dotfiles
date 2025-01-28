@@ -3,7 +3,6 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'neovim/nvim-lspconfig',
-    { 'dmmulroy/ts-error-translator.nvim', config = true },
   },
   config = function()
     require('typescript-tools').setup {
