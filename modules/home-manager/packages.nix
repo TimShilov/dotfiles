@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
     asdf-vm
     ast-grep
-    atac
     bkt # Bash caching
     fd
     fswatch
@@ -21,9 +20,6 @@
     luarocks
     nodePackages.cspell
     nixfmt-rfc-style
-    rainfrog # Database management TUI
-    sleek
-    sshs
     taskopen
     vcal
     tasksh
