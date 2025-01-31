@@ -49,6 +49,18 @@
                 git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
         }
 
+        function rgr() {
+          local git_root
+          git_root=$(git rev-parse --show-toplevel 2>/dev/null) || { echo "Not a git repository"; return 1; }
+
+          pushd "$git_root" >/dev/null || return
+          {
+            "$@"
+          } always {
+            popd >/dev/null
+          }
+        }
+
         function sc() {
             if cat package.json >/dev/null 2>&1; then
                 selected_script=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --cycle --height 80% --header="Press ENTER to run the script. ESC to quit.")
