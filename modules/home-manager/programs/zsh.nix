@@ -14,6 +14,7 @@
 
       cat = "bat";
       dcw = "~/dotfiles/scripts/docker-compose-watch.sh";
+      gr = "cd $(git rev-parse --show-toplevel)";
       gs = "git status";
       k = "~/dotfiles/scripts/kubernetes.sh";
       p = "pet exec";
