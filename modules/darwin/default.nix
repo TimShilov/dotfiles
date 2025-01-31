@@ -146,6 +146,7 @@
       "mas"
       "podman" # Must be installed with Brew to not have issues with Netskope
       "podman-compose"
+      "posting" # API client
       "ncdu"
       "asdf"
       "gnu-sed"
