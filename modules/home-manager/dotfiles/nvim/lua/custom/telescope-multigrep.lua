@@ -28,10 +28,13 @@ local live_multigrep = function(opts)
         table.insert(args, pieces[2])
       end
 
-      return vim.tbl_flatten {
-        args,
-        { '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' },
-      }
+      return vim
+        .iter({
+          args,
+          { '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' },
+        })
+        :flatten()
+        :totable()
     end,
     entry_maker = make_entry.gen_from_vimgrep(opts),
     cwd = opts.cwd,
@@ -49,7 +52,9 @@ local live_multigrep = function(opts)
 end
 
 M.setup = function()
-  vim.keymap.set('n', '<leader>sg', live_multigrep, { desc = '[S]earch by [G]rep' })
+  vim.keymap.set('n', '<leader>sg', function(opts)
+    live_multigrep(opts)
+  end, { desc = '[S]earch by [G]rep' })
 end
 
 return M

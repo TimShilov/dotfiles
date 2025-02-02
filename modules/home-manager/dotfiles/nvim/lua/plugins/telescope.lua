@@ -7,7 +7,7 @@ local defaults = {
       hidden = true,
     },
   },
-  file_ignore_patterns = { 'node_modules', 'package-lock.json', '__snapshots__', '*.snap', 'pnpm-lock.yaml' },
+  file_ignore_patterns = { 'package-lock.json', '__snapshots__', '%.snap', 'pnpm-lock.yaml' },
   path_display = { 'truncate' },
 }
 
@@ -92,12 +92,9 @@ return {
     end, { desc = '[S]earch by [N]ame' })
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
     vim.keymap.set('n', '<leader>st', ':Telescope<cr>', { desc = 'Search [T]elescope' })
-    vim.keymap.set('n', '<leader>sf', function()
-      builtin.find_files { hidden = true, file_ignore_patterns = { '.git' } }
-    end, { desc = '[S]earch [F]iles' })
+    vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
