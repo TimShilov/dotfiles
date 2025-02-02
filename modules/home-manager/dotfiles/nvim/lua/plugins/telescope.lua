@@ -1,16 +1,9 @@
 local telescopeDropdown = require('telescope.themes').get_dropdown
 
 local defaults = {
-  mappings = {
-    i = {
-      ['<C-u>'] = false,
-      ['<C-d>'] = false,
-    },
-  },
   layout_config = { width = 0.95, height = 0.95 },
   pickers = {
     find_files = {
-      theme = 'dropdown',
       hidden = true,
     },
   },
