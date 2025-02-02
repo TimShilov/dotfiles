@@ -19,7 +19,9 @@ require('lazy').setup('plugins', {
     border = 'rounded',
     backdrop = 80,
   },
-  checked = {
+  checker = {
     enabled = true,
+    frequency = 43200, -- 12 hours
+    check_pinned = true,
   },
 })
