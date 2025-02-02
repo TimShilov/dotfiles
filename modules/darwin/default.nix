@@ -64,12 +64,16 @@
       ];
     };
     jankyborders = {
-      active_color = "gradient(top_left=0xffcba6f7,bottom_right=0xfffab387)";
+      # Catppucing colors
+      # active_color = "gradient(top_left=0xffcba6f7,bottom_right=0xfffab387)";
+      # GitHub colors
+      active_color = "gradient(top_left=0xff7C72FF,bottom_right=0xff2DA44E)";
+
       enable = true;
       hidpi = false;
       inactive_color = "0x00FFFFFF";
       # TODO: Enable after updating nix-darwin
-      # order = "above";
+      order = "above";
       style = "round";
       width = 8.0;
     };
