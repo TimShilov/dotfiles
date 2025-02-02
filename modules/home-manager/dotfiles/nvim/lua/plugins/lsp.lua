@@ -80,6 +80,7 @@ return { -- LSP Configuration & Plugins
       eslint = {},
       fixjson = {},
       gopls = {},
+      oxlint = {},
       groovyls = {},
       hadolint = {},
       helm_ls = {
