@@ -10,8 +10,9 @@ return {
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
       end,
+      complete_function_calls = true,
       expose_as_code_action = 'all',
-      code_lens = 'true',
+      code_lens = 'all',
     }
 
     local typescript_on_save_augroup = vim.api.nvim_create_augroup('FormatOnSave', {})
