@@ -4,7 +4,7 @@
   "description": "This is just a root package.json file for my dotfiles",
   "scripts": {},
   "keywords": [],
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.15.5",
   "author": "",
   "license": "MIT",
   "devDependencies": {
