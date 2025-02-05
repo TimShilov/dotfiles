@@ -26,7 +26,7 @@ return {
     },
     sections = {
       lualine_b = { 'branch', 'diagnostics' },
-      lualine_c = { '%=', { 'filename', filestatus = true, path = 1 } },
+      lualine_c = { '%=' },
       lualine_x = { 'filetype', get_timerly_status },
     },
   },
