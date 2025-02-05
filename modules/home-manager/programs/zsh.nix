@@ -32,11 +32,7 @@
     };
     initExtraFirst = # bash
       ''
-        # source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-        # source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-        #
-        # source <(kubectl completion zsh)
-        . $(brew --prefix asdf)/libexec/asdf.sh
+        export PATH="$HOME/.asdf/shims:$PATH"
       '';
 
     initExtra = # bash
