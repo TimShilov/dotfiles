@@ -4,7 +4,6 @@ return {
     -- optional: provides snippets for the snippet source
     'rafamadriz/friendly-snippets',
     'echasnovski/mini.snippets',
-    'fang2hou/blink-copilot',
   },
   version = 'v0.*',
 
@@ -51,19 +50,8 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
       providers = {
-        copilot = {
-          name = 'copilot',
-          module = 'blink-copilot',
-          enabled = true,
-          score_offset = 100,
-          async = true,
-          opts = {
-            max_attempts = 2,
-            max_completions = 3,
-          },
-        },
         lazydev = {
           enabled = true,
           name = 'LazyDev',
