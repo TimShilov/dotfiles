@@ -2,34 +2,55 @@
 	email = tim@shilov.dev
 	name = Tim Shilov
 	signingkey = /Users/tim.shilov/.ssh/id_ed25519.pub
+
 [fetch]
 	prune = true
+
 [branch]
 	autosetuprebase = remote
+
 [core]
 	autocrlf = input
+
 [init]
 	defaultBranch = main
+
 [gpg]
 	format = ssh
+
 [commit]
 	gpgsign = true
+
 [rerere]
 	enabled = true
+
 [push]
 	autoSetupRemote = true
+
+[merge]
+  tool = nvim
+
+[mergetool "nvim"]
+  cmd = nvim -c "DiffviewOpen"
+
+[mergetool]
+  prompt = false
+
 [gitbutler]
 	aiModelProvider = openai
+
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+
 [maintenance]
     auto = false
     strategy = incremental
     # TODO: Find a way to automate it and to not hard-code user name to make it more portable
     repo = /Users/tim.shilov/IdeaProjects/affluent
     repo = /Users/tim.shilov/IdeaProjects/affiliate-etl
+
 [rebase]
 	updateRefs = true
