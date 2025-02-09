@@ -28,8 +28,6 @@ in
       nerdFontWindowNamePlugin
       fzf-tmux-url
       sensible
-      resurrect
-      continuum
       vim-tmux-navigator
     ];
     terminal = "wezterm";
