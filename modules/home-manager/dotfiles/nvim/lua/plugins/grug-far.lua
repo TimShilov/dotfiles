@@ -6,6 +6,11 @@ return {
 
     -- whether or not to make a transient buffer which is both unlisted and fully deletes itself when not in use
     transient = true,
+    engines = {
+      astgrep = {
+        path = 'ast-grep',
+      },
+    },
 
     history = {
       autoSave = { enabled = true },
