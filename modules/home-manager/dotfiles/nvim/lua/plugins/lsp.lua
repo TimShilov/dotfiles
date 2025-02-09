@@ -75,6 +75,33 @@ return { -- LSP Configuration & Plugins
       actionlint = {},
       bashls = {},
       delve = {},
+      vtsls = {
+        complete_function_calls = true,
+        vtsls = {
+          enableMoveToFileCodeAction = true,
+          autoUseWorkspaceTsdk = true,
+          experimental = {
+            maxInlayHintLength = 30,
+            completion = {
+              enableServerSideFuzzyMatch = true,
+            },
+          },
+        },
+        typescript = {
+          updateImportsOnFileMove = { enabled = 'always' },
+          suggest = {
+            completeFunctionCalls = true,
+          },
+          inlayHints = {
+            enumMemberValues = { enabled = true },
+            functionLikeReturnTypes = { enabled = true },
+            parameterNames = { enabled = 'literals' },
+            parameterTypes = { enabled = true },
+            propertyDeclarationTypes = { enabled = true },
+            variableTypes = { enabled = true },
+          },
+        },
+      },
       docker_compose_language_service = {},
       dockerls = {},
       eslint = {},
@@ -93,8 +120,6 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      html = {},
-      jq = {},
       jsonls = {},
       nxls = {},
       lua_ls = {
@@ -124,10 +149,8 @@ return { -- LSP Configuration & Plugins
       prettier = {},
       prismals = {},
       shfmt = {},
-      snyk = {},
       sqlls = {},
       stylua = {},
-      vacuum = {},
       yamlls = {
         filetypes_exclude = { 'helm' },
       },
