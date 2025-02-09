@@ -52,9 +52,9 @@ local live_multigrep = function(opts)
 end
 
 M.setup = function()
-  vim.keymap.set('n', '<leader>sg', function(opts)
-    live_multigrep(opts)
-  end, { desc = '[S]earch by [G]rep' })
+  -- vim.keymap.set('n', '<leader>sg', function(opts)
+  --   live_multigrep(opts)
+  -- end, { desc = '[S]earch by [G]rep' })
 end
 
 return M

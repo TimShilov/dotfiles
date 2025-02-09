@@ -25,13 +25,13 @@ return { -- LSP Configuration & Plugins
         map('n', '<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         map('n', '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
-        map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-        map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('n', 'gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        -- map('n', 'gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        -- map('n', 'gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+        -- map('n', 'gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        -- map('n', 'gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        -- map('n', '<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+        -- map('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+        -- map('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         -- See `:help K` for why this keymap
         map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
