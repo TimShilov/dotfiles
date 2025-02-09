@@ -17,6 +17,9 @@ return {
   -- Set lualine as statusline
   'nvim-lualine/lualine.nvim',
   -- See `:help lualine.txt`
+  dependencies = {
+    { 'AndreM222/copilot-lualine' },
+  },
   opts = {
     options = {
       icons_enabled = false,
@@ -27,7 +30,7 @@ return {
     sections = {
       lualine_b = { 'branch', 'diagnostics' },
       lualine_c = { '%=' },
-      lualine_x = { 'filetype', get_timerly_status },
+      lualine_x = { 'filetype', { 'copilot', show_colors = true }, get_timerly_status },
     },
   },
 }

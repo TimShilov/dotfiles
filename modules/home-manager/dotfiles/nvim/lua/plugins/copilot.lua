@@ -1,5 +1,18 @@
-vim.g.copilot_assume_mapped = true
-
 return {
-  'github/copilot.vim',
+  'zbirenbaum/copilot.lua',
+  cmd = 'Copilot',
+  build = ':Copilot auth',
+  event = 'BufReadPost',
+  opts = {
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = '<Tab>',
+      },
+    },
+    filetypes = {
+      markdown = true,
+      help = true,
+    },
+  },
 }
