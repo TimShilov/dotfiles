@@ -83,10 +83,10 @@ return {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next = {
-              [']i'] = '@conditional.outer',
+              -- [']i'] = '@conditional.outer',
             },
             goto_previous = {
-              ['[i'] = '@conditional.outer',
+              -- ['[i'] = '@conditional.outer',
             },
           },
           lsp_interop = {

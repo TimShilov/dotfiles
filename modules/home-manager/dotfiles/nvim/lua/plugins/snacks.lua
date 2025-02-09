@@ -7,14 +7,16 @@ return {
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     indent = { enabled = true },
-    toggle = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true, top_down = false },
     picker = {
       enabled = true,
     },
+    scratch = { enabled = true },
     quickfile = { enabled = true },
+    scope = { enabled = true },
     statuscolumn = { enabled = true },
+    toggle = { enabled = true },
     words = { enabled = true },
   },
   keys = {
