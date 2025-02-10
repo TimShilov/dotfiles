@@ -46,11 +46,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1738448366,
-        "narHash": "sha256-4ATtQqBlgsGqkHTemta0ydY6f7JBRXz4Hf574NHQpkg=",
+        "lastModified": 1739198052,
+        "narHash": "sha256-fvAgCGK2phagbKv2S4YH4AIM566TKasfWMqYl3c3mPQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "18fa9f323d8adbb0b7b8b98a8488db308210ed93",
+        "rev": "b0bd29bb4b8df265b13bbb4a6639afa74faaa831",
         "type": "github"
       },
       "original": {
@@ -113,11 +113,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1738391584,
-        "narHash": "sha256-a5ycWOdE7MjQFRlWo8sGgVJlaDQ18Z6HR7kkvRamP6Q=",
+        "lastModified": 1739019272,
+        "narHash": "sha256-7Fu7oazPoYCbDzb9k8D/DdbKrC3aU1zlnc39Y8jy/s8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "047ebac174c408d6e5428b1865478893001276c5",
+        "rev": "fa35a3c8e17a3de613240fea68f876e5b4896aec",
         "type": "github"
       },
       "original": {
@@ -133,11 +133,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1737650964,
-        "narHash": "sha256-g+M68hfiocXGcPiYH98veTOxDSLqANt5RWFyGzeJQRA=",
+        "lastModified": 1739200428,
+        "narHash": "sha256-jABHbaxqMJ9V3PNSIEbgVmidcC2pBftkOQoQ76CUF1M=",
         "ref": "refs/heads/main",
-        "rev": "885f1728aa816be5c8d1154b9daf5e29ab2168cc",
-        "revCount": 28,
+        "rev": "6850e0d30e2c0fdd11c808bdafce7b0808966a3a",
+        "revCount": 30,
         "type": "git",
         "url": "file:///Users/tim.shilov/dotfiles/private"
       },

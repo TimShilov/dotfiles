@@ -38,9 +38,6 @@
     ".aerospace.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.aerospace.toml;
     };
-    ".config/bugwarrior/bugwarriorrc" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/bugwarrior/bugwarriorrc;
-    };
     ".asdfrc" = {
       source = dotfiles/.asdfrc;
     };
