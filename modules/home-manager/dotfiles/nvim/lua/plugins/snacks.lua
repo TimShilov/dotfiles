@@ -268,6 +268,13 @@ return {
       desc = 'Resume',
     },
     {
+      '<leader>sp',
+      function()
+        Snacks.picker.pickers()
+      end,
+      desc = 'Pickers',
+    },
+    {
       '<leader>su',
       function()
         Snacks.picker.undo()
