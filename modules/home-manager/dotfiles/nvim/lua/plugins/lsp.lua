@@ -5,6 +5,7 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'saghen/blink.cmp',
+    'yioneko/nvim-vtsls',
   },
   event = { 'BufReadPre', 'BufNewFile', 'BufEnter' },
   config = function()
