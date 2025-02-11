@@ -52,9 +52,6 @@
     optimise.automatic = true;
   };
   services = {
-    nix-daemon = {
-      enable = true;
-    };
     sketchybar = {
       enable = true;
       extraPackages = with pkgs; [
