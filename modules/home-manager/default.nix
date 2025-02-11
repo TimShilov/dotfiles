@@ -78,12 +78,6 @@
     ".ssh/config" = {
       source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/ssh/config;
     };
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
   };
 
   xdg = {
@@ -250,9 +244,25 @@
           }
           {
             title = "Dependencies";
-            filters = "is:open label:dependencies involves:@me";
+            filters = "is:pr is:open label:dependencies repo:ImpactInc/etl-engine repo:AffluentData/affluent-monorepo";
           }
         ];
+        repoPaths = {
+          "AffluentData/affluent-monorepo" = "~/IdeaProjects/affluent";
+          "ImpactInc/etl-engine" = "~/IdeaProjects/affiliate-etl";
+        };
+        keybindings = {
+          prs = [
+            {
+              key = "M";
+              command = "gh pr merge {{.PrNumber}} --admin --squash --delete-branch --repo {{.RepoName}}";
+            }
+            {
+              key = "e";
+              command = "tmux new-window -c {{.RepoPath}} 'nvim -c \":silent Octo pr edit {{.PrNumber}}\"'";
+            }
+          ];
+        };
         defaults = {
           preview = {
             open = false;
