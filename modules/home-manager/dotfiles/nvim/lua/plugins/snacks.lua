@@ -9,8 +9,27 @@ return {
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true, top_down = false },
+    image = { enabled = false },
     picker = {
       enabled = true,
+      layouts = {
+        default = {
+          layout = {
+            box = 'horizontal',
+            width = 0.9,
+            min_width = 120,
+            height = 0.9,
+            {
+              box = 'vertical',
+              border = 'rounded',
+              title = '{title} {live} {flags}',
+              { win = 'input', height = 1, border = 'bottom' },
+              { win = 'list', border = 'none' },
+            },
+            { win = 'preview', title = '{preview}', border = 'rounded', width = 0.5 },
+          },
+        },
+      },
     },
     scratch = { enabled = true },
     quickfile = { enabled = true },
