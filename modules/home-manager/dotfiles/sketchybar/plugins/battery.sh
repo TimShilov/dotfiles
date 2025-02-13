@@ -7,7 +7,7 @@ DRAWING="on"
 COLOR="$RED"
 
 if [ "$PERCENTAGE" = "" ]; then
-    exit 0
+    DRAWING="off"
 fi
 
 if [ "$PERCENTAGE" -gt 30 ]; then
