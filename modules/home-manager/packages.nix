@@ -16,6 +16,7 @@
     go
     grizzly
     jira-cli-go
+    imagemagick # For converting images (required by Snacks.image nvim plugin)
     kondo
     kubectx
     luarocks
