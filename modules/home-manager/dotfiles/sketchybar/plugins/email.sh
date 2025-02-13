@@ -2,7 +2,7 @@
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
-EMAIL_COUNT=$(notmuch count --output=messages '(to:tim@affluent.io OR to:tim.shilov@impact.com)')
+EMAIL_COUNT=$(notmuch count --output=messages)
 
 LABEL="$EMAIL_COUNT"
 COLOR="$MAUVE"
