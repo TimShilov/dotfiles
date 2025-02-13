@@ -244,7 +244,7 @@
           }
           {
             title = "Dependencies";
-            filters = "is:pr is:open label:dependencies repo:ImpactInc/etl-engine repo:AffluentData/affluent-monorepo";
+            filters = "is:open label:dependencies repo:ImpactInc/etl-engine repo:AffluentData/affluent-monorepo";
           }
         ];
         repoPaths = {
@@ -266,7 +266,7 @@
         defaults = {
           preview = {
             open = false;
-            width = 90;
+            width = 80;
           };
         };
       };
