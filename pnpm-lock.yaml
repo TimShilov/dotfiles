@@ -15,8 +15,8 @@ importers:
   modules/home-manager/dotfiles/karabiner:
     devDependencies:
       '@types/node':
-        specifier: 22.13.0
-        version: 22.13.0
+        specifier: 22.13.4
+        version: 22.13.4
       karabiner.ts:
         specifier: 1.30.3
         version: 1.30.3
@@ -179,8 +179,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@types/node@22.13.0':
-    resolution: {integrity: sha512-ClIbNe36lawluuvq3+YYhnIN2CELi+6q8NpnM7PYp4hBn/TatfboPgVSm2rwKRfnV2M+Ty9GWDFI64KEe+kysA==}
+  '@types/node@22.13.4':
+    resolution: {integrity: sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==}
 
   esbuild@0.23.1:
     resolution: {integrity: sha512-VVNz/9Sa0bs5SELtn3f7qhJCDPCF5oMEl5cO9/SSinpE9hbPVvxbd572HH5AKiP7WD8INO53GgfDDhRjkylHEg==}
@@ -295,7 +295,7 @@ snapshots:
   '@esbuild/win32-x64@0.23.1':
     optional: true
 
-  '@types/node@22.13.0':
+  '@types/node@22.13.4':
     dependencies:
       undici-types: 6.20.0
 
