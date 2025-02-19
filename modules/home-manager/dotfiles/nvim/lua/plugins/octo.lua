@@ -4,9 +4,9 @@ return {
   event = { { event = 'BufReadCmd', pattern = 'octo://*' } },
   opts = {
     enable_builtin = true,
-    default_to_projects_v2 = true,
+    use_local_fs = true,
     default_merge_method = 'squash',
-    picker = 'telescope',
+    picker = 'snacks',
   },
   keys = {
     { '<leader>gi', '<cmd>Octo issue list<CR>', desc = 'List Issues (Octo)' },
@@ -26,7 +26,5 @@ return {
     { '<localleader>ps', '', desc = '+squash (Octo)', ft = 'octo' },
     { '<localleader>v', '', desc = '+review (Octo)', ft = 'octo' },
     { '<localleader>g', '', desc = '+goto_issue (Octo)', ft = 'octo' },
-    { '@', '@<C-x><C-o>', mode = 'i', ft = 'octo', silent = true },
-    { '#', '#<C-x><C-o>', mode = 'i', ft = 'octo', silent = true },
   },
 }
