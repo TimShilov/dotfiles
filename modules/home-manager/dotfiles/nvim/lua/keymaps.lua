@@ -52,6 +52,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<leader>jo', 'i{oneOf:[<esc>l%a]}<esc>hi', { desc = 'Wrap with oneOf', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ja', 'i{anyOf:[<esc>l%a]}<esc>hi', { desc = 'Wrap with anyOf', noremap = true, silent = true })
 vim.keymap.set('n', '<leader>jn', 'i{anyOf:[<esc>l%a]}<esc>hi,{type:"null"}<esc>', { desc = 'Make nullable', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>jf', '<cmd>%!jq .<CR>', { desc = 'Format with jq', noremap = true, silent = true })
 
 -- Source file
 vim.keymap.set('n', '<leader>x', ':luafile %<CR>', { desc = 'Source file', noremap = true, silent = true })
