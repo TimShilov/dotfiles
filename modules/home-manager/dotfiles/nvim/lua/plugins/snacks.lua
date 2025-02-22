@@ -330,6 +330,13 @@ return {
       end,
       desc = 'Undo History',
     },
+    {
+      '<leader>sv',
+      function()
+        Snacks.picker.files { rtp = true }
+      end,
+      desc = 'Search Vim',
+    },
 
     -- LSP
     {
