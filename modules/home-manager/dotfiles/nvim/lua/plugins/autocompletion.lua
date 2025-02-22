@@ -8,6 +8,7 @@ return {
       'Kaiser-Yang/blink-cmp-git',
       dependencies = { 'nvim-lua/plenary.nvim' },
     },
+    'moyiz/blink-emoji.nvim',
   },
   version = 'v0.*',
 
@@ -52,7 +53,7 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'git', 'omni', 'cmdline', 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+      default = { 'git', 'omni', 'cmdline', 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'emoji' },
       providers = {
         lazydev = {
           enabled = true,
@@ -63,6 +64,18 @@ return {
         git = {
           module = 'blink-cmp-git',
           name = 'Git',
+          enabled = function()
+            return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+          end,
+        },
+        emoji = {
+          module = 'blink-emoji',
+          name = 'Emoji',
+          score_offset = 15, -- Tune by preference
+          opts = { insert = true }, -- Insert emoji (default) or complete its name
+          should_show_items = function()
+            return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.o.filetype)
+          end,
         },
       },
     },
