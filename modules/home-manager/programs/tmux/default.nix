@@ -30,7 +30,6 @@ in
       sensible
       vim-tmux-navigator
     ];
-    terminal = "wezterm";
 
     extraConfig = (builtins.readFile ./tmux.conf);
   };
