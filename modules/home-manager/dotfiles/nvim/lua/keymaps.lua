@@ -27,9 +27,6 @@ vim.keymap.set('n', '<leader>ww', '<cmd> w <CR>', { desc = 'Save file', noremap 
 -- save file without auto-formatting
 vim.keymap.set('n', '<leader>wn', '<cmd>noautocmd w <CR>', { desc = 'Save file without auto-formatting', noremap = true, silent = true })
 
--- close buffer
-vim.keymap.set('n', '<leader>x', ':Bdelete!<CR>', { desc = 'Close buffer', noremap = true, silent = true })
-
 -- toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', { desc = 'Toggle line wrapping', noremap = true, silent = true })
 
@@ -55,4 +52,16 @@ vim.keymap.set('n', '<leader>jn', 'i{anyOf:[<esc>l%a]}<esc>hi,{type:"null"}<esc>
 vim.keymap.set('n', '<leader>jf', '<cmd>%!jq .<CR>', { desc = 'Format with jq', noremap = true, silent = true })
 
 -- Source file
-vim.keymap.set('n', '<leader>x', ':luafile %<CR>', { desc = 'Source file', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>x', function()
+  local ft = vim.bo.filetype
+  if ft == 'lua' then
+    vim.cmd 'luafile %'
+    return
+  end
+
+  if ft == 'typescript' then
+    local res = vim.system({ 'pnpm', 'tsx', vim.api.nvim_buf_get_name(0) }, { text = true }):wait()
+    Snacks.notify(res.stdout)
+    return
+  end
+end, { desc = 'Source file', noremap = true, silent = true })
