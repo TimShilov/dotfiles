@@ -9,6 +9,7 @@
     config = {
       uda.taskwarrior-tui.shortcuts = {
         "1" = "~/dotfiles/scripts/taskopen.sh";
+        "2" = "~/dotfiles/scripts/bugwarrior-pull.sh";
       };
     };
     extraConfig = # bash
