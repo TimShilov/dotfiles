@@ -4,6 +4,7 @@ return {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make',
   },
+  event = { 'BufReadPre', 'BufNewFile' },
   opts = {
     menu = {
       preview = false,

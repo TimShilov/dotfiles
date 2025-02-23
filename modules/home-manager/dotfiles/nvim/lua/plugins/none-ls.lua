@@ -6,6 +6,7 @@ return {
     'davidmh/cspell.nvim',
     'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
   },
+  event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local cspell = require 'cspell'
     local null_ls = require 'null-ls'
