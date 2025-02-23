@@ -27,4 +27,10 @@ return {
     { '<localleader>v', '', desc = '+review (Octo)', ft = 'octo' },
     { '<localleader>g', '', desc = '+goto_issue (Octo)', ft = 'octo' },
   },
+  config = function(_, opts)
+    require('octo').setup(opts)
+    vim.treesitter.language.register('markdown', 'octo')
+    vim.cmd 'highlight OctoBubble guibg=NONE'
+    vim.cmd 'highlight OctoStateOpen guibg=NONE'
+  end,
 }
