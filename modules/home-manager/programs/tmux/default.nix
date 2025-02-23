@@ -29,6 +29,7 @@ in
       fzf-tmux-url
       sensible
       vim-tmux-navigator
+      tmux-thumbs
     ];
 
     extraConfig = (builtins.readFile ./tmux.conf);
