@@ -331,6 +331,14 @@ return {
       desc = 'Undo History',
     },
     {
+      '<leader>en',
+      function()
+        Snacks.picker.files { cwd = '~/.config/nvim' }
+      end,
+      mode = { 'n' },
+      desc = '[E]dit [N]eovim',
+    },
+    {
       '<leader>sv',
       function()
         Snacks.picker.files { rtp = true }
