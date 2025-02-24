@@ -1,5 +1,6 @@
 return {
-  'catppuccin/nvim',
+  -- 'catppuccin/nvim',
+  'TimShilov/catppuccin.nvim',
   name = 'catppuccin',
   priority = 1000,
   opts = {
