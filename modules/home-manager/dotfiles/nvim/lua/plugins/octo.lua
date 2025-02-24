@@ -2,6 +2,7 @@ return {
   'pwntester/octo.nvim',
   cmd = 'Octo',
   event = { { event = 'BufReadCmd', pattern = 'octo://*' } },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {
     enable_builtin = true,
     use_local_fs = true,
@@ -30,7 +31,5 @@ return {
   config = function(_, opts)
     require('octo').setup(opts)
     vim.treesitter.language.register('markdown', 'octo')
-    vim.cmd 'highlight OctoBubble guibg=NONE'
-    vim.cmd 'highlight OctoStateOpen guibg=NONE'
   end,
 }
