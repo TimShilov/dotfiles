@@ -1,9 +1,14 @@
 {
+  pkgs,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     autocd = true;
+    defaultKeymap = "viins";
     sessionVariables = {
       LANG = "en_GB.UTF-8";
     };
@@ -37,6 +42,7 @@
 
     initExtra = # bash
       ''
+        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         function gc() {
             local branches branch
             branches=$(git branch --all | grep -v HEAD) &&
