@@ -20,7 +20,7 @@ return {
     },
     {
       '<leader>lc',
-      '<cmd>LogsitterClearBuff<CR>',
+      '<cmd>LogsitterClearBuf<CR>',
       desc = 'Clear all logs',
       mode = 'n',
     },
