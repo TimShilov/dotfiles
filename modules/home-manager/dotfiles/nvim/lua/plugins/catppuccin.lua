@@ -1,6 +1,7 @@
 return {
   -- 'catppuccin/nvim',
   'TimShilov/catppuccin.nvim',
+  branch = 'bugfix/octo-highlights',
   name = 'catppuccin',
   priority = 1000,
   opts = {
