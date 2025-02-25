@@ -133,7 +133,7 @@ check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
+if.app-id = 'com.mitchellh.ghostty'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 2']
 
