@@ -2,6 +2,7 @@ return {
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    event = { 'VeryLazy' },
     build = ':TSUpdate',
     config = function()
       -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -46,6 +47,7 @@ return {
     dependencies = {
       'nvim-treesitter',
     },
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('nvim-treesitter.configs').setup {
         textobjects = {
