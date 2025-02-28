@@ -134,6 +134,7 @@
       "raycast"
       "sf-symbols"
       "tableplus"
+      "zen-browser"
     ];
     taps = [
       "homebrew/bundle"
