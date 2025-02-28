@@ -14,40 +14,23 @@ return {
   event = 'InsertEnter',
 
   opts = {
-    keymap = { preset = 'default' },
+    cmdline = {
+      completion = { menu = { auto_show = true } },
+    },
+    keymap = { preset = 'default', ['<C-n>'] = { 'select_next', 'show', 'fallback_to_mappings' } },
     snippets = { preset = 'mini_snippets' },
     completion = {
       menu = {
-        auto_show = function()
-          return vim.bo.buftype ~= 'prompt' and vim.b.completion ~= false and vim.bo.filetype ~= 'TelescopePrompt'
-        end,
         border = 'rounded',
         draw = {
           columns = { { 'label', 'label_description', 'source_name', gap = 1 }, { 'kind_icon', 'kind', gap = 1 } },
           treesitter = { 'lsp' },
-          components = {
-            kind_icon = {
-              ellipsis = false,
-              text = function(ctx)
-                local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
-                return kind_icon
-              end,
-              -- Optionally, you may also use the highlights from mini.icons
-              highlight = function(ctx)
-                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
-                return hl
-              end,
-            },
-          },
         },
       },
-      documentation = { auto_show = true, auto_show_delay_ms = 100, window = { border = 'rounded' } },
-    },
-    appearance = {
-      nerd_font_variant = 'mono',
+      documentation = { auto_show = true, window = { border = 'rounded' } },
     },
     signature = {
-      window = { border = 'rounded' },
+      window = { border = 'rounded', direction_priority = { 's', 'n' } },
       enabled = true,
     },
 
