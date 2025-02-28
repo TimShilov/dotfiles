@@ -230,16 +230,20 @@
         prSections = [
           {
             title = "Needs My Review";
-            filters = "is:open review-requested:@me";
+            filters = "is:open review-requested:@me ";
           }
           {
             title = "My Pull Requests";
-            filters = "is:open author:@me";
+            filters = "is:open author:@me ";
             layout.author.hidden = true;
           }
           {
-            title = "Dependencies";
-            filters = "is:open label:dependencies repo:ImpactInc/etl-engine repo:AffluentData/affluent-monorepo";
+            title = "Dependencies (Affluent)";
+            filters = "is:open label:dependencies repo:AffluentData/affluent-monorepo ";
+          }
+          {
+            title = "Dependencies (ETL Engine)";
+            filters = "is:open label:dependencies repo:ImpactInc/etl-engine ";
           }
         ];
         repoPaths = {
