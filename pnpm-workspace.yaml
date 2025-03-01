@@ -1,2 +1,4 @@
 packages:
-   - 'modules/home-manager/dotfiles/karabiner'
+  - modules/home-manager/dotfiles/karabiner
+onlyBuiltDependencies:
+  - esbuild
