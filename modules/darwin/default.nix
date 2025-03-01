@@ -5,7 +5,18 @@
       autohide = true;
       autohide-delay = 0.0;
       autohide-time-modifier = 0.2;
-      orientation = "left";
+      mineffect = "scale";
+      mru-spaces = false;
+      orientation = "bottom";
+      persistent-apps = [ ];
+      show-recents = false;
+      static-only = true;
+      tilesize = 24;
+      # disable hot corners
+      wvous-bl-corner = 1;
+      wvous-br-corner = 1;
+      wvous-tl-corner = 1;
+      wvous-tr-corner = 1;
     };
     spaces = {
       spans-displays = false;
