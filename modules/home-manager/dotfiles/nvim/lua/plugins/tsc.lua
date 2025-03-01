@@ -3,6 +3,7 @@ return {
   opts = {
     flags = {},
     auto_close_qflist = true,
+    use_trouble_qflist = true,
   },
   keys = {
     {
