@@ -27,18 +27,21 @@ function launchAppRules() {
             a: toApp("Activity Monitor"),
             g: toApp("Gather"),
             c: toApp("Calendar"),
-            w: toApp("Zen Browser"),
-            z: {
-                software_function: {
-                    // @ts-expect-error This is a valid function. karabiner.ts just doesn't have a type for it.
-                    open_application: { bundle_identifier: "us.zoom.xos" },
-                },
-            },
+            w: toAppNative("app.zen-browser.zen"),
+            z: toAppNative("us.zoom.xos"),
             s: toApp("Slack"),
             v: toApp("Spotify"),
             d: toApp("TablePlus"),
         }),
     ]);
+}
+
+function toAppNative(bundleIdentifier: string) {
+    return {
+        software_function: {
+            open_application: { bundle_identifier: bundleIdentifier },
+        },
+    };
 }
 
 function terminalSessionsLayer() {
