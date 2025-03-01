@@ -1,7 +1,7 @@
 theme = catppuccin-mocha
 font-size = 16
 
-auto-update = off
+auto-update = on
 macos-titlebar-style = hidden
 window-padding-x = 0
 window-padding-y = 0
