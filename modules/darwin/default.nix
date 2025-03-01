@@ -123,8 +123,6 @@
     casks = [
       "aerospace"
       "arc"
-      "firefox"
-      "firefox@nightly"
       "gather"
       "ghostty"
       "google-cloud-sdk"
