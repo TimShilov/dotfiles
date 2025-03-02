@@ -23,6 +23,7 @@ return {
       json = { 'prettier', stop_after_first = true },
       query = { 'format-queries' },
       nix = { 'nixfmt' },
+      go = { 'goimports', 'gofumpt' },
       ['*'] = { 'injected' },
     },
     default_format_opts = {

@@ -7,6 +7,7 @@ return { -- LSP Configuration & Plugins
     'saghen/blink.cmp',
     'yioneko/nvim-vtsls',
   },
+  cmd = { 'Mason' },
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -107,7 +108,50 @@ return { -- LSP Configuration & Plugins
       dockerls = {},
       eslint = {},
       fixjson = {},
-      gopls = {},
+      -- BEGIN GO
+      gopls = {
+        settings = {
+          gopls = {
+            gofumpt = true,
+            codelenses = {
+              gc_details = false,
+              generate = true,
+              regenerate_cgo = true,
+              run_govulncheck = true,
+              test = true,
+              tidy = true,
+              upgrade_dependency = true,
+              vendor = true,
+            },
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+            analyses = {
+              nilness = true,
+              unusedparams = true,
+              unusedwrite = true,
+              useany = true,
+            },
+            usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+            directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
+            semanticTokens = true,
+          },
+        },
+      },
+      goimports = {},
+      gofumpt = {},
+      gomodifytags = {},
+      delve = {},
+      impl = {},
+      -- END GO
       oxlint = {},
       groovyls = {},
       hadolint = {},
