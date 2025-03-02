@@ -3,7 +3,6 @@ return {
   dependencies = {
     -- optional: provides snippets for the snippet source
     'rafamadriz/friendly-snippets',
-    'echasnovski/mini.snippets',
     {
       'Kaiser-Yang/blink-cmp-git',
       dependencies = { 'nvim-lua/plenary.nvim' },
@@ -17,8 +16,11 @@ return {
     cmdline = {
       completion = { menu = { auto_show = true } },
     },
-    keymap = { preset = 'default', ['<C-n>'] = { 'select_next', 'show', 'fallback_to_mappings' } },
-    snippets = { preset = 'mini_snippets' },
+    keymap = {
+      preset = 'default',
+
+      ['<C-n>'] = { 'select_next', 'show', 'fallback' },
+    },
     completion = {
       menu = {
         border = 'rounded',
@@ -28,6 +30,7 @@ return {
         },
       },
       documentation = { auto_show = true, window = { border = 'rounded' } },
+      accept = { dot_repeat = false },
     },
     signature = {
       window = { border = 'rounded', direction_priority = { 's', 'n' } },
@@ -37,7 +40,7 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'git', 'omni', 'cmdline', 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'emoji' },
+      default = { 'git', 'omni', 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'emoji' },
       providers = {
         lazydev = {
           enabled = true,
