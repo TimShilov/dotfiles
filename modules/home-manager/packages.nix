@@ -10,6 +10,7 @@
     ast-grep
     bkt # Bash caching
     fac # Git merge conflict resolution CLI
+    glow # Markdown reader
     fd
     fswatch
     gnupg
