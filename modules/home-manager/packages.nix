@@ -29,6 +29,7 @@
     taskwarrior-tui
     tlrc
     tokei
+    temporal-cli
     tree
     watchexec
     wget
