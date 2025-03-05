@@ -63,6 +63,14 @@ return { -- LSP Configuration & Plugins
           command = 'silent! EslintFixAll',
           group = vim.api.nvim_create_augroup('ESlintFixAll', {}),
         })
+
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          pattern = '*.ts',
+          group = vim.api.nvim_create_augroup('TypescriptFormatOnSave', {}),
+          callback = function()
+            vim.cmd 'silent! VtsExec remove_unused_imports'
+          end,
+        })
       end,
     })
 
