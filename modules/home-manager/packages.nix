@@ -10,32 +10,33 @@
     ast-grep
     bkt # Bash caching
     fac # Git merge conflict resolution CLI
-    glow # Markdown reader
     fd
     fswatch
+    glow # Markdown reader
     gnupg
     go
+    gofumpt
     grizzly
-    jira-cli-go
     imagemagick # For converting images (required by Snacks.image nvim plugin)
+    jira-cli-go
     kubectx
     luarocks
     mysql84
-    nodePackages.cspell
+    nerd-fonts.jetbrains-mono
+    nixd
     nixfmt-rfc-style
+    nodePackages.cspell
     taskopen
-    vcal
     tasksh
     taskwarrior-tui
+    temporal-cli
     tlrc
     tokei
-    temporal-cli
     tree
+    vcal
     watchexec
     wget
     yq-go
-
-    nerd-fonts.jetbrains-mono
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your

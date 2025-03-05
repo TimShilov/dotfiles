@@ -161,6 +161,20 @@ return { -- LSP Configuration & Plugins
       impl = {},
       -- END GO
       oxlint = {},
+      nixd = {
+        cmd = { 'nixd' },
+        settings = {
+          nixd = {
+            nixpkgs = { expr = 'import <nixpkgs> { }' },
+            options = {
+              nix_darwin = {
+                expr = '(builtins.getFlake "/Users/tim.shilov/dotfiles").darwinConfigurations."client-Tim-Shilov".options',
+              },
+            },
+          },
+        },
+      },
+
       groovyls = {},
       hadolint = {},
       helm_ls = {
@@ -224,6 +238,7 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+    require('lspconfig').nixd.setup(servers['nixd'])
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
