@@ -209,6 +209,7 @@ return { -- LSP Configuration & Plugins
             },
             telemetry = { enable = false },
             diagnostics = { disable = { 'missing-fields' } },
+            hint = { enable = true },
           },
         },
       },
@@ -225,7 +226,6 @@ return { -- LSP Configuration & Plugins
 
     -- Decorate floating windows
     vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-
     vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
     -- Ensure the servers and tools above are installed

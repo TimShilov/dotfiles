@@ -70,6 +70,14 @@ return {
     words = { enabled = true },
   },
   keys = {
+    -- Toggles
+    {
+      '<leader>ti',
+      function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { 0 }, { 0 })
+      end,
+      desc = 'Toggle Inlay Hints',
+    },
     -- Top Pickers
     {
       '<leader><space>',
