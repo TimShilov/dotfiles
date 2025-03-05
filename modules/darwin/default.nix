@@ -35,22 +35,13 @@
   };
 
   environment = {
-    # TODO: Remove when https://github.com/LnL7/nix-darwin/pull/1020 is merged
-    etc."pam.d/sudo_local".text = ''
-      # Managed by Nix Darwin
-      auth       optional       ${pkgs.pam-reattach}/lib/pam/pam_reattach.so ignore_ssh
-      auth       sufficient     pam_tid.so
-    '';
-
     systemPackages = with pkgs; [
-      pam-reattach
       btop
       cargo
       fd
       gh-ost
       htop
       jq
-      jqp
       neovim
       sesh
     ];
@@ -109,7 +100,10 @@
   security.pki.certificateFiles = [ "/etc/nix/ca_cert.pem" ];
 
   # Enable using touch id for sudo.
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local = {
+    reattach = true;
+    touchIdAuth = true;
+  };
 
   users.users."tim.shilov" = {
     name = "tim.shilov";
@@ -118,6 +112,7 @@
 
   homebrew = {
     enable = true;
+
     caskArgs.no_quarantine = true;
     global.brewfile = true;
     onActivation = {
