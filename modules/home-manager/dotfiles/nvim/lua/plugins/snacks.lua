@@ -8,7 +8,10 @@ return {
     dashboard = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
-    notifier = { enabled = true, top_down = false },
+    notifier = {
+      enabled = true,
+      top_down = false,
+    },
     image = { enabled = true },
     picker = {
       enabled = true,
@@ -111,7 +114,7 @@ return {
     {
       '<leader>n',
       function()
-        Snacks.picker.notifications()
+        Snacks.notifier.show_history()
       end,
       desc = 'Notification History',
     },
