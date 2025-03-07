@@ -235,12 +235,8 @@
             layout.author.hidden = true;
           }
           {
-            title = "Dependencies (Affluent)";
-            filters = "is:open label:dependencies repo:AffluentData/affluent-monorepo ";
-          }
-          {
-            title = "Dependencies (ETL Engine)";
-            filters = "is:open label:dependencies repo:ImpactInc/etl-engine ";
+            title = "Dependencies";
+            filters = "is:open label:dependencies ";
           }
         ];
         repoPaths = {
@@ -262,7 +258,6 @@
         defaults = {
           preview = {
             open = false;
-            width = 80;
           };
         };
       };
