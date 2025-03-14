@@ -30,5 +30,19 @@
         np = "networking.k8s.io/v1/networkpolicies";
       };
     };
+    views = {
+      views = {
+        "v1/pods" = {
+          columns = [
+            "NAME"
+            "PF"
+            "READY"
+            "STATUS"
+            "RESTARTS"
+            "AGE"
+          ];
+        };
+      };
+    };
   };
 }
