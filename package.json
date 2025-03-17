@@ -8,6 +8,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@cspell/dict-vim": "^1.0.7"
+    "@cspell/dict-vim": "1.0.8"
   }
 }

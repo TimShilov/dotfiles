@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@cspell/dict-vim':
-        specifier: ^1.0.7
+        specifier: 1.0.8
         version: 1.0.8
 
   modules/home-manager/dotfiles/karabiner:
@@ -27,7 +27,7 @@ importers:
         specifier: 4.19.3
         version: 4.19.3
       typescript:
-        specifier: ^5.6.2
+        specifier: 5.8.2
         version: 5.8.2
 
 packages:
