@@ -13,6 +13,8 @@ vim.o.splitbelow = true -- force all horizontal splits to go below current windo
 vim.o.splitright = true -- force all vertical splits to go to the right of current window
 
 vim.o.hlsearch = false -- Set highlight on search
+-- TODO: Enable after upgrading to Nvim 0.11
+-- vim.opt.winborder = 'rounded'
 
 vim.o.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor
 vim.o.sidescrolloff = 8 -- minimal number of screen columns either side of cursor if wrap is `false`
