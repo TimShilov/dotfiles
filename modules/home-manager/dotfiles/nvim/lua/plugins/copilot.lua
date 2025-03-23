@@ -5,6 +5,7 @@ return {
     build = ':Copilot auth',
     event = 'BufReadPost',
     opts = {
+      copilot_model = 'gpt-4o-copilot',
       suggestion = {
         auto_trigger = true,
         keymap = {
