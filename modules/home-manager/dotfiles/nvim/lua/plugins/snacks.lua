@@ -105,6 +105,14 @@ return {
     },
 
     {
+      '<leader>gv',
+      function()
+        Snacks.picker.grep { rtp = true }
+      end,
+      desc = 'Grep Vim',
+    },
+
+    {
       '<leader>:',
       function()
         Snacks.picker.command_history()
