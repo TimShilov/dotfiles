@@ -60,7 +60,18 @@ vim.keymap.set('n', '<leader>x', function()
   end
 
   if ft == 'typescript' then
-    local res = vim.system({ 'pnpm', 'tsx', vim.api.nvim_buf_get_name(0) }, { text = true }):wait()
+    local packageRoot = vim.fn.findfile('package.json', '.;')
+    local cwd = packageRoot and vim.fn.getcwd() .. '/' .. vim.fn.fnamemodify(packageRoot, ':h') or vim.fn.getcwd()
+    local filePath = vim.fn.expand '%:.'
+    local absoluteFilePath = vim.fn.fnamemodify(filePath, ':p')
+    local relativePath = absoluteFilePath:sub(#cwd + 2)
+    local command = { 'pnpm', 'tsx', relativePath }
+
+    local res = vim.system(command, { cwd = cwd, text = true }):wait()
+    if res.code ~= 0 then
+      Snacks.notify.error(res.stderr or 'Unknown error.')
+      return
+    end
     Snacks.notify(res.stdout)
     return
   end
