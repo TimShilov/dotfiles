@@ -227,11 +227,11 @@
         prSections = [
           {
             title = "Needs My Review";
-            filters = "is:open review-requested:@me ";
+            filters = "is:open review-requested:@me -label:dependencies ";
           }
           {
             title = "My Pull Requests";
-            filters = "is:open author:@me ";
+            filters = "is:open author:@me -label:dependencies ";
             layout.author.hidden = true;
           }
           {
