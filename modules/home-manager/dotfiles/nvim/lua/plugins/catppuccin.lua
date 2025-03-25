@@ -4,6 +4,7 @@ return {
   priority = 1000,
   opts = {
     transparent_background = true,
+    default_integrations = true,
     integrations = {
       blink_cmp = true,
       dadbod_ui = true,
@@ -13,7 +14,7 @@ return {
       grug_far = true,
       lsp_trouble = true,
       markdown = true,
-      mini = { enabled = true, indentscope_color = 'lavender' },
+      mini = { enabled = true },
       neotest = true,
       noice = true,
       octo = true,
@@ -48,6 +49,6 @@ return {
   },
   config = function(_, opts)
     require('catppuccin').setup(opts)
-    vim.cmd.colorscheme 'catppuccin'
+    vim.cmd.colorscheme 'catppuccin-mocha'
   end,
 }

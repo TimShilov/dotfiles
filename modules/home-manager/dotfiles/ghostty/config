@@ -5,11 +5,12 @@ auto-update = download
 macos-titlebar-style = hidden
 window-padding-x = 0
 window-padding-y = 0
-background-opacity = 0.96
+background-opacity = 0.98
 background-blur-radius = 20
 macos-window-shadow = false
 confirm-close-surface = false
 cursor-style = block
+cursor-invert-fg-bg = true
 
 keybind = ctrl+f=unbind
 keybind = super+n=unbind
