@@ -187,7 +187,14 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
-      jsonls = {},
+      jsonls = {
+        settings = {
+          json = {
+            schemas = require('schemastore').json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      },
       nxls = {},
       lua_ls = {
         settings = {
@@ -219,8 +226,17 @@ return { -- LSP Configuration & Plugins
       shfmt = {},
       sqlls = {},
       stylua = {},
+      taplo = {},
       yamlls = {
         filetypes_exclude = { 'helm' },
+        schemaStore = {
+          -- You must disable built-in schemaStore support if you want to use
+          -- this plugin and its advanced options like `ignore`.
+          enable = false,
+          -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+          url = '',
+        },
+        schemas = require('schemastore').yaml.schemas(),
       },
     }
 
