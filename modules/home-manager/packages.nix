@@ -14,8 +14,10 @@
     fswatch
     glow # Markdown reader
     gnupg
+    ncdu
     go
     gofumpt
+    posting # API client
     grizzly
     imagemagick # For converting images (required by Snacks.image nvim plugin)
     jira-cli-go
