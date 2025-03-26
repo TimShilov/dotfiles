@@ -130,6 +130,7 @@
       "aerospace"
       "arc"
       "gather"
+      "mouseless"
       "ghostty"
       "karabiner-elements"
       "macs-fan-control"
