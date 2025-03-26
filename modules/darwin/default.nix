@@ -97,6 +97,8 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnsupportedSystem = true;
 
+  security.pki.certificateFiles = [ "/etc/nix/ca_cert.pem" ];
+
   # Enable using touch id for sudo.
   security.pam.services.sudo_local = {
     reattach = true;
