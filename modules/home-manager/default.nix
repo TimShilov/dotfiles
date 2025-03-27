@@ -62,8 +62,9 @@
       source = dotfiles/skhd;
       recursive = true;
     };
-    ".config/ghostty/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/ghostty/config;
+    ".config/ghostty/" = {
+      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/ghostty;
+      recursive = true;
     };
     ".gitconfig" = {
       source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.gitconfig;

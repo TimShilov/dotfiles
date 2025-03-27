@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = catppuccin-mocha.conf
 font-size = 16
 
 auto-update = download
@@ -10,7 +10,6 @@ background-blur-radius = 20
 macos-window-shadow = false
 confirm-close-surface = false
 cursor-style = block
-cursor-invert-fg-bg = true
 
 keybind = ctrl+f=unbind
 keybind = super+n=unbind
