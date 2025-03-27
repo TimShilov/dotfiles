@@ -5,16 +5,16 @@ return {
     build = 'make',
   },
   event = { 'BufReadPre', 'BufNewFile' },
-  opts = {
-    menu = {
-      preview = false,
-    },
-  },
-  config = function(_, opts)
+  config = function()
     local dropbar = require 'dropbar'
     local dropbar_api = require 'dropbar.api'
 
-    dropbar.setup(opts)
+    local sources = require 'dropbar.sources'
+
+    dropbar.setup {
+      bar = { sources = { sources.path } },
+      menu = { preview = false },
+    }
 
     vim.keymap.set('n', '<leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
     vim.keymap.set('n', '[;', dropbar_api.goto_context_start, { desc = 'Go to start of current context' })
