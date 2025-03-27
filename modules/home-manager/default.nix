@@ -7,6 +7,7 @@
 {
   imports = [
     ./packages.nix
+    ./programs/ghostty.nix
     ./programs/k9s.nix
     ./programs/lazygit.nix
     ./programs/starship.nix
@@ -60,10 +61,6 @@
     ".config/skhd/" = {
       enable = false;
       source = dotfiles/skhd;
-      recursive = true;
-    };
-    ".config/ghostty/" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/ghostty;
       recursive = true;
     };
     ".gitconfig" = {
