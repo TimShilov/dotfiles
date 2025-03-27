@@ -45,28 +45,35 @@ local function find_json_schema_objects(bufnr)
   return schema_objects
 end
 
-local function highlight_required_properties(bufnr, objects, hl_group)
+local function process_json_schema_objects(bufnr, objects)
   -- Ensure buffer number is set
   bufnr = bufnr or 0
 
-  -- Default highlight group
-  hl_group = hl_group or 'ErrorMsg'
-
   -- Create namespace for highlights
-  local ns = vim.api.nvim_create_namespace 'json_schema_required_props'
+  local hl_ns = vim.api.nvim_create_namespace 'json_schema_required_props'
 
-  -- Clear previous highlights in this namespace
-  vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
+  -- Create namespace for diagnostics
+  local diag_ns = vim.api.nvim_create_namespace 'json_schema_diagnostics'
 
-  -- Create a query to find the 'required' array
+  -- Clear previous highlights and diagnostics
+  vim.api.nvim_buf_clear_namespace(bufnr, hl_ns, 0, -1)
+  vim.api.nvim_buf_clear_namespace(bufnr, diag_ns, 0, -1)
+
+  -- Create a query to find the 'required' array and 'properties' object
   local required_query = vim.treesitter.query.parse(
     'typescript',
     [[
         (pair
-            key: (property_identifier) @key
-            (#eq? @key "required")
+            key: (property_identifier) @required_key
+            (#eq? @required_key "required")
             value: (array) @required_array
         ) @required_pair
+
+        (pair
+            key: (property_identifier) @properties_key
+            (#eq? @properties_key "properties")
+            value: (object) @properties_object
+        ) @properties_pair
     ]]
   )
 
@@ -84,61 +91,122 @@ local function highlight_required_properties(bufnr, objects, hl_group)
     return props
   end
 
-  -- Collect all required properties
-  local all_required_props = {}
+  -- Function to extract defined property names
+  local function extract_defined_props(properties_node)
+    local props = {}
+    for child in properties_node:iter_children() do
+      if child:type() == 'pair' then
+        local key_node = child:child(0)
+        if key_node and key_node:type() == 'property_identifier' then
+          local prop = vim.treesitter.get_node_text(key_node, bufnr)
+          props[prop] = true
+        end
+      end
+    end
+    return props
+  end
+
+  -- Collect diagnostics
+  local diagnostics = {}
+
+  -- Process each object
   for _, object in ipairs(objects) do
+    local required_array_node = nil
+    local properties_object_node = nil
+    local required_props = {}
+    local defined_props = {}
+
+    -- Find required and properties nodes
     for _, match, _ in required_query:iter_matches(object, bufnr) do
-      local array_node = match[2] -- the required array node
+      for id, node in pairs(match) do
+        local capture_name = required_query.captures[id]
+        if capture_name == 'required_array' then
+          required_array_node = node
+        elseif capture_name == 'properties_object' then
+          properties_object_node = node
+        end
+      end
+    end
 
-      -- Extract property names
-      local required_props = extract_required_props(array_node)
+    -- Extract required and defined properties
+    if required_array_node then
+      required_props = extract_required_props(required_array_node)
+    end
+    if properties_object_node then
+      defined_props = extract_defined_props(properties_object_node)
+    end
 
-      -- Add to total list
+    -- Highlight and diagnose required properties
+    if #required_props > 0 then
+      -- Highlight defined required properties
       for _, prop in ipairs(required_props) do
-        table.insert(all_required_props, prop)
-      end
-    end
-  end
+        if defined_props[prop] then
+          -- Highlight defined required properties
+          local prop_query = vim.treesitter.query.parse(
+            'typescript',
+            string.format(
+              [[
+                  (pair
+                      key: (property_identifier) @key
+                      (#eq? @key "%s")
+                  ) @prop_pair
+              ]],
+              prop
+            )
+          )
 
-  -- Build a single query with all properties
-  if #all_required_props > 0 then
-    -- Escape special characters in property names
-    local escaped_props = {}
-    for _, prop in ipairs(all_required_props) do
-      table.insert(escaped_props, string.format('"%s"', prop:gsub('"', '\\"')))
-    end
+          for _, match, _ in prop_query:iter_matches(object, bufnr) do
+            local prop_node = match[1] -- the property key node
 
-    -- Create query with multiple alternatives
-    local multi_prop_query = vim.treesitter.query.parse(
-      'typescript',
-      string.format(
-        [[
+            -- Get node range
+            local start_row, start_col, end_row, end_col = prop_node:range()
+
+            -- Highlight the property
+            vim.api.nvim_buf_add_highlight(bufnr, hl_ns, '@text.emphasis', start_row, start_col, end_col)
+          end
+        else
+          -- Find the specific string node for the undefined property
+          local prop_query = vim.treesitter.query.parse(
+            'typescript',
+            [[
             (pair
-                key: (property_identifier) @key
-                (#any-of? @key %s)
-            ) @prop_pair
-        ]],
-        table.concat(escaped_props, ' ')
-      )
-    )
+                key: (property_identifier) @required_key
+                (#eq? @required_key "required")
+                value: (array (string) @prop_string)
+            ) @required_pair
+          ]]
+          )
 
-    -- Highlight matching properties
-    for _, object in ipairs(objects) do
-      for _, match, _ in multi_prop_query:iter_matches(object, bufnr) do
-        local prop_node = match[1] -- the property key node
+          for _, match, _ in prop_query:iter_matches(object, bufnr) do
+            for id, node in pairs(match) do
+              local capture_name = prop_query.captures[id]
+              if capture_name == 'prop_string' then
+                local prop_text = vim.treesitter.get_node_text(node, bufnr):gsub('^"', ''):gsub('"$', '')
 
-        -- Get node range
-        local start_row, start_col, end_row, end_col = prop_node:range()
+                if prop_text == prop and not defined_props[prop] then
+                  -- Get precise location of this specific string node
+                  local start_row, start_col, end_row, end_col = node:range()
 
-        -- vim.api.nvim_buf_set_extmark(0, ns, start_row, start_col - 2, {
-        --     virt_text = { { "!", "@text.emphasis" } }, -- Icon with a Comment highlight
-        --     virt_text_pos = "overlay", -- Alternatives: "eol", "right_align"
-        -- })
-        -- Highlight the property
-        vim.api.nvim_buf_add_highlight(bufnr, ns, '@text.emphasis', start_row, start_col, end_col)
+                  table.insert(diagnostics, {
+                    lnum = start_row,
+                    col = start_col,
+                    end_lnum = end_row,
+                    end_col = end_col,
+                    severity = vim.diagnostic.severity.ERROR,
+                    message = string.format("Required property '%s' is not defined in properties", prop),
+                    source = 'json-schema-validator',
+                  })
+                end
+              end
+            end
+          end
+        end
       end
     end
   end
+
+  -- Set diagnostics
+  vim.diagnostic.set(diag_ns, bufnr, diagnostics, {})
 end
 
 M.setup = function()
@@ -147,7 +215,7 @@ M.setup = function()
     callback = function(args)
       local bufnr = args.buf
       local objects = find_json_schema_objects()
-      highlight_required_properties(bufnr, objects, 'MiniSnippetsCurrentReplace')
+      process_json_schema_objects(bufnr, objects)
     end,
   })
 end
