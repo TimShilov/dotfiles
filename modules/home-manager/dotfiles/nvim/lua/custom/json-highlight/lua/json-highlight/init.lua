@@ -211,7 +211,7 @@ end
 
 M.setup = function()
   vim.api.nvim_create_autocmd({ 'BufRead', 'BufWrite', 'TextChanged' }, {
-    pattern = { '*.ts', '*.json' },
+    pattern = { 'schema.ts', 'schema.js' },
     callback = function(args)
       local bufnr = args.buf
       local objects = find_json_schema_objects()
