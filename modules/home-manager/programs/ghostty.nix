@@ -30,6 +30,9 @@
           # Reload tmux config (CMD + r)"
           "super+r=text:\\x02r"
 
+          # Open sesh (CMD + k)"
+          "super+k=text:\\x02k"
+
           # Open Lazygit (CMD + g)"
           "super+g=text:\\x02g"
 
@@ -60,7 +63,7 @@
           # kubernetes (CMD + e)"
           "super+e=text:\\x02e"
 
-          # Zoom in tmux pane (CMD + f)"
+          # Zoom in tmux pane (CMD + z)"
           "super+f=text:\\x02z"
 
           # Tmux window navigation (CMD + [/])"
