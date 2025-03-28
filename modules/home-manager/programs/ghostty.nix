@@ -17,6 +17,7 @@
         confirm-close-surface = "false";
 
         cursor-style = "block";
+        shell-integration-features = "no-cursor";
 
         keybind = [
           "ctrl+f=unbind"
@@ -64,7 +65,7 @@
           "super+e=text:\\x02e"
 
           # Zoom in tmux pane (CMD + z)"
-          "super+f=text:\\x02z"
+          "super+z=text:\\x02z"
 
           # Tmux window navigation (CMD + [/])"
           "super+left_bracket=text:\\x02p"
