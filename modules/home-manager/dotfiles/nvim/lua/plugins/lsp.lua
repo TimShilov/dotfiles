@@ -35,10 +35,6 @@ return { -- LSP Configuration & Plugins
         -- map('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
         -- map('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-        -- See `:help K` for why this keymap
-        map('n', 'K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('n', 'gl', vim.diagnostic.open_float, 'Open diagnostic float')
-
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
