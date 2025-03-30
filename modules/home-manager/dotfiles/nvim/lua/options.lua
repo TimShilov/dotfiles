@@ -99,8 +99,3 @@ vim.diagnostic.config {
     vim.cmd 'highlight NormalFloat guibg=NONE'
   end,
 }
-vim.filetype.add {
-  extension = {
-    ['http'] = 'http',
-  },
-}
