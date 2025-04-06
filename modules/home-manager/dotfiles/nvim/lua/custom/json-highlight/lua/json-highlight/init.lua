@@ -10,6 +10,8 @@ local function find_json_schema_objects(bufnr)
     return {}
   end
 
+  parser:parse()
+
   -- Create a query to find objects with type: "object"
   local query = vim.treesitter.query.parse(
     'typescript',
@@ -34,17 +36,21 @@ local function find_json_schema_objects(bufnr)
     for _, match, _ in query:iter_matches(root, bufnr) do
       local type_node = match[1] -- type key node
 
-      -- Get the parent of the type pair (which should be the object)
-      local object_node = type_node:parent():parent()
+      for _, node in ipairs(type_node) do
+        -- Get the parent of the type pair (which should be the object)
+        local object_node = node:parent():parent()
 
-      -- Store the object node
-      table.insert(schema_objects, object_node)
+        -- Store the object node
+        table.insert(schema_objects, object_node)
+      end
     end
   end
 
   return schema_objects
 end
 
+---@param bufnr number
+---@param objects table<TSNode[]>
 local function process_json_schema_objects(bufnr, objects)
   -- Ensure buffer number is set
   bufnr = bufnr or 0
@@ -78,28 +84,34 @@ local function process_json_schema_objects(bufnr, objects)
   )
 
   -- Function to extract string values from an array node
+  ---@param array_node TSNode[]
   local function extract_required_props(array_node)
     local props = {}
-    for child in array_node:iter_children() do
-      if child:type() == 'string' then
-        local prop = vim.treesitter.get_node_text(child, bufnr)
-        -- Remove quotes
-        prop = prop:gsub('^"', ''):gsub('"$', '')
-        table.insert(props, prop)
+    for _, node in ipairs(array_node) do
+      for child in node:iter_children() do
+        if child:type() == 'string' then
+          local prop = vim.treesitter.get_node_text(child, bufnr)
+          -- Remove quotes
+          prop = prop:gsub('^"', ''):gsub('"$', '')
+          table.insert(props, prop)
+        end
       end
     end
     return props
   end
 
   -- Function to extract defined property names
+  ---@param properties_node TSNode[]
   local function extract_defined_props(properties_node)
     local props = {}
-    for child in properties_node:iter_children() do
-      if child:type() == 'pair' then
-        local key_node = child:child(0)
-        if key_node and key_node:type() == 'property_identifier' then
-          local prop = vim.treesitter.get_node_text(key_node, bufnr)
-          props[prop] = true
+    for _, node in ipairs(properties_node) do
+      for child in node:iter_children() do
+        if child:type() == 'pair' then
+          local key_node = child:child(0)
+          if key_node and (key_node:type() == 'property_identifier' or key_node:type() == 'string') then
+            local prop = vim.treesitter.get_node_text(key_node, bufnr)
+            props[prop] = true
+          end
         end
       end
     end
@@ -140,29 +152,36 @@ local function process_json_schema_objects(bufnr, objects)
     if #required_props > 0 then
       -- Highlight defined required properties
       for _, prop in ipairs(required_props) do
-        if defined_props[prop] then
+        if defined_props[prop] or defined_props['"' .. prop .. '"'] then
           -- Highlight defined required properties
+
           local prop_query = vim.treesitter.query.parse(
             'typescript',
             string.format(
               [[
-                  (pair
-                      key: (property_identifier) @key
-                      (#eq? @key "%s")
-                  ) @prop_pair
+                (pair
+                  key: [
+                        (property_identifier) @key
+                        (string (string_fragment) @key)
+                        ]
+                  (#eq? @key "%s")
+                ) @prop_pair
               ]],
               prop
             )
           )
 
           for _, match, _ in prop_query:iter_matches(object, bufnr) do
-            local prop_node = match[1] -- the property key node
+            local prop_nodes = match[1] -- the property key node
 
-            -- Get node range
-            local start_row, start_col, end_row, end_col = prop_node:range()
+            for _, node in ipairs(prop_nodes) do
+              -- Get node range
+              local start_row, start_col, end_row, end_col = node:range()
 
-            -- Highlight the property
-            vim.api.nvim_buf_add_highlight(bufnr, hl_ns, '@text.emphasis', start_row, start_col, end_col)
+              -- Highlight the property
+              -- TODO: Replace with nvim_buf_set_extmark
+              vim.api.nvim_buf_add_highlight(bufnr, hl_ns, '@text.emphasis', start_row, start_col, end_col)
+            end
           end
         else
           -- Find the specific string node for the undefined property
@@ -178,24 +197,26 @@ local function process_json_schema_objects(bufnr, objects)
           )
 
           for _, match, _ in prop_query:iter_matches(object, bufnr) do
-            for id, node in pairs(match) do
-              local capture_name = prop_query.captures[id]
-              if capture_name == 'prop_string' then
-                local prop_text = vim.treesitter.get_node_text(node, bufnr):gsub('^"', ''):gsub('"$', '')
+            for id, nodes in pairs(match) do
+              for _, node in ipairs(nodes) do
+                local capture_name = prop_query.captures[id]
+                if capture_name == 'prop_string' then
+                  local prop_text = vim.treesitter.get_node_text(node, bufnr):gsub('^"', ''):gsub('"$', '')
 
-                if prop_text == prop and not defined_props[prop] then
-                  -- Get precise location of this specific string node
-                  local start_row, start_col, end_row, end_col = node:range()
+                  if prop_text == prop and not defined_props[prop] then
+                    -- Get precise location of this specific string node
+                    local start_row, start_col, end_row, end_col = node:range()
 
-                  table.insert(diagnostics, {
-                    lnum = start_row,
-                    col = start_col,
-                    end_lnum = end_row,
-                    end_col = end_col,
-                    severity = vim.diagnostic.severity.ERROR,
-                    message = string.format("Required property '%s' is not defined in properties", prop),
-                    source = 'json-schema-validator',
-                  })
+                    table.insert(diagnostics, {
+                      lnum = start_row,
+                      col = start_col,
+                      end_lnum = end_row,
+                      end_col = end_col,
+                      severity = vim.diagnostic.severity.ERROR,
+                      message = string.format("Required property '%s' is not defined in properties", prop),
+                      source = 'json-schema-validator',
+                    })
+                  end
                 end
               end
             end
