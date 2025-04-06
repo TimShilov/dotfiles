@@ -114,11 +114,11 @@
 
           set -g @catppuccin_window_current_text " #W"
           set -g @catppuccin_window_flags "icon"
-          set -g @catppuccin_window_flags_icon_activity "󱅫"
-          set -g @catppuccin_window_flags_icon_bell "󰂞"
+          set -g @catppuccin_window_flags_icon_activity " 󱅫"
+          set -g @catppuccin_window_flags_icon_bell " 󰂞"
           set -g @catppuccin_window_flags_icon_current ""
           set -g @catppuccin_window_flags_icon_last ""
-          set -g @catppuccin_window_flags_icon_zoom "󰁌 "
+          set -g @catppuccin_window_flags_icon_zoom " 󰁌 "
           set -g @catppuccin_window_text " #W"
         '';
     };
