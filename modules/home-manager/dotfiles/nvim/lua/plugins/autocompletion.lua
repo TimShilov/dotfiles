@@ -32,10 +32,6 @@ return {
       documentation = { auto_show = true, window = { border = 'rounded' } },
       accept = { dot_repeat = false },
     },
-    signature = {
-      window = { border = 'rounded', direction_priority = { 's', 'n' } },
-      enabled = true,
-    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`

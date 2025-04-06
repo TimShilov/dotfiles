@@ -13,7 +13,7 @@ vim.o.splitbelow = true -- force all horizontal splits to go below current windo
 vim.o.splitright = true -- force all vertical splits to go to the right of current window
 
 vim.o.hlsearch = false -- Set highlight on search
--- TODO: Enable after upgrading to Nvim 0.11
+-- TODO: Enable after plugins adopt it (@see https://github.com/folke/noice.nvim/issues/1082)
 -- vim.opt.winborder = 'rounded'
 
 vim.o.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor
@@ -63,7 +63,7 @@ vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.o.updatetime = 250 -- Decrease update time
 vim.o.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
 
-vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect,fuzzy,preview' -- Set completeopt to have a better completion experience
 
 vim.opt.termguicolors = true -- set termguicolors to enable highlight groups
 
@@ -73,6 +73,7 @@ vim.opt.spell = false
 -- Prevent LSP from overwriting treesitter color settings
 -- https://github.com/NvChad/NvChad/issues/1907
 vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
+vim.diagnostic.config { underline = true, virtual_text = true, severity_sort = true }
 
 -- Appearance of diagnostics
 vim.diagnostic.config {
