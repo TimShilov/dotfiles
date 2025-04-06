@@ -52,7 +52,7 @@
               verbose = true;
               users."tim.shilov".imports = [
                 ./modules/home-manager
-                catppuccin.homeManagerModules.catppuccin
+                catppuccin.homeModules.catppuccin
               ] ++ private.modules;
             };
           }
