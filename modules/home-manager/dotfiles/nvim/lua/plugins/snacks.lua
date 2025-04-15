@@ -368,14 +368,14 @@ return {
 
     -- LSP
     {
-      'gd',
+      'grd',
       function()
         Snacks.picker.lsp_definitions()
       end,
       desc = 'Goto Definition',
     },
     {
-      'gD',
+      'grD',
       function()
         Snacks.picker.lsp_declarations()
       end,
@@ -397,7 +397,7 @@ return {
       desc = 'Goto Implementation',
     },
     {
-      'gy',
+      'grt',
       function()
         Snacks.picker.lsp_type_definitions()
       end,
@@ -411,7 +411,7 @@ return {
       desc = 'LSP Symbols',
     },
     {
-      '<leader>ws',
+      'gW',
       function()
         Snacks.picker.lsp_workspace_symbols()
       end,
