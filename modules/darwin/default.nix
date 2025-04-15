@@ -133,7 +133,6 @@
       "ghostty"
       "karabiner-elements"
       "macs-fan-control"
-      "nikitabobko/tap/aerospace"
       "raycast"
       "sf-symbols"
       "tableplus"
