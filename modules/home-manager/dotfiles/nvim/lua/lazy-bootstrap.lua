@@ -19,6 +19,7 @@ require('lazy').setup('plugins', {
     border = 'rounded',
     backdrop = 80,
   },
+  install = { colorscheme = { 'catppuccin' } },
   checker = {
     enabled = true,
     frequency = 518400, -- 6 days
