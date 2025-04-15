@@ -8,6 +8,7 @@
   imports = [
     ./packages.nix
     ./programs/ghostty.nix
+    ./programs/aerospace
     ./programs/k9s.nix
     ./programs/lazygit.nix
     ./programs/starship.nix
@@ -42,9 +43,6 @@
     };
     ".tool-version" = {
       source = dotfiles/.tool-versions;
-    };
-    ".aerospace.toml" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.aerospace.toml;
     };
     ".asdfrc" = {
       source = dotfiles/.asdfrc;

@@ -127,7 +127,6 @@
       "Irvue" = 1039633667;
     };
     casks = [
-      "aerospace"
       "arc"
       "gather"
       "mouseless"
