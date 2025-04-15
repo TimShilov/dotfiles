@@ -136,7 +136,7 @@ alt-shift-l = ['join-with right', 'mode main']
 9 = ['secondary', 'main']
 
 [[on-window-detected]]
-if.app-id = 'org.mozilla.nightly'
+if.app-id = 'app.zen-browser.zen'
 check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 1']
 
