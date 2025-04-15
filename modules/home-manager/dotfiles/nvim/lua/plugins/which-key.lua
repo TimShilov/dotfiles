@@ -1,11 +1,7 @@
--- Useful plugin to show you pending keybinds.
 return {
   'folke/which-key.nvim',
-  config = function()
-    local which_key = require 'which-key'
-
-    -- document existing key chains
-    which_key.add {
+  opts = {
+    spec = {
       { '<leader>c', group = '[C]ode' },
       { '<leader>c_', hidden = true },
       { '<leader>d', group = '[D]ocument' },
@@ -22,13 +18,11 @@ return {
       { '<leader>t_', hidden = true },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>w_', hidden = true },
-    }
 
-    -- register which-key VISUAL mode
-    -- required for visual <leader>hs (hunk stage) to work
-    which_key.add {
+      -- register which-key VISUAL mode
+      -- required for visual <leader>hs (hunk stage) to work
       { '<leader>', group = 'VISUAL <leader>', mode = 'v' },
       { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
-    }
-  end,
+    },
+  },
 }
