@@ -19,6 +19,13 @@
           context = "global";
           subprocess = true;
         }
+        {
+          key = "U";
+          command = # bash
+            ''gh pr update-branch {{.SelectedLocalBranch}}'';
+          context = "localBranches";
+          subprocess = true;
+        }
       ];
 
       gui = {
