@@ -36,6 +36,12 @@
     ".config/borders/bordersrc" = {
       source = dotfiles/bordersrc;
     };
+    ".default-npm-packages" = {
+      source = dotfiles/.default-npm-packages;
+    };
+    ".tool-version" = {
+      source = dotfiles/.tool-versions;
+    };
     ".aerospace.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.aerospace.toml;
     };
