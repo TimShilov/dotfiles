@@ -38,6 +38,10 @@ return {
         -- 'gx' by default but it conflicts with built-in 'gx' mapping.
         prefix = '',
       },
+      replace = {
+        -- 'gr' by default but it conflicts with built-in 'gr' mappings.
+        prefix = '',
+      },
     },
   },
   {
