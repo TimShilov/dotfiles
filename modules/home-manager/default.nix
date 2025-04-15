@@ -15,6 +15,7 @@
     ./programs/tmux
     ./programs/zoxide.nix
     ./programs/zsh.nix
+    ./programs/superfile.nix
 
     ./services/bugwarrior.nix
     ./services/imapfilter.nix
