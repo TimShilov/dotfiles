@@ -40,7 +40,7 @@ return {
       },
       replace = {
         -- 'gr' by default but it conflicts with built-in 'gr' mappings.
-        prefix = '',
+        prefix = 'gp',
       },
     },
   },
