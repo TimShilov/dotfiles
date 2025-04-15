@@ -171,7 +171,7 @@
       enable = true;
     };
     mise = {
-      enable = true;
+      enable = false;
     };
     eza = {
       enable = true;
