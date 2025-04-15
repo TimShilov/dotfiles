@@ -11,8 +11,9 @@
         macos-titlebar-style = "hidden";
         window-padding-x = "0";
         window-padding-y = "0";
-        background-opacity = "0.98";
-        background-blur-radius = "20";
+
+        background-opacity = "0.90";
+        background-blur-radius = "50";
         macos-window-shadow = "false";
         confirm-close-surface = "false";
 
