@@ -9,6 +9,7 @@
     asdf-vm
     ast-grep
     bkt # Bash caching
+    unixtools.watch
     fac # Git merge conflict resolution CLI
     fd
     fswatch

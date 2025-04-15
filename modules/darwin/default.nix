@@ -155,7 +155,6 @@
       "podman-compose"
       "asdf"
       "gnu-sed"
-      "watch"
     ];
   };
 }
