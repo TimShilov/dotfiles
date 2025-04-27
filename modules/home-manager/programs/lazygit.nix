@@ -22,7 +22,7 @@
         {
           key = "U";
           command = # bash
-            ''gh pr update-branch {{.SelectedLocalBranch}}'';
+            ''gh pr update-branch {{.SelectedLocalBranch.Name}}'';
           context = "localBranches";
           subprocess = true;
         }
