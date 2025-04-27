@@ -1,5 +1,5 @@
 {
-  pkgs,
+  lib,
   ...
 }:
 {
@@ -34,12 +34,14 @@
       save = 10000;
       size = 10000;
     };
-    initExtraFirst = # bash
-      ''
-        export PATH="$HOME/.asdf/shims:$PATH"
-      '';
+    initContent = lib.mkMerge [
+      (lib.mkBefore # bash
+        ''
+          export PATH="$HOME/.asdf/shims:$PATH"
+        ''
+      )
 
-    initExtra = # bash
+      # bash
       ''
         function gc() {
             local branches branch
@@ -77,6 +79,7 @@
                 echo "Error: There's no package.json"
             fi
         }
-      '';
+      ''
+    ];
   };
 }
