@@ -133,6 +133,8 @@
       "ghostty"
       "karabiner-elements"
       "macs-fan-control"
+      "keymapp" # ZSA keyboard flashing tool
+
       "raycast"
       "sf-symbols"
       "tableplus"
