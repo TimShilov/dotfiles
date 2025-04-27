@@ -5,7 +5,7 @@ return { -- LSP Configuration & Plugins
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'saghen/blink.cmp',
-    'yioneko/nvim-vtsls',
+    'yioneko/nvim-vtsls', -- TODO: See if can be replaced with 'LspTypescriptSourceAction' command
   },
   cmd = { 'Mason' },
   event = { 'BufReadPre', 'BufNewFile' },
@@ -79,6 +79,7 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      terraformls = {},
       docker_compose_language_service = {},
       dockerls = {},
       eslint = {},
