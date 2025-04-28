@@ -1,5 +1,5 @@
 const hintsCss =
-  "font-size: 13pt; font-family: 'JetBrains Mono NL', 'Cascadia Code', 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 0px; color: #e0def4 !important; background: #191724; background-color: #191724";
+  "font-family: 'JetBrains Mono NL', 'Cascadia Code', 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 0px;  color: #181825 !important; background: #fab387; background-color: #fab387; border-color: #181825;";
 
 api.Hints.style(hintsCss);
 api.Hints.style(hintsCss, "text");
