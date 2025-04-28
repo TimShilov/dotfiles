@@ -48,7 +48,6 @@ return { -- LSP Configuration & Plugins
     local servers = {
       ['js-debug-adapter'] = {},
       ['nixpkgs-fmt'] = {},
-      ['sql-formatter'] = {},
       actionlint = {},
       bashls = {},
       delve = {},
@@ -208,19 +207,18 @@ return { -- LSP Configuration & Plugins
         schemas = require('schemastore').yaml.schemas(),
       },
     }
+    local formatters = { 'sql-formatter', 'sqruff' }
 
     -- Decorate floating windows
-    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+    vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover)
+    vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help)
 
     -- Ensure the servers and tools above are installed
-    require('mason').setup {
-      ui = { border = 'rounded' },
-    }
+    require('mason').setup {}
 
     -- You can add other tools here that you want Mason to install
     -- for you, so that they are available from within Neovim.
-    local ensure_installed = vim.tbl_keys(servers or {})
+    local ensure_installed = vim.tbl_extend('keep', formatters, vim.tbl_keys(servers or {}))
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('lspconfig').nixd.setup(servers['nixd'])
