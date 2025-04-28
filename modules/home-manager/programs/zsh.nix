@@ -6,6 +6,10 @@
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
+
+    # uncomment for shell profiling
+    # zprof.enable = true;
+
     syntaxHighlighting.enable = true;
     autocd = true;
     sessionVariables = {
