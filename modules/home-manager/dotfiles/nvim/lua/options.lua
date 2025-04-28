@@ -13,8 +13,7 @@ vim.opt.splitbelow = true -- force all horizontal splits to go below current win
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 
 vim.opt.hlsearch = false -- Set highlight on search
--- TODO: Enable after plugins adopt it (@see https://github.com/folke/noice.nvim/issues/1082)
--- vim.opt.winborder = 'rounded'
+vim.opt.winborder = 'rounded'
 
 vim.opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns either side of cursor if wrap is `false`
