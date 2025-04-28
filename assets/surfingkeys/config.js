@@ -1,5 +1,5 @@
 const hintsCss =
-  "font-family: 'JetBrains Mono NL', 'Cascadia Code', 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 0px;  color: #181825 !important; background: #fab387; background-color: #fab387; border-color: #181825;";
+    "font-family: 'JetBrains Mono NL', 'Cascadia Code', 'Helvetica Neue', Helvetica, Arial, sans-serif; border: 0px;  color: #181825 !important; background: #fab387; background-color: #fab387; border-color: #181825;";
 
 api.Hints.style(hintsCss);
 api.Hints.style(hintsCss, "text");
@@ -276,6 +276,7 @@ settings.theme = `
     border-top-style: none;
     text-align: center;
     background: #191724;
+    color: #fab387;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
