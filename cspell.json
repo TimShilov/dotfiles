@@ -1,16 +1,6 @@
 {
-    "words": [
-        "catppuccin",
-        "nvim",
-        "noice",
-        "neotest",
-        "dadbod",
-        "undercurl",
-        "Shilov"
-    ],
-    "useGitignore": true,
     "ignorePaths": ["pnpm-lock.yaml", "flake.lock"],
-    "version": "0.2",
+    "import": ["@cspell/dict-vim/cspell-ext.json"],
     "dictionaries": [
         "bash",
         "vim",
@@ -22,7 +12,19 @@
         "softwareTerms",
         "typescript"
     ],
-    "language": "en",
+    "version": "0.2",
     "flagWords": [],
-    "import": ["@cspell/dict-vim/cspell-ext.json"]
+    "language": "en",
+    "words": [
+        "catppuccin",
+        "nvim",
+        "noice",
+        "neotest",
+        "dadbod",
+        "undercurl",
+        "Shilov",
+        "uids"
+    ],
+    "useGitignore": true
 }
+
