@@ -14,6 +14,7 @@
     autocd = true;
     sessionVariables = {
       LANG = "en_GB.UTF-8";
+      MANPAGER = "nvim +Man! \"+set relativenumber\"";
     };
     shellAliases = {
       nixswitch = "darwin-rebuild switch --flake ~/dotfiles/.#";
