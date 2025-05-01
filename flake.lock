@@ -133,11 +133,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1744728391,
-        "narHash": "sha256-EtPJBrh0O3VF35Wi5svLBiXSsVEQTY4tS6+PXtncfUw=",
+        "lastModified": 1746117491,
+        "narHash": "sha256-J6B/01pjUVndKknpA/nwElWCbamYoD+Vk2Zm1chcYjo=",
         "ref": "refs/heads/main",
-        "rev": "6689399bbefea14a3b87818834f151c009228ab4",
-        "revCount": 44,
+        "rev": "2143bc5169db87f3a881a2a4e2c2a6fe464d4691",
+        "revCount": 45,
         "type": "git",
         "url": "ssh://git@github.com/TimShilov/dotfiles-private"
       },
