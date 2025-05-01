@@ -23,13 +23,14 @@ return {
       json = { 'prettier', stop_after_first = true },
       query = { 'format-queries' },
       nix = { 'nixfmt' },
+      sh = { 'shfmt' },
       go = { 'goimports', 'gofumpt' },
       ['*'] = { 'injected' },
     },
     default_format_opts = {
       lsp_format = 'fallback',
     },
-    format_on_save = { timeout_ms = 3000 },
+    format_on_save = { timeout_ms = 3000, lsp_format = 'fallback' },
     formatters = {
       injected = {},
       shfmt = {
