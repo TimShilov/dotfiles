@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 echo 'Messages by mailbox:'
-notmuch search --output=files a |
+notmuch search --output=files '*' |
   while IFS= read -r file; do dirname "$file"; done |
+  sed -E 's:/(cur|new)$::' |
   sort |
   uniq -c |
   sort -nr |
