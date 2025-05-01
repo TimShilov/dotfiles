@@ -7,6 +7,7 @@
   # environment.
   home.packages = with pkgs; [
     asdf-vm
+    parallel
     ast-grep
     bkt # Bash caching
     unixtools.watch
