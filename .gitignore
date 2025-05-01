@@ -1,4 +1,5 @@
 .idea/
+.local/
 node_modules/
 
 # Private modules
