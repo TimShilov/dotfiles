@@ -92,6 +92,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    MANPAGER = "nvim +Man! \"+set relativenumber\"";
     PAGER = "less";
     LANG = "en_GB.UTF-8";
     KUBECONFIG = "$HOME/.kube/config";
