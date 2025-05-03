@@ -74,10 +74,6 @@
     ".ideavimrc" = {
       source = dotfiles/.ideavimrc;
     };
-    # TODO: Find a way to make this work with relative path
-    ".ssh/config" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/ssh/config;
-    };
   };
 
   xdg = {
