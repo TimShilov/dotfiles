@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   system.defaults = {
     dock = {
       autohide = true;
