@@ -213,7 +213,12 @@
     };
     gh = {
       enable = true;
-      extensions = with pkgs; [ gh-notify ];
+      extensions = with pkgs; [
+        gh-notify
+        gh-copilot
+        gh-s
+        gh-f
+      ];
     };
     gh-dash = {
       enable = true;
