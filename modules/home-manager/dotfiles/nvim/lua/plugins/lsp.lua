@@ -234,5 +234,7 @@ return { -- LSP Configuration & Plugins
         end,
       },
     }
+
+    vim.lsp.enable 'oxlint'
   end,
 }
