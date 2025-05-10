@@ -3,14 +3,14 @@ return {
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
   keys = {
-    -- {
-    --   '<leader>ff',
-    --   function()
-    --     require('conform').format { async = true }
-    --   end,
-    --   mode = '',
-    --   desc = 'Format buffer',
-    -- },
+    {
+      '<leader>cf',
+      function()
+        require('conform').format { async = true }
+      end,
+      mode = '',
+      desc = 'Code format',
+    },
   },
   -- This will provide type hinting with LuaLS
   ---@module "conform"
