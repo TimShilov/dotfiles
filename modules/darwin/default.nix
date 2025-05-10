@@ -117,7 +117,7 @@
     caskArgs.no_quarantine = true;
     global.brewfile = true;
     onActivation = {
-      cleanup = "zap";
+      cleanup = "uninstall";
       upgrade = true;
       autoUpdate = true;
     };
@@ -139,7 +139,7 @@
       "raycast"
       "sf-symbols"
       "tableplus"
-      "zen-browser"
+      "zen"
     ];
     taps = [
       "homebrew/bundle"
