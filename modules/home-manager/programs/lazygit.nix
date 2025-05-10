@@ -26,6 +26,13 @@
           context = "localBranches";
           subprocess = true;
         }
+        {
+          key = "U";
+          command = # bash
+            ''gh pr update-branch {{.SelectedRemoteBranch.Name}}'';
+          context = "remoteBranches";
+          subprocess = true;
+        }
       ];
 
       gui = {
