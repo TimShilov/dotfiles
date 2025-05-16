@@ -26,16 +26,17 @@ return { -- LSP Configuration & Plugins
         map('n', '<leader>lr', '<cmd>LspRestart<cr>', '[L]SP [R]estart')
 
         vim.api.nvim_create_autocmd('BufWritePre', {
-          pattern = { '*.[jt]sx', '*.[mc][jt]s', '*.[jt]s' },
-          command = 'silent! EslintFixAll',
-          group = vim.api.nvim_create_augroup('ESlintFixAll', {}),
+          pattern = { '*.js', '*.ts', '*.cjs', '*.mjs', '*.cts', '*.mts' },
+          command = 'silent! LspEslintFixAll',
+          group = vim.api.nvim_create_augroup('LspEslintFixAll', {}),
         })
 
         vim.api.nvim_create_autocmd('BufWritePre', {
-          pattern = { '*.ts', '*.[cm]ts' },
+          pattern = { '*.js', '*.ts', '*.cjs', '*.mjs', '*.cts', '*.mts' },
           group = vim.api.nvim_create_augroup('TypescriptFormatOnSave', {}),
           callback = function()
             vim.cmd 'silent! VtsExec remove_unused_imports'
+            vim.cmd 'silent! VtsExec add_missing_imports'
           end,
         })
       end,
