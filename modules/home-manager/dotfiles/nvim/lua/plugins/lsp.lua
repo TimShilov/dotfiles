@@ -61,7 +61,6 @@ return { -- LSP Configuration & Plugins
       -- END GO
       'oxlint',
       'nixd',
-      'groovyls',
       'hadolint',
       'helm_ls',
       'jsonls',
