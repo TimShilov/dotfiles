@@ -78,6 +78,7 @@ return { -- LSP Configuration & Plugins
       'gofumpt',
       'goimports',
       'gomodifytags',
+      'terraform',
       'jq',
       'nixpkgs-fmt',
       'npm-groovy-lint',
