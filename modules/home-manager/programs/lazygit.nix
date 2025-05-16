@@ -3,6 +3,12 @@
     enable = true;
     settings = {
       promptToReturnFromSubprocess = false;
+      git = {
+        paging = {
+          colorArg = "always";
+          pager = "diff-so-fancy";
+        };
+      };
 
       customCommands = [
         {

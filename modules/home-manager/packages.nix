@@ -7,6 +7,7 @@
   # environment.
   home.packages = with pkgs; [
     asdf-vm
+    diff-so-fancy
     parallel
     ast-grep
     bkt # Bash caching
