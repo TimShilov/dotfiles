@@ -249,7 +249,7 @@
               command = "gh pr merge {{.PrNumber}} --admin --squash --delete-branch --repo {{.RepoName}}";
             }
             {
-              key = "e";
+              key = "E";
               command = "tmux new-window -c {{.RepoPath}} 'nvim -c \":silent Octo pr edit {{.PrNumber}}\"'";
             }
           ];
@@ -257,6 +257,7 @@
         defaults = {
           preview = {
             open = false;
+            width = 90;
           };
         };
       };
