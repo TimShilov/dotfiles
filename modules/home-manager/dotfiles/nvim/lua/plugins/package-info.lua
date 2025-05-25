@@ -1,8 +1,6 @@
 return {
   'vuki656/package-info.nvim',
-  -- Disabled because it conflicts with Octo.nvim PR review
-  -- TODO: Figure out how to fix it
-  enabled = false,
+  enabled = true,
   dependencies = { 'MunifTanjim/nui.nvim' },
   event = 'BufEnter package.json',
   ft = 'json',
