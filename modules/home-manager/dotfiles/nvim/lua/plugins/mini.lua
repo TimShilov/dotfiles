@@ -50,6 +50,11 @@ return {
     opts = {},
   },
   {
+    'echasnovski/mini.surround',
+    version = false,
+    opts = {},
+  },
+  {
     'echasnovski/mini.snippets',
     version = false,
     opts = {},
