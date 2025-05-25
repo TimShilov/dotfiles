@@ -9,10 +9,11 @@
         auto-update = "download";
 
         macos-titlebar-style = "hidden";
+        macos-icon = "glass";
         window-padding-x = "0";
         window-padding-y = "0";
 
-        background-opacity = "0.90";
+        background-opacity = "0.95";
         background-blur-radius = "50";
         macos-window-shadow = "false";
         confirm-close-surface = "false";
