@@ -22,23 +22,7 @@ return { -- LSP Configuration & Plugins
 
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
         end
-
         map('n', '<leader>lr', '<cmd>LspRestart<cr>', '[L]SP [R]estart')
-
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          pattern = { '*.js', '*.ts', '*.cjs', '*.mjs', '*.cts', '*.mts' },
-          command = 'silent! LspEslintFixAll',
-          group = vim.api.nvim_create_augroup('LspEslintFixAll', {}),
-        })
-
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          pattern = { '*.js', '*.ts', '*.cjs', '*.mjs', '*.cts', '*.mts' },
-          group = vim.api.nvim_create_augroup('TypescriptFormatOnSave', {}),
-          callback = function()
-            vim.cmd 'silent! VtsExec remove_unused_imports'
-            vim.cmd 'silent! VtsExec add_missing_imports'
-          end,
-        })
       end,
     })
 
