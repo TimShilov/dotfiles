@@ -19,9 +19,10 @@
     ./programs/superfile.nix
 
     ./services/bugwarrior.nix
-    ./services/imapfilter.nix
-    ./services/email-sync.nix
     ./services/email-index.nix
+    ./services/email-sync.nix
+    ./services/home-manager.nix
+    ./services/imapfilter.nix
     ./services/podman-machine.nix
   ];
 
