@@ -34,6 +34,7 @@ return {
         },
       },
       filter = { cwd = true },
+      hidden = true,
     },
     scratch = {
       win_by_ft = {
