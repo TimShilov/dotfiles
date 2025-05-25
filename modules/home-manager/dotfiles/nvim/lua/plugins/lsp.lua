@@ -1,3 +1,19 @@
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+  -- Create a function that lets us more easily define mappings specific LSP related items.
+  -- It sets the mode, buffer and description for us each time.
+  callback = function(event)
+    local map = function(mode, keys, func, desc)
+      if desc then
+        desc = 'LSP: ' .. desc
+      end
+
+      vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
+    end
+    map('n', '<leader>lr', '<cmd>LspRestart<cr>', '[L]SP [R]estart')
+  end,
+})
+
 return { -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
@@ -7,28 +23,7 @@ return { -- LSP Configuration & Plugins
     'saghen/blink.cmp',
     'yioneko/nvim-vtsls', -- TODO: See if can be replaced with 'LspTypescriptSourceAction' command
   },
-  cmd = { 'Mason' },
-  event = { 'BufReadPre', 'BufNewFile' },
   config = function()
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
-      -- Create a function that lets us more easily define mappings specific LSP related items.
-      -- It sets the mode, buffer and description for us each time.
-      callback = function(event)
-        local map = function(mode, keys, func, desc)
-          if desc then
-            desc = 'LSP: ' .. desc
-          end
-
-          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
-        end
-        map('n', '<leader>lr', '<cmd>LspRestart<cr>', '[L]SP [R]estart')
-      end,
-    })
-
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
-
     -- Enable the following language servers
     local servers = {
       'js-debug-adapter',
@@ -44,7 +39,6 @@ return { -- LSP Configuration & Plugins
       'impl',
       -- END GO
       'oxlint',
-      'nixd',
       'hadolint',
       'helm_ls',
       'jsonls',
@@ -72,18 +66,13 @@ return { -- LSP Configuration & Plugins
       'sqruff',
       'stylua',
     }
-
-    -- Ensure the servers and tools above are installed
-    require('mason').setup {}
-
-    -- You can add other tools here that you want Mason to install
-    -- for you, so that they are available from within Neovim.
-    local ensure_installed = vim.tbl_extend('keep', formatters, servers)
+    local ensure_installed = vim.tbl_extend('force', formatters, servers)
+    require('mason').setup(opts)
+    require('mason-lspconfig').setup {}
     require('mason-tool-installer').setup {
       ensure_installed = ensure_installed,
       auto_update = true,
+      run_on_start = true,
     }
-
-    require('mason-lspconfig').setup {}
   end,
 }
