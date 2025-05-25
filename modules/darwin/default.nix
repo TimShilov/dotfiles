@@ -4,36 +4,39 @@
     allowUnfree = true;
   };
 
-  system.defaults = {
-    dock = {
-      autohide = true;
-      autohide-delay = 0.0;
-      autohide-time-modifier = 0.2;
-      mineffect = "scale";
-      mru-spaces = false;
-      orientation = "bottom";
-      persistent-apps = [ ];
-      show-recents = false;
-      static-only = true;
-      tilesize = 24;
-      # disable hot corners
-      wvous-bl-corner = 1;
-      wvous-br-corner = 1;
-      wvous-tl-corner = 1;
-      wvous-tr-corner = 1;
-    };
-    spaces = {
-      spans-displays = false;
-    };
-    NSGlobalDomain = {
-      _HIHideMenuBar = true;
-      KeyRepeat = 2;
-      InitialKeyRepeat = 20;
-    };
-    CustomUserPreferences = {
+  system = {
+    primaryUser = "tim.shilov";
+    defaults = {
+      dock = {
+        autohide = true;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.2;
+        mineffect = "scale";
+        mru-spaces = false;
+        orientation = "bottom";
+        persistent-apps = [ ];
+        show-recents = false;
+        static-only = true;
+        tilesize = 24;
+        # disable hot corners
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+        wvous-tl-corner = 1;
+        wvous-tr-corner = 1;
+      };
+      spaces = {
+        spans-displays = false;
+      };
       NSGlobalDomain = {
-        NSStatusItemSpacing = 8;
-        NSStatusItemSelectionPadding = 16;
+        _HIHideMenuBar = true;
+        KeyRepeat = 2;
+        InitialKeyRepeat = 20;
+      };
+      CustomUserPreferences = {
+        NSGlobalDomain = {
+          NSStatusItemSpacing = 8;
+          NSStatusItemSelectionPadding = 16;
+        };
       };
     };
   };
@@ -89,9 +92,10 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
-  system.activationScripts.postUserActivation.text = ''
+  system.activationScripts.postActivation.text = ''
     # Following line should allow us to avoid a logout/login cycle
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    # TODO: Find a way to not hard-code the user name
+    sudo -u tim.shilov /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
   # The platform the configuration will be used on.

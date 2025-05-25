@@ -17,7 +17,7 @@
       MANPAGER = "nvim +Man! '+set relativenumber'";
     };
     shellAliases = {
-      nixswitch = "darwin-rebuild switch --flake ~/dotfiles/.#";
+      nixswitch = "sudo darwin-rebuild switch --flake ~/dotfiles/.#";
       nixup = "pushd ~/dotfiles; nix flake update; nixswitch; popd";
       nixclean = "nix-collect-garbage --delete-older-than 14d";
 
