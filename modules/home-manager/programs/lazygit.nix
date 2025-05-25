@@ -23,21 +23,21 @@
           command = # bash
             ''git commit -m "{{index .PromptResponses 0}}" --no-verify'';
           context = "global";
-          subprocess = true;
+          output = "log";
         }
         {
           key = "U";
           command = # bash
             ''gh pr update-branch {{.SelectedLocalBranch.Name}}'';
           context = "localBranches";
-          subprocess = true;
+          output = "log";
         }
         {
           key = "U";
           command = # bash
             ''gh pr update-branch {{.SelectedRemoteBranch.Name}}'';
           context = "remoteBranches";
-          subprocess = true;
+          output = "log";
         }
       ];
 
