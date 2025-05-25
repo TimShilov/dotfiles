@@ -61,14 +61,6 @@
     optimise.automatic = true;
   };
   services = {
-    sketchybar = {
-      enable = true;
-      extraPackages = with pkgs; [
-        bkt
-        taskwarrior3
-        notmuch
-      ];
-    };
     jankyborders = {
       # Catppuccin colors
       # active_color = "gradient(top_left=0xffcba6f7,bottom_right=0xfffab387)";

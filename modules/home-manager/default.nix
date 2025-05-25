@@ -16,6 +16,7 @@
     ./programs/tmux
     ./programs/zoxide.nix
     ./programs/zsh.nix
+    ./programs/sketchybar/default.nix
     ./programs/superfile.nix
 
     ./services/bugwarrior.nix
@@ -58,10 +59,6 @@
     };
     ".config/sesh/" = {
       source = dotfiles/sesh;
-      recursive = true;
-    };
-    ".config/sketchybar/" = {
-      source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/sketchybar;
       recursive = true;
     };
     ".config/skhd/" = {
