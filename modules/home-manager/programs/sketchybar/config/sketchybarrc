@@ -111,22 +111,27 @@ sketchybar --bar     height=38                                           \
 # TODO: Find a way to show task in the center but only on external display
 sketchybar --add item clock right \
        --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
+       --subscribe clock system_woke \
        \
        --add item battery right \
-       --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+       --set battery update_freq=120 updates=on script="$PLUGIN_DIR/battery.sh" \
        --subscribe battery system_woke power_source_change \
        \
        --add item task left \
        --set task update_freq=15 script="$PLUGIN_DIR/task.sh" \
+       --subscribe task system_woke \
        \
        --add item github right \
        --set github update_freq=15 script="$PLUGIN_DIR/github.sh" \
+       --subscribe github system_woke \
        \
        --add item jira right \
        --set jira update_freq=15 script="$PLUGIN_DIR/jira.sh" \
+       --subscribe jira system_woke \
        \
        --add item email right \
        --set email update_freq=120 script="$PLUGIN_DIR/email.sh"
+       --subscribe email system_woke
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
