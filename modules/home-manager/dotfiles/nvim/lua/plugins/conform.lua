@@ -10,6 +10,7 @@ local options = {
     terraform = { 'terraform_fmt' },
     sh = { 'shfmt' },
     go = { 'goimports', 'gofumpt' },
+    prisma = { lsp_format = 'prefer' },
     ['*'] = { 'injected' },
   },
   default_format_opts = {
