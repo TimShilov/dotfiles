@@ -74,5 +74,8 @@ return { -- LSP Configuration & Plugins
       auto_update = true,
       run_on_start = true,
     }
+
+    -- TODO: Find a way to use Mason to install cspell_ls
+    vim.lsp.enable 'cspell_ls'
   end,
 }
