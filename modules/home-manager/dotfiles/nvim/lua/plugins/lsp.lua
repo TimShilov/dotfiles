@@ -21,7 +21,6 @@ return { -- LSP Configuration & Plugins
     'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'saghen/blink.cmp',
-    'yioneko/nvim-vtsls', -- TODO: See if can be replaced with 'LspTypescriptSourceAction' command
   },
   config = function()
     -- Enable the following language servers
