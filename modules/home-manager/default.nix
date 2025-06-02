@@ -255,7 +255,7 @@
         defaults = {
           preview = {
             open = false;
-            width = 90;
+            width = 80;
           };
         };
       };
