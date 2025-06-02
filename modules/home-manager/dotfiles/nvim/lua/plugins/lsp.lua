@@ -33,6 +33,7 @@ return { -- LSP Configuration & Plugins
       'docker_compose_language_service',
       'dockerls',
       'eslint',
+      'gh_actions_ls',
       -- BEGIN GO
       'gopls',
       'delve',
