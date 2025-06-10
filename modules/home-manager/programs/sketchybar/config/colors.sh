@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-OPACITY=bb
+OPACITY=dd
 
 # Color Palette
 CRUST=0xff181926
