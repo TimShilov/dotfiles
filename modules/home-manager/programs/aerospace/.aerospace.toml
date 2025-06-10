@@ -181,6 +181,12 @@ check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace 9']
 
 [[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+if.window-title-regex-substring = '^Zoom Workplace$'
+check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace 6']
+
+[[on-window-detected]]
 if.app-id = 'com.gather.Gather'
 if.window-title-regex-substring = '^\s+?$'
 check-further-callbacks = true
