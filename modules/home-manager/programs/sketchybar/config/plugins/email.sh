@@ -8,6 +8,7 @@ LABEL="$EMAIL_COUNT"
 COLOR="$MAUVE"
 
 sketchybar --set "$NAME" \
-    icon="󰇰 " icon.color="$COLOR" \
-    label="$LABEL" \
-    label.color="$COLOR"
+  icon="󰇰 " icon.color="$CRUST" \
+  background.color="$COLOR" \
+  label="$LABEL" \
+  label.color="$CRUST"

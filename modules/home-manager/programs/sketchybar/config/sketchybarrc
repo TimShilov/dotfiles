@@ -6,7 +6,7 @@
 # TODO: Rewrite to Lua
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
-source "$CONFIG_DIR/icons.sh" # Loads all defined icons
+source "$CONFIG_DIR/icons.sh"  # Loads all defined icons
 
 ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
 PLUGIN_DIR="$CONFIG_DIR/plugins"
@@ -29,39 +29,41 @@ POPUP_BORDER_WIDTH=2
 POPUP_CORNER_RADIUS=11
 
 # Setting up the general bar appearance and default values
-sketchybar --bar     height=38                                           \
-                     border_width=0                                      \
-                     position=top                                        \
-                     padding_left=0                                      \
-                     padding_right=0                                     \
-                     color=$BAR_COLOR                                    \
-                     display=all                                         \
-                     topmost=off                                         \
-                     sticky=on                                           \
-                     font_smoothing=off                                  \
-                     shadow=$SHADOW                                      \
-                     notch_width=200                                     \
-                                                                         \
-           --default drawing=on                                          \
-                     updates=when_shown                                  \
-                     label.font="$FONT:Regular:16.0"                     \
-                     icon.font="$FONT:Bold:16.0"                         \
-                     icon.color=$ICON_COLOR                              \
-                     label.color=$LABEL_COLOR                            \
-                     icon.padding_left=$PADDINGS                         \
-                     icon.padding_right=$PADDINGS                        \
-                     label.padding_left=$PADDINGS                        \
-                     label.padding_right=$ITEM_SEPARATOR_PADDING         \
-                     background.padding_right=$PADDINGS                  \
-                     background.padding_left=$PADDINGS                   \
-                     popup.background.border_width=$POPUP_BORDER_WIDTH   \
-                     popup.background.corner_radius=$POPUP_CORNER_RADIUS \
-                     popup.background.border_color=$POPUP_BORDER_COLOR   \
-                     popup.background.color=$POPUP_BACKGROUND_COLOR      \
-                     popup.background.shadow.drawing=$SHADOW             \
-           --hotload true
-
-
+sketchybar --bar height=38 \
+  border_width=0 \
+  position=top \
+  padding_left=4 \
+  padding_right=4 \
+  color=$BAR_COLOR \
+  display=all \
+  topmost=off \
+  sticky=on \
+  font_smoothing=off \
+  shadow=$SHADOW \
+  notch_width=200 \
+  \
+  --default drawing=on \
+  updates=when_shown \
+  label.font="$FONT:Regular:16.0" \
+  icon.font="$FONT:Bold:16.0" \
+  icon.color=$ICON_COLOR \
+  label.color=$LABEL_COLOR \
+  icon.padding_left=$ITEM_SEPARATOR_PADDING \
+  icon.padding_right=2 \
+  label.padding_left=$ITEM_SEPARATOR_PADDING \
+  label.padding_right=$ITEM_SEPARATOR_PADDING \
+  blur_radius=40 \
+  background.padding_left=$PADDINGS \
+  background.padding_right=$PADDINGS \
+  background.height=30 \
+  y_offset=-2 \
+  background.corner_radius=11 \
+  popup.background.border_width=$POPUP_BORDER_WIDTH \
+  popup.background.corner_radius=$POPUP_CORNER_RADIUS \
+  popup.background.border_color=$POPUP_BORDER_COLOR \
+  popup.background.color=$POPUP_BACKGROUND_COLOR \
+  popup.background.shadow.drawing=$SHADOW \
+  --hotload true
 
 ##### Adding Mission Control Space Indicators #####
 # Let's add some mission control spaces:
@@ -110,28 +112,28 @@ sketchybar --bar     height=38                                           \
 
 # TODO: Find a way to show task in the center but only on external display
 sketchybar --add item clock right \
-       --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
-       --subscribe clock system_woke \
-       \
-       --add item battery right \
-       --set battery update_freq=120 updates=on script="$PLUGIN_DIR/battery.sh" \
-       --subscribe battery system_woke power_source_change \
-       \
-       --add item task left \
-       --set task update_freq=15 script="$PLUGIN_DIR/task.sh" \
-       --subscribe task system_woke \
-       \
-       --add item github right \
-       --set github update_freq=15 script="$PLUGIN_DIR/github.sh" \
-       --subscribe github system_woke \
-       \
-       --add item jira right \
-       --set jira update_freq=15 script="$PLUGIN_DIR/jira.sh" \
-       --subscribe jira system_woke \
-       \
-       --add item email right \
-       --set email update_freq=120 script="$PLUGIN_DIR/email.sh"
-       --subscribe email system_woke
+  --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
+  --subscribe clock system_woke \
+  \
+  --add item battery right \
+  --set battery update_freq=120 updates=on script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change \
+  \
+  --add item task left \
+  --set task update_freq=15 script="$PLUGIN_DIR/task.sh" \
+  --subscribe task system_woke \
+  \
+  --add item github right \
+  --set github update_freq=15 script="$PLUGIN_DIR/github.sh" \
+  --subscribe github system_woke \
+  \
+  --add item jira right \
+  --set jira update_freq=15 script="$PLUGIN_DIR/jira.sh" \
+  --subscribe jira system_woke \
+  \
+  --add item email right \
+  --set email update_freq=120 script="$PLUGIN_DIR/email.sh"
+--subscribe email system_woke
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

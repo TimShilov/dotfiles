@@ -11,11 +11,10 @@ LABEL="$JIRA_TICKET_COUNT"
 COLOR="$BLUE"
 
 if [ "$JIRA_HOTFIX_COUNT" -gt 0 ]; then
-    LABEL="$JIRA_HOTFIX_COUNT $JIRA_TICKET_COUNT"
-    COLOR="$RED"
+  LABEL="$JIRA_HOTFIX_COUNT $JIRA_TICKET_COUNT"
+  COLOR="$RED"
 fi
 
 sketchybar --set "$NAME" \
-    icon="󰌃 " icon.color="$COLOR" \
-    label="$LABEL" \
-    label.color="$COLOR"
+  icon="󰌃 " background.color="$COLOR" \
+  label="$LABEL"

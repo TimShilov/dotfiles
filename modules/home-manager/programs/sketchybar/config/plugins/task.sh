@@ -6,7 +6,7 @@ TASK_CMD="task rc.gc=off"
 CACHE_CMD="bkt --ttl=1m --discard-failures  --"
 
 TOP_TASK=$(
-    $TASK_CMD _get $($TASK_CMD next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description
+    $TASK_CMD _get $($TASK_CMD next limit:1 | tail -n +4 | head -n 1 | sed 's/^ //' | cut -d ' ' -f1).description | cut -c -77
 )
 
 COLORS=(
@@ -34,4 +34,4 @@ COLOR_INDEX=$((CURRENT_HOUR % ${#COLORS[@]}))
 # Get the color for this hour
 COLOR=${COLORS[$COLOR_INDEX]}
 
-sketchybar --set "$NAME" label="$TOP_TASK" label.color="$COLOR"
+sketchybar --set "$NAME" label="$TOP_TASK" label.padding_left=0 background.color="$COLOR"

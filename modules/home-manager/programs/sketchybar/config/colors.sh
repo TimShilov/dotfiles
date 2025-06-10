@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+OPACITY=bb
+
 # Color Palette
 CRUST=0xff181926
 WHITE=0xffcad3f5
@@ -12,20 +14,20 @@ MAGENTA=0xffc6a0f6
 GREY=0xff939ab7
 TRANSPARENT=0x00000000
 
-ROSEWATER=0xfff5e0dc
-FLAMINGO=0xfff2cdcd
-PINK=0xfff5c2e7
-MAUVE=0xffcba6f7
-RED=0xfff38ba8
-MAROON=0xffeba0ac
-PEACH=0xfffab387
-YELLOW=0xfff9e2af
-GREEN=0xffa6e3a1
-TEAL=0xff94e2d5
-SKY=0xff89dceb
-SAPPHIRE=0xff74c7ec
-BLUE=0xff89b4fa
-LAVENDER=0xffb4befe
+ROSEWATER="0x${OPACITY}f5e0dc"
+FLAMINGO="0x${OPACITY}f2cdcd"
+PINK="0x${OPACITY}f5c2e7"
+MAUVE="0x${OPACITY}cba6f7"
+RED="0x${OPACITY}f38ba8"
+MAROON="0x${OPACITY}eba0ac"
+PEACH="0x${OPACITY}fab387"
+YELLOW="0x${OPACITY}f9e2af"
+GREEN="0x${OPACITY}a6e3a1"
+TEAL="0x${OPACITY}94e2d5"
+SKY="0x${OPACITY}89dceb"
+SAPPHIRE="0x${OPACITY}74c7ec"
+BLUE="0x${OPACITY}89b4fa"
+LAVENDER="0x${OPACITY}b4befe"
 TEXT=0xffcdd6f4
 SUBTEXT_1=0xffbac2de
 SUBTEXT_0=0xffa6adc8
@@ -40,9 +42,9 @@ MANTLE=0xff181825
 CRUST=0xff11111b
 
 # General bar colors
-BAR_COLOR=0xff000000
-ICON_COLOR=$LAVENDER  # Default color of all icons
-LABEL_COLOR=$LAVENDER # Default color of all labels
+BAR_COLOR=0x00000000
+ICON_COLOR=$CRUST  # Default color of all icons
+LABEL_COLOR=$CRUST # Default color of all labels
 
 POPUP_BACKGROUND_COLOR=$CRUST
 POPUP_BORDER_COLOR=$LAVENDER
