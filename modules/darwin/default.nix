@@ -5,7 +5,6 @@
   };
 
   system = {
-    primaryUser = "tim.shilov";
     defaults = {
       dock = {
         autohide = true;
@@ -84,27 +83,15 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
-  system.activationScripts.postActivation.text = ''
-    # Following line should allow us to avoid a logout/login cycle
-    # TODO: Find a way to not hard-code the user name
-    sudo -u tim.shilov /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-  '';
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnsupportedSystem = true;
 
-  security.pki.certificateFiles = [ "/etc/nix/ca_cert.pem" ];
-
   # Enable using touch id for sudo.
   security.pam.services.sudo_local = {
     reattach = true;
     touchIdAuth = true;
-  };
-
-  users.users."tim.shilov" = {
-    name = "tim.shilov";
-    home = "/Users/tim.shilov";
   };
 
   homebrew = {

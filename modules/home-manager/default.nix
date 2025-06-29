@@ -4,10 +4,6 @@
   lib,
   ...
 }:
-let
-  createSymlink =
-    localPath: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/${localPath}";
-in
 {
   imports = [
     ./packages.nix
@@ -56,7 +52,7 @@ in
     };
     # TODO: Find a way to make this work with relative path
     ".config/nvim/" = {
-      source = createSymlink "modules/home-manager/dotfiles/nvim";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home-manager/dotfiles/nvim";
       recursive = true;
     };
     ".config/karabiner/karabiner.json" = {
@@ -67,7 +63,7 @@ in
       recursive = true;
     };
     ".gitconfig" = {
-      source = createSymlink "modules/home-manager/dotfiles/.gitconfig";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home-manager/dotfiles/.gitconfig";
     };
     ".ideavimrc" = {
       source = dotfiles/.ideavimrc;
@@ -78,7 +74,7 @@ in
     enable = true;
     dataFile = {
       "password-store/" = {
-        source = createSymlink "private/modules/password-store";
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/private/modules/password-store";
         recursive = true;
       };
     };

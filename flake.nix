@@ -40,6 +40,7 @@
         system = "aarch64-darwin";
         modules = [
           ./modules/darwin
+          ./hosts/work/darwin.nix
           home-manager.darwinModules.home-manager
           {
             home-manager = {
@@ -63,6 +64,7 @@
         system = "aarch64-darwin";
         modules = [
           ./modules/darwin
+          ./hosts/personal/darwin.nix
           home-manager.darwinModules.home-manager
           {
             home-manager = {
