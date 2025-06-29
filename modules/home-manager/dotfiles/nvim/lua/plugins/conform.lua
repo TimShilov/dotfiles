@@ -1,4 +1,4 @@
-local prettier_langs = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'yaml' }
+local prettier_langs = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'json5', 'yaml' }
 
 ---@module "conform"
 ---@type conform.setupOpts
