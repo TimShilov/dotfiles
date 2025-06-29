@@ -10,6 +10,7 @@
     diff-so-fancy
     parallel
     ast-grep
+    dbeaver-bin
     bkt # Bash caching
     unixtools.watch
     fac # Git merge conflict resolution CLI
