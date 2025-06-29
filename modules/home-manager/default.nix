@@ -62,11 +62,6 @@
       source = dotfiles/sesh;
       recursive = true;
     };
-    ".config/skhd/" = {
-      enable = false;
-      source = dotfiles/skhd;
-      recursive = true;
-    };
     ".gitconfig" = {
       source = config.lib.file.mkOutOfStoreSymlink /Users/tim.shilov/dotfiles/modules/home-manager/dotfiles/.gitconfig;
     };
