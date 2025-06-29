@@ -59,22 +59,6 @@
     gc.automatic = true;
     optimise.automatic = true;
   };
-  services = {
-    jankyborders = {
-      # Catppuccin colors
-      # active_color = "gradient(top_left=0xffcba6f7,bottom_right=0xfffab387)";
-      # GitHub colors
-      active_color = "gradient(top_left=0xff7C72FF,bottom_right=0xff2DA44E)";
-
-      enable = true;
-      hidpi = false;
-      inactive_color = "0x00FFFFFF";
-      # TODO: Enable after updating nix-darwin
-      order = "above";
-      style = "round";
-      width = 8.0;
-    };
-  };
   # Necessary for using flakes on this system.
   nix.settings = {
     experimental-features = "nix-command flakes";
