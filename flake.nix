@@ -46,11 +46,31 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              extraSpecialArgs = {
-                # example: inherit catppuccin;
-              };
               verbose = true;
               users."tim.shilov".imports = [
+                ./modules/home-manager
+                catppuccin.homeModules.catppuccin
+              ] ++ private.modules;
+            };
+          }
+        ];
+      };
+
+      # TODO: Find a way to avoid duplicating the code
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#MacBook-Pro-Tim
+      darwinConfigurations."MacBook-Pro-Tim" = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./modules/darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              verbose = true;
+              users."tim".imports = [
                 ./modules/home-manager
                 catppuccin.homeModules.catppuccin
               ] ++ private.modules;
