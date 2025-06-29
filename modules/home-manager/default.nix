@@ -20,6 +20,7 @@
     ./programs/superfile.nix
 
     ./services/bugwarrior.nix
+    ./services/cleanup-downloads.nix
     ./services/email-index.nix
     ./services/email-sync.nix
     ./services/home-manager.nix
