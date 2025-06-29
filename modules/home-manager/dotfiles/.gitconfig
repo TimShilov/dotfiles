@@ -10,6 +10,7 @@
 	autoSetupRebase = remote
 
 [core]
+    untrackedCache=true
 	autocrlf = input
 
 [init]
