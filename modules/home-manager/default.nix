@@ -148,6 +148,10 @@
     mbsync = {
       enable = true;
     };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
     notmuch = {
       enable = true;
       search = {
