@@ -20,7 +20,7 @@
               '
             ''
           ];
-          UserName = "tim.shilov";
+          UserName = config.home.username;
           RunAtLoad = true;
           StartInterval = 86400; # 1 day
         };

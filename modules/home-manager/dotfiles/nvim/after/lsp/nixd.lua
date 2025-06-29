@@ -6,7 +6,7 @@ return {
       nixpkgs = { expr = 'import <nixpkgs> { }' },
       options = {
         nix_darwin = {
-          expr = '(builtins.getFlake "/Users/tim.shilov/dotfiles").darwinConfigurations."client-Tim-Shilov".options',
+          expr = '(builtins.getFlake "${config.home.homeDirectory}/dotfiles").darwinConfigurations.${config.home.hostname}.options',
         },
       },
     },

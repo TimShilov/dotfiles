@@ -16,8 +16,8 @@
             "start"
           ];
           RunAtLoad = true;
-          StandardErrorPath = "/Users/tim.shilov/logs/podman-machine.err";
-          StandardOutPath = "/Users/tim.shilov/logs/podman-machine.out";
+          StandardErrorPath = "${config.home.homeDirectory}/logs/podman-machine.err";
+          StandardOutPath = "${config.home.homeDirectory}/logs/podman-machine.out";
           EnvironmentVariables = {
             PATH = "${config.home.profileDirectory}/bin:/usr/local/bin:/usr/bin:/bin";
           };

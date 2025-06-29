@@ -14,7 +14,7 @@
             "${config.home.profileDirectory}/bin/mbsync"
             "-a"
           ];
-          UserName = "tim.shilov";
+          UserName = config.home.username;
           RunAtLoad = true;
           StartInterval = 600; # 10 minutes
           StandardErrorPath = "${config.home.homeDirectory}/logs/email-sync.err";
