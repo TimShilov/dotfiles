@@ -13,7 +13,7 @@ let
       owner = "joshmedeski";
       repo = "tmux-nerd-font-window-name";
       rev = "4c9e7a51387d0cead1465a3628244beb790a3c95";
-      sha256 = "sha256-bnlOAfdBv5Rg4z1hu1jtdx5oZ6kAZE40K4zqLxmyYQE=";
+      sha256 = "sha256-UcfEsq7BqJMeYXtGDNMoi/E+iEnEe9iM2KVoi7ektOE=";
     };
   };
 in
