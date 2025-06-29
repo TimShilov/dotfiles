@@ -44,7 +44,7 @@
     ".default-npm-packages" = {
       source = dotfiles/.default-npm-packages;
     };
-    ".tool-version" = {
+    ".tool-versions" = {
       source = dotfiles/.tool-versions;
     };
     ".asdfrc" = {
