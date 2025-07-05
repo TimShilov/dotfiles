@@ -27,7 +27,9 @@ return { -- LSP Configuration & Plugins
     local servers = {
       'js-debug-adapter',
       'actionlint',
+      'sonarlint-language-server',
       'bashls',
+      'vacuum',
       'terraformls',
       'docker_compose_language_service',
       'dockerls',
