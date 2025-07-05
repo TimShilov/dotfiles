@@ -10,6 +10,7 @@
     diff-so-fancy
     parallel
     ast-grep
+    argocd
     dbeaver-bin
     bkt # Bash caching
     unixtools.watch
