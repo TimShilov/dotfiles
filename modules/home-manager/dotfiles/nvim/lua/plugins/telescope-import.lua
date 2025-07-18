@@ -1,9 +1,16 @@
 return {
-  'piersolenski/telescope-import.nvim',
-  dependencies = 'nvim-telescope/telescope.nvim',
+  'piersolenski/import.nvim',
+  dependencies = { 'folke/snacks.nvim' },
   event = { 'BufReadPost' },
-  config = function()
-    require('telescope').load_extension 'import'
-  end,
-  keys = { { '<leader>ai', ':Telescope import<CR>', mode = 'n', desc = 'Add Import' } },
+  opts = {
+    picker = 'snacks',
+  },
+  keys = { {
+    '<leader>ai',
+    function()
+      require('import').pick()
+    end,
+    mode = 'n',
+    desc = 'Add Import',
+  } },
 }
