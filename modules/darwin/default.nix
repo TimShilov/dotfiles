@@ -112,6 +112,7 @@
       "homebrew/bundle"
       "homebrew/services"
       "nikitabobko/tap"
+      "mk-5/mk-5" # fjira
     ];
     brews = [
       "bitwarden-cli"
@@ -123,6 +124,7 @@
       "podman-compose"
       "asdf"
       "gnu-sed"
+      "fjira"
     ];
   };
 }
