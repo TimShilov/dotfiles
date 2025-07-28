@@ -84,6 +84,13 @@
                 echo "Error: There's no package.json"
             fi
         }
+
+        function retry() {
+            until "$@"; do
+                echo "Command failed, retrying in 1 second..."
+                sleep 1
+            done
+        }
       ''
     ];
   };
