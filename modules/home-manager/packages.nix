@@ -6,33 +6,35 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    asdf-vm
-    diff-so-fancy
-    parallel
-    ast-grep
     argocd
-    dbeaver-bin
+    asdf-vm
+    ast-grep
     bkt # Bash caching
-    unixtools.watch
+    dbeaver-bin
+    diff-so-fancy
     fac # Git merge conflict resolution CLI
     fd
     fswatch
     glow # Markdown reader
     gnupg
-    ncdu
     go
     gofumpt
-    posting # API client
+    grafanactl
     grizzly
     imagemagick # For converting images (required by Snacks.image nvim plugin)
     jira-cli-go
     kubectx
     luarocks
     mysql84
+    ncdu
     nerd-fonts.jetbrains-mono
     nixd
     nixfmt-rfc-style
     nodePackages.cspell
+    parallel
+    posting # API client
+    rainfrog
+    snowflake-cli
     taskopen
     tasksh
     taskwarrior-tui
@@ -40,6 +42,7 @@
     tlrc
     tokei
     tree
+    unixtools.watch
     vcal
     watchexec
     wget
