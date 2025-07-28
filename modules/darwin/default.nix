@@ -102,6 +102,7 @@
       "karabiner-elements"
       "macs-fan-control"
       "keymapp" # ZSA keyboard flashing tool
+      "flameshot"
 
       "raycast"
       "sf-symbols"
