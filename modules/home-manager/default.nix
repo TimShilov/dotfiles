@@ -17,7 +17,6 @@
     ./programs/zoxide.nix
     ./programs/zsh.nix
     ./programs/sketchybar/default.nix
-    ./programs/superfile.nix
 
     ./services/bugwarrior.nix
     ./services/cleanup-downloads.nix
