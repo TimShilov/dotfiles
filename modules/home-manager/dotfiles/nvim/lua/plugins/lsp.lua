@@ -80,5 +80,6 @@ return { -- LSP Configuration & Plugins
 
     -- TODO: Find a way to use Mason to install cspell_ls
     vim.lsp.enable 'cspell_ls'
+    vim.lsp.enable 'tsgo'
   end,
 }
