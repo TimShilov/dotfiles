@@ -34,6 +34,7 @@ return { -- LSP Configuration & Plugins
       'docker_compose_language_service',
       'dockerls',
       'eslint',
+      'marksman', -- Markdown language server
       'gh_actions_ls',
       -- BEGIN GO
       'gopls',
