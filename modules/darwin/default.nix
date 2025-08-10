@@ -49,7 +49,6 @@
       htop
       jq
       neovim
-      sesh
     ];
   };
 

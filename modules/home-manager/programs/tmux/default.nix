@@ -23,6 +23,11 @@ in
       source = ./tmux-nerd-font-window-name.yml;
     };
   };
+  programs.sesh = {
+    enable = true;
+    enableTmuxIntegration = true;
+    tmuxKey = "k";
+  };
   programs.tmux = {
     enable = true;
     mouse = true;

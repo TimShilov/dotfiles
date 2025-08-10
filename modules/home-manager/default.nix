@@ -200,6 +200,9 @@
         "--border rounded"
         "--reverse"
       ];
+      tmux = {
+        enableShellIntegration = true;
+      };
     };
     oh-my-posh = {
       enable = true;
