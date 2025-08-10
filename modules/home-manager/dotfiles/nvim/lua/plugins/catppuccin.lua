@@ -3,28 +3,13 @@ return {
   name = 'catppuccin',
   priority = 1000,
   opts = {
+    flavour = 'mocha',
     transparent_background = true,
-    default_integrations = true,
+    float = { transparent = true },
+    auto_integrations = true,
     integrations = {
-      blink_cmp = true,
-      dadbod_ui = true,
       dropbar = { enabled = true, color_mode = true },
-      fidget = true,
-      gitsigns = true,
-      grug_far = true,
-      lsp_trouble = true,
-      markdown = true,
-      mini = { enabled = true },
-      neotest = true,
-      noice = true,
-      octo = true,
-      overseer = true,
-      render_markdown = true,
-      semantic_tokens = true,
       snacks = { enabled = true, indent_scope_color = 'lavender' },
-      treesitter = true,
-      treesitter_context = true,
-      which_key = true,
       native_lsp = {
         enabled = true,
         virtual_text = {
@@ -49,6 +34,6 @@ return {
   },
   config = function(_, opts)
     require('catppuccin').setup(opts)
-    vim.cmd.colorscheme 'catppuccin-mocha'
+    vim.cmd.colorscheme 'catppuccin'
   end,
 }
