@@ -164,7 +164,8 @@
       enable = true;
     };
     mise = {
-      enable = false;
+      enable = true;
+      enableZshIntegration = true;
     };
     eza = {
       enable = true;
