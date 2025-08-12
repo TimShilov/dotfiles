@@ -63,6 +63,10 @@
         uda.jirasubtasks.type=string
         uda.jirasubtasks.label=Jira Subtasks
         # END Bugwarrior UDAs
+
+        # Increase urgency based on jira properties
+        urgency.uda.jirastatus.Ready To Merge.coefficient=25.0
+        urgency.uda.jiraissuetype.HotFix.coefficient=99.0
       '';
   };
 }
