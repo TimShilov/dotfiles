@@ -143,7 +143,7 @@
       enable = true;
     };
     direnv = {
-      enable = true;
+      enable = false;
       enableZshIntegration = true;
     };
     notmuch = {
