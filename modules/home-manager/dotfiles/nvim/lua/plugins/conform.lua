@@ -1,3 +1,5 @@
+local prettier_langs = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'json5', 'yaml', "vue", 'markdown', 'graphql' }
+
 ---@module "conform"
 ---@type conform.setupOpts
 local options = {
@@ -9,7 +11,7 @@ local options = {
     sh = { 'shfmt' },
     go = { 'goimports', 'gofumpt' },
     prisma = { lsp_format = 'prefer' },
-    ['*'] = { 'prettier', 'injected' },
+    ['*'] = { 'injected' },
   },
   default_format_opts = {
     lsp_format = 'fallback',
@@ -20,11 +22,12 @@ local options = {
     shfmt = {
       prepend_args = { '-i', '2' },
     },
-    prettier = {
-      prepend_args = { '-u' },
-    },
   },
 }
+
+for _, lang in ipairs(prettier_langs) do
+  options.formatters_by_ft[lang] = { 'prettier', lsp_format = 'last' }
+end
 
 return {
   'stevearc/conform.nvim',
