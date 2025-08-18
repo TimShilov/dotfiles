@@ -298,6 +298,11 @@
           tag = [ "agency" ];
         }
         {
+          command = "gh workflow run dev-deploy-agency.yml --ref $(git rev-parse --abbrev-ref HEAD)";
+          description = "Run Dev Deploy Agency Workflow";
+          tag = [ "agency" ];
+        }
+        {
           command = "pnpm index validate-staging-debug-files --debug";
           description = "Validate Staging Debug Files (ETL Engine)";
           tag = [ "etl engine" ];
