@@ -1,4 +1,5 @@
-local prettier_langs = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'json5', 'yaml', "vue", 'markdown', 'graphql' }
+local prettier_langs =
+  { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json', 'json5', 'yaml', 'vue', 'markdown', 'graphql' }
 
 ---@module "conform"
 ---@type conform.setupOpts
@@ -11,6 +12,7 @@ local options = {
     sh = { 'shfmt' },
     go = { 'goimports', 'gofumpt' },
     prisma = { lsp_format = 'prefer' },
+    dockerfile = { 'dockerfmt' },
     ['*'] = { 'injected' },
   },
   default_format_opts = {

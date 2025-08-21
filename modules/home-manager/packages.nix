@@ -11,6 +11,7 @@
     ast-grep
     bkt # Bash caching
     dbeaver-bin
+    dockerfmt # Dockerfile formatter
     diff-so-fancy
     fac # Git merge conflict resolution CLI
     fd
