@@ -139,6 +139,9 @@
     mbsync = {
       enable = true;
     };
+    opencode = {
+      enable = true;
+    };
     direnv = {
       enable = false;
       enableZshIntegration = true;
