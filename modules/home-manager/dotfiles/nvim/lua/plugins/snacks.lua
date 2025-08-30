@@ -127,14 +127,6 @@ return {
       end,
       desc = 'Notification History',
     },
-    -- find
-    {
-      '<leader>fc',
-      function()
-        Snacks.picker.commands()
-      end,
-      desc = 'Find Commands',
-    },
     {
       '<leader>ff',
       function()
@@ -231,6 +223,13 @@ return {
         Snacks.picker.search_history()
       end,
       desc = 'Search History',
+    },
+    {
+      '<leader>sc',
+      function()
+        Snacks.picker.commands()
+      end,
+      desc = 'Search Commands',
     },
     {
       '<leader>sa',
