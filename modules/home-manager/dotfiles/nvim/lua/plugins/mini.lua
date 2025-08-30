@@ -1,6 +1,6 @@
 return {
   {
-    'echasnovski/mini.move',
+    'nvim-mini/mini.move',
     version = false,
     opts = {
       mappings = {
@@ -15,7 +15,7 @@ return {
     },
   },
   {
-    'echasnovski/mini.bracketed',
+    'nvim-mini/mini.bracketed',
     version = false,
     config = function()
       local MiniBracketed = require 'mini.bracketed'
@@ -31,7 +31,7 @@ return {
     end,
   },
   {
-    'echasnovski/mini.operators',
+    'nvim-mini/mini.operators',
     version = false,
     opts = {
       exchange = {
@@ -45,17 +45,17 @@ return {
     },
   },
   {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     version = false,
     opts = {},
   },
   {
-    'echasnovski/mini.surround',
+    'nvim-mini/mini.surround',
     version = false,
     opts = {},
   },
   {
-    'echasnovski/mini.snippets',
+    'nvim-mini/mini.snippets',
     version = false,
     opts = {},
   },
