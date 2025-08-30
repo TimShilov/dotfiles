@@ -3,43 +3,42 @@ name: CI
 on: [pull_request]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+    build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
 
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Important for Nx affected commands to work correctly
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Important for Nx affected commands to work correctly
 
-      - name: Install ASDF and tools
-        uses: asdf-vm/actions/install@v3
+            - name: Install tools
+              uses: jdx/mise-action@v2
 
-      - uses: pnpm/action-setup@v4
-        name: Install PNPM
-        with:
-          run_install: false
+            - uses: pnpm/action-setup@v4
+              name: Install PNPM
+              with:
+                  run_install: false
 
-      - name: Get PNPM store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+            - name: Get PNPM store directory
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path --silent)" >>$GITHUB_ENV
 
-      - uses: actions/cache@v4
-        name: Setup PNPM cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/.tool-versions') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            - uses: actions/cache@v4
+              name: Setup PNPM cache
+              with:
+                  path: ${{ env.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/.tool-versions') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
 
-      - name: Install PNPM dependencies
-        run: pnpm install
+            - name: Install PNPM dependencies
+              run: pnpm install
 
-      - name: Build Karabiner Config
-        run: cd ./modules/home-manager/dotfiles/karabiner && pnpm build
-
+            - name: Build Karabiner Config
+              run: cd ./modules/home-manager/dotfiles/karabiner && pnpm build
