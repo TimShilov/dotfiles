@@ -46,9 +46,6 @@
     ".tool-versions" = {
       source = dotfiles/.tool-versions;
     };
-    ".asdfrc" = {
-      source = dotfiles/.asdfrc;
-    };
     # TODO: Find a way to make this work with relative path
     ".config/nvim/" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home-manager/dotfiles/nvim";

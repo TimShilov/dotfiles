@@ -40,12 +40,6 @@
       size = 10000;
     };
     initContent = lib.mkMerge [
-      (lib.mkBefore # bash
-        ''
-          export PATH="$HOME/.asdf/shims:$PATH"
-        ''
-      )
-
       # bash
       ''
         function gc() {
