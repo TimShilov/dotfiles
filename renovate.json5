@@ -15,6 +15,7 @@
     nix: {
         enabled: true,
     },
+    ignoreDeps: ["TimShilov/dotfiles-private"],
     lockFileMaintenance: { enabled: true },
     vulnerabilityAlerts: { addLabels: ["security"] },
     osvVulnerabilityAlerts: true,
