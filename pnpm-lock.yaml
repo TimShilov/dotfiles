@@ -29,9 +29,6 @@ importers:
       karabiner.ts:
         specifier: 1.31.0
         version: 1.31.0
-      karabiner.ts-greg-mods:
-        specifier: 0.7.0
-        version: 0.7.0(karabiner.ts@1.31.0)
       prettier:
         specifier: 3.5.3
         version: 3.5.3
@@ -257,11 +254,6 @@ packages:
   get-tsconfig@4.10.0:
     resolution: {integrity: sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==}
 
-  karabiner.ts-greg-mods@0.7.0:
-    resolution: {integrity: sha512-NCJPaigEuazzl9DtukLrhHvzSyulbnsd8OAmqQ3F/wdko5JtbFmqU1PHWxjxKGql4H4Lu6c0FXnByDPlgTkIgA==}
-    peerDependencies:
-      karabiner.ts: ^1.33.0
-
   karabiner.ts@1.31.0:
     resolution: {integrity: sha512-adDTAFEDM5lhlOoHDI6yBOaTY/1WBQmukpiFpZPnnIv6uSiZLv2iTtBpCiqYypAfihCaHpl40kf/hc3ut7lR/g==}
 
@@ -429,10 +421,6 @@ snapshots:
   get-tsconfig@4.10.0:
     dependencies:
       resolve-pkg-maps: 1.0.0
-
-  karabiner.ts-greg-mods@0.7.0(karabiner.ts@1.31.0):
-    dependencies:
-      karabiner.ts: 1.31.0
 
   karabiner.ts@1.31.0: {}
 
