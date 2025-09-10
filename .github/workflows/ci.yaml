@@ -12,14 +12,14 @@ jobs:
         timeout-minutes: 30
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
               with:
                   fetch-depth: 0 # Important for Nx affected commands to work correctly
 
             - name: Install tools
-              uses: jdx/mise-action@v2
+              uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
 
-            - uses: pnpm/action-setup@v4
+            - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4
               name: Install PNPM
               with:
                   run_install: false
@@ -29,7 +29,7 @@ jobs:
               run: |
                   echo "STORE_PATH=$(pnpm store path --silent)" >>$GITHUB_ENV
 
-            - uses: actions/cache@v4
+            - uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
               name: Setup PNPM cache
               with:
                   path: ${{ env.STORE_PATH }}
