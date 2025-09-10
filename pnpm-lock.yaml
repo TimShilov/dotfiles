@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@cspell/dict-vim':
-        specifier: 1.0.8
-        version: 1.0.8
+        specifier: 1.0.10
+        version: 1.0.10
       '@types/node':
         specifier: 22.15.3
         version: 22.15.3
@@ -23,9 +23,6 @@ importers:
       '@types/node':
         specifier: 22.15.3
         version: 22.15.3
-      '@typescript/native-preview':
-        specifier: 7.0.0-dev.20250908.1
-        version: 7.0.0-dev.20250908.1
       karabiner.ts:
         specifier: 1.31.0
         version: 1.31.0
@@ -35,11 +32,14 @@ importers:
       tsx:
         specifier: 4.19.4
         version: 4.19.4
+      typescript:
+        specifier: 5.8.3
+        version: 5.8.3
 
 packages:
 
-  '@cspell/dict-vim@1.0.8':
-    resolution: {integrity: sha512-LUnznQiaNatVfb89pu916qYJwbkvgTKyNXK17MRHm1AgcCxN5Z1V5hyqTlQumhQYVAFFvN8t9VQDUw6k47spiw==}
+  '@cspell/dict-vim@1.0.10':
+    resolution: {integrity: sha512-eP+bKOr/nhxYQJuBM8e5Kj33dwJcfo5MTcKYd9WOEJ68qNrGXzfcZtlNmuncTTRQmS8k90Khl6JNZGSANwevig==}
 
   '@esbuild/aix-ppc64@0.25.2':
     resolution: {integrity: sha512-wCIboOL2yXZym2cgm6mlA742s9QeJ8DjGVaL39dLN4rRwrOgOyYSnOaFPhKZGLb2ngj4EyfAFjsNJwPXZvseag==}
@@ -270,12 +270,17 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
 snapshots:
 
-  '@cspell/dict-vim@1.0.8': {}
+  '@cspell/dict-vim@1.0.10': {}
 
   '@esbuild/aix-ppc64@0.25.2':
     optional: true
@@ -434,5 +439,7 @@ snapshots:
       get-tsconfig: 4.10.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  typescript@5.8.3: {}
 
   undici-types@6.21.0: {}
