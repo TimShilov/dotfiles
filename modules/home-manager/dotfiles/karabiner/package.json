@@ -1,16 +1,16 @@
 {
-  "name": "karabiner",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "devDependencies": {
-    "@types/node": "22.15.3",
-    "karabiner.ts": "1.31.0",
-    "prettier": "3.5.3",
-    "tsx": "4.19.4",
-    "typescript": "5.8.3"
-  },
-  "scripts": {
-    "build": "tsx ./rules.ts"
-  }
+    "name": "karabiner",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "22.15.3",
+        "karabiner.ts": "1.31.0",
+        "prettier": "3.5.3",
+        "tsx": "4.19.4",
+        "@typescript/native-preview": "7.0.0-dev.20250908.1"
+    },
+    "scripts": {
+        "build": "tsx ./rules.ts"
+    }
 }
