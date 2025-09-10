@@ -11,6 +11,7 @@
     platformAutomerge: true,
     labels: ["dependencies"],
     rangeStrategy: "pin",
+    minimumReleaseAge: "7 days",
     automerge: true,
     nix: {
         enabled: true,
