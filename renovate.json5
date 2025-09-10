@@ -1,16 +1,19 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:recommended",
+    $schema: "https://docs.renovatebot.com/renovate-schema.json",
+    extends: [
+        "config:best-practices",
         ":semanticCommits",
         ":semanticCommitTypeAll(chore)",
+        "group:recommended",
     ],
-    "labels": ["dependencies"],
-    "rangeStrategy": "pin",
-    "nix": {
-        "enabled": true
+    labels: ["dependencies"],
+    rangeStrategy: "pin",
+    automerge: true,
+    nix: {
+        enabled: true,
     },
-    "lockFileMaintenance": { "enabled": true, "automerge": true },
-    "vulnerabilityAlerts": { "addLabels": ["security"], "automerge": true },
-    "reviewers": ["TimShilov"]
+    lockFileMaintenance: { enabled: true },
+    vulnerabilityAlerts: { addLabels: ["security"] },
+    osvVulnerabilityAlerts: true,
+    reviewers: ["TimShilov"],
 }
