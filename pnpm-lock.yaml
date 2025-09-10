@@ -27,8 +27,8 @@ importers:
         specifier: 7.0.0-dev.20250908.1
         version: 7.0.0-dev.20250908.1
       karabiner.ts:
-        specifier: 1.31.0
-        version: 1.31.0
+        specifier: 1.35.1
+        version: 1.35.1
       prettier:
         specifier: 3.5.3
         version: 3.5.3
@@ -254,8 +254,8 @@ packages:
   get-tsconfig@4.10.0:
     resolution: {integrity: sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==}
 
-  karabiner.ts@1.31.0:
-    resolution: {integrity: sha512-adDTAFEDM5lhlOoHDI6yBOaTY/1WBQmukpiFpZPnnIv6uSiZLv2iTtBpCiqYypAfihCaHpl40kf/hc3ut7lR/g==}
+  karabiner.ts@1.35.1:
+    resolution: {integrity: sha512-ndykub6ifouFN6Mz4C6e6VWtCH70rBFmts7ci1QPWXUBOnbBV+aWUPKUcwttHxaLOdGCDlsBsqTSkMKVSUVmMA==}
 
   prettier@3.5.3:
     resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
@@ -422,7 +422,7 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
-  karabiner.ts@1.31.0: {}
+  karabiner.ts@1.35.1: {}
 
   prettier@3.5.3: {}
 

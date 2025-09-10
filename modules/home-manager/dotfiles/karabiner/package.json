@@ -5,7 +5,7 @@
     "license": "MIT",
     "devDependencies": {
         "@types/node": "22.18.0",
-        "karabiner.ts": "1.31.0",
+        "karabiner.ts": "1.35.1",
         "prettier": "3.5.3",
         "tsx": "4.19.4",
         "@typescript/native-preview": "7.0.0-dev.20250908.1"
