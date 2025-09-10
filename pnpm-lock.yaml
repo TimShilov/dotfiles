@@ -12,8 +12,8 @@ importers:
         specifier: 1.0.10
         version: 1.0.10
       '@types/node':
-        specifier: 22.15.3
-        version: 22.15.3
+        specifier: 22.18.0
+        version: 22.18.0
       '@typescript/native-preview':
         specifier: 7.0.0-dev.20250908.1
         version: 7.0.0-dev.20250908.1
@@ -21,8 +21,8 @@ importers:
   modules/home-manager/dotfiles/karabiner:
     devDependencies:
       '@types/node':
-        specifier: 22.15.3
-        version: 22.15.3
+        specifier: 22.18.0
+        version: 22.18.0
       '@typescript/native-preview':
         specifier: 7.0.0-dev.20250908.1
         version: 7.0.0-dev.20250908.1
@@ -191,8 +191,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@types/node@22.15.3':
-    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
+  '@types/node@22.18.0':
+    resolution: {integrity: sha512-m5ObIqwsUp6BZzyiy4RdZpzWGub9bqLJMvZDD0QMXhxjqMHMENlj+SqF5QxoUwaQNFe+8kz8XM8ZQhqkQPTgMQ==}
 
   '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250908.1':
     resolution: {integrity: sha512-BBH+T4AVrkKZ+3PtJLqXV2IFlcZKR2KScdFefVFeBHffFmjINAHwrArbvizj8Z2J+8LWhop6MSdf2D693tQ1AQ==}
@@ -352,7 +352,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.2':
     optional: true
 
-  '@types/node@22.15.3':
+  '@types/node@22.18.0':
     dependencies:
       undici-types: 6.21.0
 

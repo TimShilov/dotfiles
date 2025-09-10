@@ -9,7 +9,7 @@
     "license": "MIT",
     "devDependencies": {
         "@cspell/dict-vim": "1.0.10",
-        "@types/node": "22.15.3",
+        "@types/node": "22.18.0",
         "@typescript/native-preview": "7.0.0-dev.20250908.1"
     }
 }
