@@ -8,6 +8,8 @@
     "author": "",
     "license": "MIT",
     "devDependencies": {
-        "@cspell/dict-vim": "1.0.8"
+        "@cspell/dict-vim": "1.0.8",
+        "@types/node": "22.15.3",
+        "@typescript/native-preview": "7.0.0-dev.20250908.1"
     }
 }
