@@ -7,7 +7,7 @@
         "@types/node": "22.18.0",
         "karabiner.ts": "1.35.1",
         "prettier": "3.6.2",
-        "tsx": "4.19.4",
+        "tsx": "4.20.5",
         "@typescript/native-preview": "7.0.0-dev.20250908.1"
     },
     "scripts": {
