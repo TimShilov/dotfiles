@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "devDependencies": {
-        "@types/node": "22.18.0",
+        "@types/node": "22.18.1",
         "karabiner.ts": "1.35.1",
         "prettier": "3.6.2",
         "tsx": "4.20.5",
