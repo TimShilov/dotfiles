@@ -8,7 +8,7 @@
         "karabiner.ts": "1.35.1",
         "prettier": "3.6.2",
         "tsx": "4.20.5",
-        "@typescript/native-preview": "7.0.0-dev.20250908.1"
+        "@typescript/native-preview": "7.0.0-dev.20250909.1"
     },
     "scripts": {
         "build": "tsx ./rules.ts"
